@@ -1,0 +1,34 @@
+@import '~handie/stylesheets/base';
+
+// 设计师对效果有意见，先不支持自定义滚动条样式
+// * {
+//   &::-webkit-scrollbar,
+//   &::-webkit-scrollbar-thumb {
+//     border-radius: var($cp--scrollbar-border-radius, $ss--scrollbar-border-radius);
+//   }
+
+//   &::-webkit-scrollbar {
+//     width: var($cp--scrollbar-width, $ss--scrollbar-width);
+//     height: var($cp--scrollbar-height, $ss--scrollbar-height);
+//     background-color: var($cp--scrollbar-bg, $ss--scrollbar-bg);
+//   }
+
+//   &::-webkit-scrollbar-thumb {
+//     background-color: var($cp--scrollbar-thumb-bg, $ss--scrollbar-thumb-bg);
+//   }
+// }
+
+body {
+  font: {
+    family: var($cp--font-family-base, $ss--font-family-base);
+    size: var($cp--font-size-base, $ss--font-size-base);
+    weight: var($cp--font-weight-base, $ss--font-weight-base);
+  }
+  line-height: var($cp--line-height-base, $ss--line-height-base);
+  color: var($cp--body-color, $ss--body-color);
+  background-color: var($cp--body-bg, $ss--body-bg);
+}
+
+button:focus {
+  outline: none !important;
+}

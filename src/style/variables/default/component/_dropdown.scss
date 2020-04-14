@@ -1,0 +1,32 @@
+// Dropdowns
+//
+// Dropdown menu container and contents.
+
+$ss--dropdown-min-width: 10rem !default;
+$ss--dropdown-padding-y: var($cp--popup-padding-y, $ss--popup-padding-y) !default;
+$ss--dropdown-spacer: 0.125rem !default;
+$ss--dropdown-font-size: var($cp--popup-font-size, $ss--popup-font-size) !default;
+$ss--dropdown-color: $ss--body-color !default;
+$ss--dropdown-bg: $ss--white !default;
+$ss--dropdown-border-color: rgba($ss--black, 0.15) !default;
+$ss--dropdown-border-radius: var($cp--popup-border-radius, $ss--popup-border-radius) !default;
+$ss--dropdown-border-width: $ss--border-width !default;
+$ss--dropdown-inner-border-radius: subtract($ss--dropdown-border-radius, $ss--dropdown-border-width) !default;
+// $ss--dropdown-divider-bg: $ss--gray-200 !default;
+$ss--dropdown-divider-margin-y: $ss--spacer / 2 !default;
+$ss--dropdown-box-shadow: var($cp--popup-box-shadow, $ss--popup-box-shadow) !default;
+
+$ss--dropdown-item-height: var($cp--popup-item-height, $ss--popup-item-height) !default;
+$ss--dropdown-item-color: var($cp--popup-item-color, $ss--popup-item-color) !default;
+$ss--dropdown-item-hover-color: var($cp--popup-item-hover-color, $ss--popup-item-hover-color) !default;
+$ss--dropdown-item-hover-bg: var($cp--popup-item-hover-bg, $ss--popup-item-hover-bg) !default;
+
+$ss--dropdown-item-active-color: $ss--active-color !default;
+$ss--dropdown-item-active-bg: $ss--active-bg !default;
+
+$ss--dropdown-item-disabled-color: $ss--disabled-color !default;
+
+$ss--dropdown-item-padding-y: var($cp--popup-item-padding-y, $ss--popup-item-padding-y) !default;
+$ss--dropdown-item-padding-x: var($cp--popup-item-padding-x, $ss--popup-item-padding-x) !default;
+
+// $ss--dropdown-header-color: $ss--gray-600 !default;

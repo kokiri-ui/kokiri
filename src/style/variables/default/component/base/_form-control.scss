@@ -1,0 +1,28 @@
+$ss--form-control-height: 36px !default;
+$ss--form-control-height-sm: 32px !default;
+$ss--form-control-height-lg: 40px !default;
+
+$ss--form-control-font-size: var($cp--font-size-base, $ss--font-size-base) !default;
+$ss--form-control-font-size-lg: var($cp--font-size-lg, $ss--font-size-lg) !default;
+$ss--form-control-font-size-sm: var($cp--font-size-sm, $ss--font-size-sm) !default;
+
+$ss--form-control-color: var($cp--text-regular, $ss--text-regular) !default;
+$ss--form-control-bg: $ss--white !default;
+$ss--form-control-box-shadow: none !default;
+
+$ss--form-control-placeholder-color: var($cp--text-placeholder, $ss--text-placeholder) !default;
+
+$ss--form-control-border-width: var($cp--border-width, $ss--border-width) !default;
+$ss--form-control-border-color: var($cp--border-color, $ss--border-color) !default;
+$ss--form-control-border-radius: var($cp--border-radius, $ss--border-radius) !default;
+$ss--form-control-border-radius-lg: var($cp--border-radius-lg, $ss--border-radius-lg) !default;
+$ss--form-control-border-radius-sm: var($cp--border-radius-sm, $ss--border-radius-sm) !default;
+
+$ss--form-control-disabled-border-color: var($cp--disabled-border-color, $ss--disabled-border-color) !default;
+$ss--form-control-disabled-bg: var($cp--disabled-bg, $ss--disabled-bg) !default;
+
+$ss--form-control-hover-border-color: var($cp--primary-hover, $ss--primary-hover) !default;
+
+$ss--form-control-focus-border-color: var($cp--primary, $ss--primary) !default;
+$ss--form-control-focus-bg: var($cp--form-control-bg, $ss--form-control-bg) !default;
+$ss--form-control-focus-box-shadow: none !default;

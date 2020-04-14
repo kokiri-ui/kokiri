@@ -1,0 +1,43 @@
+.el-select {
+  &:hover {
+    .el-input {
+      &__inner {
+        border-color: var($cp--input-hover-border-color, $ss--input-hover-border-color);
+      }
+    }
+  }
+
+  &-dropdown {
+    padding: var($cp--select-dropdown-padding-y, $ss--select-dropdown-padding-y) 0;
+    border-radius: var($cp--select-dropdown-border-radius, $ss--select-dropdown-border-radius);
+    box-shadow: var($cp--select-dropdown-box-shadow, $ss--select-dropdown-box-shadow);
+
+    &__list {
+      padding: 0;
+    }
+
+    &__item {
+      height: var($cp--select-option-height, $ss--select-option-height);
+      padding: var($cp--select-option-padding-y, $ss--select-option-padding-y)
+        var($cp--select-option-padding-x, $ss--select-option-padding-x);
+      font-size: var($cp--select-font-size, $ss--select-font-size);
+      line-height: var($cp--select-option-height, $ss--select-option-height);
+      color: var($cp--select-option-color, $ss--select-option-color);
+
+      &.hover,
+      &:hover {
+        background-color: var($cp--select-option-hover-bg, $ss--select-option-hover-bg);
+      }
+    }
+  }
+
+  .el-icon-arrow-up:before {
+    content: '\e78f';
+  }
+
+  .el-input {
+    &.is-focus .el-input__inner {
+      border-color: var($cp--input-focus-border-color, $ss--input-focus-border-color);
+    }
+  }
+}

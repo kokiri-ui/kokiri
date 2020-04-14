@@ -1,0 +1,21 @@
+// Cards
+
+$card-spacer-y: 1.25rem !default;
+$card-spacer-x: 1.25rem !default;
+$card-title-spacer-y: 0.75rem !default;
+$card-border-width: $border-width !default;
+$card-border-radius: $border-radius !default;
+$card-border-color: rgba($black, 0.125) !default;
+$card-inner-border-radius: subtract($card-border-radius, $card-border-width) !default;
+$card-cap-padding-y: 0.75rem !default;
+$card-cap-padding-x: 1.25rem !default;
+$card-cap-bg: rgba($black, 0.03) !default;
+$card-cap-color: null !default;
+$card-height: null !default;
+$card-color: null !default;
+$card-bg: $white !default;
+
+$card-img-overlay-padding: 1.25rem !default;
+
+$card-group-margin: $grid-gutter-width / 2 !default;
+$card-deck-margin: $card-group-margin !default;

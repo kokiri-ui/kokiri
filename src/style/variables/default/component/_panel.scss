@@ -1,0 +1,18 @@
+$ss--panel-padding-y: 0 !default;
+$ss--panel-padding-x: 16px !default;
+$ss--panel-bg: $ss--white !default;
+$ss--panel-border-width: var($cp--border-width, $ss--border-width) !default;
+$ss--panel-border-color: var($cp--border-color, $ss--border-color) !default;
+$ss--panel-border-radius: var($cp--border-radius-lg, $ss--border-radius-lg) !default;
+$ss--panel-box-shadow: none !default;
+
+$ss--panel-header-height: 61px !default;
+$ss--panel-header-border-width: var($cp--border-width, $ss--border-width) !default;
+$ss--panel-header-border-color: var($cp--border-color, $ss--border-color) !default;
+$ss--panel-header-font-size: 18px !default;
+$ss--panel-header-font-weight: bold !default;
+$ss--panel-header-letter-spacing: 0 !default;
+$ss--panel-header-color: var($cp--text-heading, $ss--text-heading) !default;
+
+$ss--panel-body-padding-y: 24px !default;
+$ss--panel-body-padding-x: 0 !default;

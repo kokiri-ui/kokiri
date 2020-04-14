@@ -1,0 +1,14 @@
+// Alerts
+//
+// Define alert colors, border radius, and padding.
+
+$ss--alert-padding-y: 8px !default;
+$ss--alert-padding-x: 16px !default;
+$ss--alert-margin-bottom: 1rem !default;
+$ss--alert-border-radius: $ss--border-radius !default;
+$ss--alert-link-font-weight: $ss--font-weight-bold !default;
+$ss--alert-border-width: $ss--border-width !default;
+
+$ss--alert-bg-level: -10 !default;
+$ss--alert-border-level: -9 !default;
+$ss--alert-color-level: 6 !default;

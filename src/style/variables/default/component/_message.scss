@@ -1,0 +1,27 @@
+$ss--message-color: var($cp--text-regular, $ss--text-regular) !default;
+$ss--message-bg: $ss--white !default;
+$ss--message-border-width: var($cp--border-width, $ss--border-width) !default;
+$ss--message-border-color: transparent !default;
+$ss--message-border-radius: var($cp--border-radius, $ss--border-radius) !default;
+$ss--message-box-shadow: none !default;
+
+$ss--message-info-border-color: var($cp--message-border-color, $ss--message-border-color) !default;
+$ss--message-info-color: $ss--info !default;
+$ss--message-info-bg: var($cp--message-bg, $ss--message-bg) !default;
+
+$ss--message-success-border-color: var($cp--message-border-color, $ss--message-border-color) !default;
+$ss--message-success-color: var($cp--message-color, $ss--message-color) !default;
+$ss--message-success-bg: var($cp--message-bg, $ss--message-bg) !default;
+
+$ss--message-warning-border-color: var($cp--message-border-color, $ss--message-border-color) !default;
+$ss--message-warning-color: var($cp--message-color, $ss--message-color) !default;
+$ss--message-warning-bg: var($cp--message-bg, $ss--message-bg) !default;
+
+$ss--message-danger-border-color: var($cp--message-border-color, $ss--message-border-color) !default;
+$ss--message-danger-color: var($cp--message-color, $ss--message-color) !default;
+$ss--message-danger-bg: var($cp--message-bg, $ss--message-bg) !default;
+
+$ss--message-icon-info-color: var($cp--info, $ss--info) !default;
+$ss--message-icon-success-color: var($cp--success, $ss--success) !default;
+$ss--message-icon-warning-color: var($cp--warning, $ss--warning) !default;
+$ss--message-icon-danger-color: var($cp--danger, $ss--danger) !default;

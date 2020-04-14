@@ -1,0 +1,15 @@
+.el-switch {
+  height: var($cp--switch-height, $ss--switch-height);
+  font-size: var($cp--switch-font-size, $ss--switch-font-size);
+  line-height: var($cp--switch-height, $ss--switch-height);
+
+  &__core {
+    border-color: var($cp--switch-bg, $ss--switch-bg);
+    background-color: var($cp--switch-bg, $ss--switch-bg);
+  }
+
+  &.is-checked &__core {
+    border-color: var($cp--switch-checked-bg, $ss--switch-checked-bg);
+    background-color: var($cp--switch-checked-bg, $ss--switch-checked-bg);
+  }
+}

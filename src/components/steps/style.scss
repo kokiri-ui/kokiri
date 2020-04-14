@@ -1,0 +1,48 @@
+@include component-rules($__steps-component-name) {
+  display: flex;
+  padding-right: 10px;
+
+  &-step {
+    position: relative;
+    min-width: 112px;
+    height: 40px;
+    color: #696c71;
+    text-align: center;
+    letter-spacing: 0.5px;
+
+    span {
+      position: relative;
+      z-index: 2;
+      line-height: 40px;
+    }
+
+    &:before,
+    &:after {
+      content: '\0020';
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      height: 50%;
+      background-color: #fff;
+      box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    &:before {
+      top: 0;
+      left: 0;
+      border-radius: 4px 4px 1px 0;
+      transform: skew(30deg, 0deg);
+    }
+
+    &:after {
+      left: 0;
+      bottom: 0;
+      border-radius: 0 1px 4px 4px;
+      transform: skew(-30deg, 0deg);
+    }
+  }
+
+  &-step + &-step {
+    margin-left: 10px;
+  }
+}

@@ -1,0 +1,25 @@
+// Popovers
+
+$ss--popover-font-size: $ss--font-size-base !default;
+$ss--popover-bg: $ss--white !default;
+$ss--popover-max-width: 276px !default;
+$ss--popover-border-width: var($cp--popup-border-width, $ss--popup-border-width) !default;
+$ss--popover-border-color: var($cp--popup-border-color, $ss--popup-border-color) !default;
+$ss--popover-border-radius: var($cp--popup-border-radius, $ss--popup-border-radius) !default;
+$ss--popover-inner-border-radius: subtract($ss--popover-border-radius, $ss--popover-border-width) !default;
+$ss--popover-box-shadow: var($cp--popup-box-shadow, $ss--popup-box-shadow) !default;
+
+$ss--popover-header-bg: darken($ss--popover-bg, 3%) !default;
+$ss--popover-header-color: $ss--text-primary !default;
+$ss--popover-header-padding-y: 0.5rem !default;
+$ss--popover-header-padding-x: 0.75rem !default;
+
+$ss--popover-body-color: $ss--body-color !default;
+$ss--popover-body-padding-y: 12px !default;
+$ss--popover-body-padding-x: 12px !default;
+
+$ss--popover-arrow-width: 1rem !default;
+$ss--popover-arrow-height: 6px !default;
+$ss--popover-arrow-color: $ss--popover-bg !default;
+
+// $ss--popover-arrow-outer-color: fade-in($ss--popover-border-color, 0.05) !default;

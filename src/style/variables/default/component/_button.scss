@@ -1,0 +1,208 @@
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background, and border color.
+
+$ss--button-min-width: 0 !default;
+$ss--button-max-width: none !default;
+$ss--button-between-gap: 8px !default;
+$ss--button-padding-y: 10px !default;
+$ss--button-padding-x: 20px !default;
+$ss--button-font-family: $ss--input-btn-font-family !default;
+$ss--button-font-size: var($cp--font-size-base, $ss--font-size-base) !default;
+$ss--button-line-height: $ss--input-btn-line-height !default;
+$ss--button-white-space: null !default; // Set to `nowrap` to prevent text wrapping
+
+$ss--button-padding-y-lg: 12px !default;
+$ss--button-padding-x-lg: 20px !default;
+$ss--button-font-size-lg: var($cp--form-control-font-size-lg, $ss--form-control-font-size-lg) !default;
+
+$ss--button-padding-y-sm: 9px !default;
+$ss--button-padding-x-sm: 15px !default;
+$ss--button-font-size-sm: var($cp--form-control-font-size-sm, $ss--form-control-font-size-sm) !default;
+
+$ss--button-border-width: var($cp--border-width, $ss--border-width) !default;
+
+$ss--button-font-weight: $ss--font-weight-normal !default;
+$ss--button-box-shadow: inset 0 1px 0 rgba($ss--white, 0.15), 0 1px 1px rgba($ss--black, 0.075) !default;
+$ss--button-focus-width: $ss--input-btn-focus-width !default;
+$ss--button-focus-box-shadow: $ss--input-btn-focus-box-shadow !default;
+$ss--button-active-box-shadow: inset 0 3px 5px rgba($ss--black, 0.125) !default;
+
+// $ss--button-link-color: $ss--link-color !default;
+// $ss--button-link-hover-color: $ss--link-hover-color !default;
+// $ss--button-link-disabled-color: $ss--disabled-color !default;
+
+$ss--button-block-spacing-y: 0.5rem !default;
+
+// Allows for customizing button radius independently from global border radius
+$ss--button-border-radius: var($cp--form-control-border-radius, $ss--form-control-border-radius) !default;
+$ss--button-border-radius-lg: var($cp--form-control-border-radius-lg, $ss--form-control-border-radius-lg) !default;
+$ss--button-border-radius-sm: var($cp--form-control-border-radius-sm, $ss--form-control-border-radius-sm) !default;
+
+$ss--button-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+  box-shadow 0.15s ease-in-out !default;
+
+$ss--button-border-color: var($cp--default-border-color, $ss--default-border-color) !default;
+$ss--button-color: var($cp--default-color, $ss--default-color) !default;
+$ss--button-bg: var($cp--default-bg, $ss--default-bg) !default;
+$ss--button-bg-image: var($cp--default-bg-image, $ss--default-bg-image) !default;
+
+$ss--button-hover-border-color: var($cp--default-hover-border-color, $ss--default-hover-border-color) !default;
+$ss--button-hover-color: var($cp--default-hover-color, $ss--default-hover-color) !default;
+$ss--button-hover-bg: var($cp--default-hover-bg, $ss--default-hover-bg) !default;
+$ss--button-hover-bg-image: var($cp--default-hover-bg-image, $ss--default-hover-bg-image) !default;
+
+$ss--button-focus-border-color: var($cp--default-active-border-color, $ss--default-active-border-color) !default;
+$ss--button-focus-color: var($cp--default-active-color, $ss--default-active-color) !default;
+$ss--button-focus-bg: var($cp--default-active-bg, $ss--default-active-bg) !default;
+$ss--button-focus-bg-image: var($cp--default-active-bg-image, $ss--default-active-bg-image) !default;
+
+$ss--button-disabled-border-color: var($cp--default-disabled-border-color, $ss--default-disabled-border-color) !default;
+$ss--button-disabled-color: var($cp--default-disabled-color, $ss--default-disabled-color) !default;
+$ss--button-disabled-bg: var($cp--default-disabled-bg, $ss--default-disabled-bg) !default;
+$ss--button-disabled-bg-image: var($cp--default-disabled-bg-image, $ss--default-disabled-bg-image) !default;
+$ss--button-disabled-opacity: var($cp--default-disabled-opacity, $ss--default-disabled-opacity) !default;
+
+$ss--button-primary-border-color: var($cp--primary-border-color, $ss--primary-border-color) !default;
+$ss--button-primary-color: var($cp--primary-color, $ss--primary-color) !default;
+$ss--button-primary-bg: var($cp--primary-bg, $ss--primary-bg) !default;
+$ss--button-primary-bg-image: var($cp--primary-bg-image, $ss--primary-bg-image) !default;
+
+$ss--button-primary-box-shadow: 0 1px 4px 0 rgba(56, 130, 245, 0.2) !default;
+$ss--button-primary-light: #63a4ff !default;
+$ss--button-primary-dark: #2560cf !default;
+
+$ss--button-primary-hover-border-color: var($cp--primary-hover-border-color, $ss--primary-hover-border-color) !default;
+$ss--button-primary-hover-color: var($cp--primary-hover-color, $ss--primary-hover-color) !default;
+$ss--button-primary-hover-bg: var($cp--primary-hover-bg, $ss--primary-hover-bg) !default;
+$ss--button-primary-hover-bg-image: var($cp--primary-hover-bg-image, $ss--primary-hover-bg-image) !default;
+
+$ss--button-primary-focus-border-color: var(
+  $cp--primary-active-border-color,
+  $ss--primary-active-border-color
+) !default;
+$ss--button-primary-focus-color: var($cp--primary-active-color, $ss--primary-active-color) !default;
+$ss--button-primary-focus-bg: var($cp--primary-active-bg, $ss--primary-active-bg) !default;
+$ss--button-primary-focus-bg-image: var($cp--primary-active-bg-image, $ss--primary-active-bg-image) !default;
+
+$ss--button-primary-disabled-border-color: var(
+  $cp--primary-disabled-border-color,
+  $ss--primary-disabled-border-color
+) !default;
+$ss--button-primary-disabled-color: var($cp--primary-disabled-color, $ss--primary-disabled-color) !default;
+$ss--button-primary-disabled-bg: var($cp--primary-disabled-bg, $ss--primary-disabled-bg) !default;
+$ss--button-primary-disabled-bg-image: var($cp--primary-disabled-bg-image, $ss--primary-disabled-bg-image) !default;
+$ss--button-primary-disabled-opacity: var($cp--primary-disabled-opacity, $ss--primary-disabled-opacity) !default;
+
+$ss--button-info-border-color: var($cp--info-border-color, $ss--info-border-color) !default;
+$ss--button-info-color: var($cp--info-color, $ss--info-color) !default;
+$ss--button-info-bg: var($cp--info-bg, $ss--info-bg) !default;
+$ss--button-info-bg-image: var($cp--info-bg-image, $ss--info-bg-image) !default;
+
+$ss--button-info-box-shadow: var($cp--button-box-shadow, $ss--button-box-shadow) !default;
+
+$ss--button-info-hover-border-color: var($cp--info-hover-border-color, $ss--info-hover-border-color) !default;
+$ss--button-info-hover-color: var($cp--info-hover-color, $ss--info-hover-color) !default;
+$ss--button-info-hover-bg: var($cp--info-hover-bg, $ss--info-hover-bg) !default;
+$ss--button-info-hover-bg-image: var($cp--info-hover-bg-image, $ss--info-hover-bg-image) !default;
+
+$ss--button-info-focus-border-color: var($cp--info-active-border-color, $ss--info-active-border-color) !default;
+$ss--button-info-focus-color: var($cp--info-active-color, $ss--info-active-color) !default;
+$ss--button-info-focus-bg: var($cp--info-active-bg, $ss--info-active-bg) !default;
+$ss--button-info-focus-bg-image: var($cp--info-active-bg-image, $ss--info-active-bg-image) !default;
+
+$ss--button-info-disabled-border-color: var($cp--info-disabled-border-color, $ss--info-disabled-border-color) !default;
+$ss--button-info-disabled-color: var($cp--info-disabled-color, $ss--info-disabled-color) !default;
+$ss--button-info-disabled-bg: var($cp--info-disabled-bg, $ss--info-disabled-bg) !default;
+$ss--button-info-disabled-bg-image: var($cp--info-disabled-bg-image, $ss--info-disabled-bg-image) !default;
+$ss--button-info-disabled-opacity: var($cp--info-disabled-opacity, $ss--info-disabled-opacity) !default;
+
+$ss--button-success-border-color: var($cp--success-border-color, $ss--success-border-color) !default;
+$ss--button-success-color: var($cp--success-color, $ss--success-color) !default;
+$ss--button-success-bg: var($cp--success-bg, $ss--success-bg) !default;
+$ss--button-success-bg-image: var($cp--success-bg-image, $ss--success-bg-image) !default;
+
+$ss--button-success-box-shadow: var($cp--button-box-shadow, $ss--button-box-shadow) !default;
+$ss--button-success-light: $ss--button-success-color !default;
+$ss--button-success-dark: $ss--button-success-color !default;
+
+$ss--button-success-hover-border-color: var($cp--success-hover-border-color, $ss--success-hover-border-color) !default;
+$ss--button-success-hover-color: var($cp--success-hover-color, $ss--success-hover-color) !default;
+$ss--button-success-hover-bg: var($cp--success-hover-bg, $ss--success-hover-bg) !default;
+$ss--button-success-hover-bg-image: var($cp--success-hover-bg-image, $ss--success-hover-bg-image) !default;
+
+$ss--button-success-focus-border-color: var(
+  $cp--success-active-border-color,
+  $ss--success-active-border-color
+) !default;
+$ss--button-success-focus-color: var($cp--success-active-color, $ss--success-active-color) !default;
+$ss--button-success-focus-bg: var($cp--success-active-bg, $ss--success-active-bg) !default;
+$ss--button-success-focus-bg-image: var($cp--success-active-bg-image, $ss--success-active-bg-image) !default;
+
+$ss--button-success-disabled-border-color: var(
+  $cp--success-disabled-border-color,
+  $ss--success-disabled-border-color
+) !default;
+$ss--button-success-disabled-color: var($cp--success-disabled-color, $ss--success-disabled-color) !default;
+$ss--button-success-disabled-bg: var($cp--success-disabled-bg, $ss--success-disabled-bg) !default;
+$ss--button-success-disabled-bg-image: var($cp--success-disabled-bg-image, $ss--success-disabled-bg-image) !default;
+$ss--button-success-disabled-opacity: var($cp--success-disabled-opacity, $ss--success-disabled-opacity) !default;
+
+$ss--button-warning-border-color: var($cp--warning-border-color, $ss--warning-border-color) !default;
+$ss--button-warning-color: var($cp--warning-color, $ss--warning-color) !default;
+$ss--button-warning-bg: var($cp--warning-bg, $ss--warning-bg) !default;
+$ss--button-warning-bg-image: var($cp--warning-bg-image, $ss--warning-bg-image) !default;
+
+$ss--button-warning-box-shadow: var($cp--button-box-shadow, $ss--button-box-shadow) !default;
+$ss--button-warning-light: $ss--button-warning-color !default;
+$ss--button-warning-dark: $ss--button-warning-color !default;
+
+$ss--button-warning-hover-border-color: var($cp--warning-hover-border-color, $ss--warning-hover-border-color) !default;
+$ss--button-warning-hover-color: var($cp--warning-hover-color, $ss--warning-hover-color) !default;
+$ss--button-warning-hover-bg: var($cp--warning-hover-bg, $ss--warning-hover-bg) !default;
+$ss--button-warning-hover-bg-image: var($cp--warning-hover-bg-image, $ss--warning-hover-bg-image) !default;
+
+$ss--button-warning-focus-border-color: var(
+  $cp--warning-active-border-color,
+  $ss--warning-active-border-color
+) !default;
+$ss--button-warning-focus-color: var($cp--warning-active-color, $ss--warning-active-color) !default;
+$ss--button-warning-focus-bg: var($cp--warning-active-bg, $ss--warning-active-bg) !default;
+$ss--button-warning-focus-bg-image: var($cp--warning-active-bg-image, $ss--warning-active-bg-image) !default;
+
+$ss--button-warning-disabled-border-color: var(
+  $cp--warning-disabled-border-color,
+  $ss--warning-disabled-border-color
+) !default;
+$ss--button-warning-disabled-color: var($cp--warning-disabled-color, $ss--warning-disabled-color) !default;
+$ss--button-warning-disabled-bg: var($cp--warning-disabled-bg, $ss--warning-disabled-bg) !default;
+$ss--button-warning-disabled-bg-image: var($cp--warning-disabled-bg-image, $ss--warning-disabled-bg-image) !default;
+$ss--button-warning-disabled-opacity: var($cp--warning-disabled-opacity, $ss--warning-disabled-opacity) !default;
+
+$ss--button-danger-border-color: var($cp--danger-border-color, $ss--danger-border-color) !default;
+$ss--button-danger-color: var($cp--danger-color, $ss--danger-color) !default;
+$ss--button-danger-bg: var($cp--danger-bg, $ss--danger-bg) !default;
+$ss--button-danger-bg-image: var($cp--danger-bg-image, $ss--danger-bg-image) !default;
+
+$ss--button-danger-box-shadow: var($cp--button-box-shadow, $ss--button-box-shadow) !default;
+$ss--button-danger-light: #ff4d4f !default;
+$ss--button-danger-dark: #cf1322 !default;
+
+$ss--button-danger-hover-border-color: var($cp--danger-hover-border-color, $ss--danger-hover-border-color) !default;
+$ss--button-danger-hover-color: var($cp--danger-hover-color, $ss--danger-hover-color) !default;
+$ss--button-danger-hover-bg: var($cp--danger-hover-bg, $ss--danger-hover-bg) !default;
+$ss--button-danger-hover-bg-image: var($cp--danger-hover-bg-image, $ss--danger-hover-bg-image) !default;
+
+$ss--button-danger-focus-border-color: var($cp--danger-active-border-color, $ss--danger-active-border-color) !default;
+$ss--button-danger-focus-color: var($cp--danger-active-color, $ss--danger-active-color) !default;
+$ss--button-danger-focus-bg: var($cp--danger-active-bg, $ss--danger-active-bg) !default;
+$ss--button-danger-focus-bg-image: var($cp--danger-active-bg-image, $ss--danger-active-bg-image) !default;
+
+$ss--button-danger-disabled-border-color: var(
+  $cp--danger-disabled-border-color,
+  $ss--danger-disabled-border-color
+) !default;
+$ss--button-danger-disabled-color: var($cp--danger-disabled-color, $ss--danger-disabled-color) !default;
+$ss--button-danger-disabled-bg: var($cp--danger-disabled-bg, $ss--danger-disabled-bg) !default;
+$ss--button-danger-disabled-bg-image: var($cp--danger-disabled-bg-image, $ss--danger-disabled-bg-image) !default;
+$ss--button-danger-disabled-opacity: var($cp--danger-disabled-opacity, $ss--danger-disabled-opacity) !default;

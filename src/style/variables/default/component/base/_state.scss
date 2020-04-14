@@ -1,0 +1,10 @@
+$ss--hover-bg: $ss--white !default;
+
+$ss--active-border-color: var($cp--primary-active, $ss--primary-active) !default;
+$ss--active-color: var($cp--primary-active, $ss--primary-active) !default;
+$ss--active-bg: var($cp--primary-active, $ss--primary-active) !default;
+
+$ss--disabled-border-color: var($cp--border-color, $ss--border-color) !default;
+$ss--disabled-color: var($cp--text-placeholder, $ss--text-placeholder) !default;
+$ss--disabled-bg: #edf2fc !default;
+$ss--disabled-opacity: 1 !default;

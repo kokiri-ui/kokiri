@@ -1,0 +1,13 @@
+// Links
+//
+// Style anchor elements.
+
+$ss--link-color: #66b1ff !default;
+$ss--link-decoration: none !default;
+$ss--link-hover-color: $ss--primary !default;
+$ss--link-hover-decoration: underline !default;
+// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+$ss--emphasized-link-hover-darken-percentage: 15% !default;
+
+$ss--stretched-link-pseudo-element: after !default;
+$ss--stretched-link-z-index: 1 !default;

@@ -1,0 +1,23 @@
+$ss--textarea-border-width: var($cp--form-control-border-width, $ss--form-control-border-width) !default;
+$ss--textarea-border-color: var($cp--form-control-border-color, $ss--form-control-border-color) !default;
+$ss--textarea-border-radius: var($cp--form-control-border-radius, $ss--form-control-border-radius) !default;
+$ss--textarea-border-radius-lg: var($cp--form-control-border-radius-lg, $ss--form-control-border-radius-lg) !default;
+$ss--textarea-border-radius-sm: var($cp--form-control-border-radius-sm, $ss--form-control-border-radius-sm) !default;
+$ss--textarea-box-shadow: var($cp--form-control-box-shadow, $ss--form-control-box-shadow) !default;
+
+$ss--textarea-hover-border-color: var(
+  $cp--form-control-hover-border-color,
+  $ss--form-control-hover-border-color
+) !default;
+
+$ss--textarea-focus-border-color: var(
+  $cp--form-control-focus-border-color,
+  $ss--form-control-focus-border-color
+) !default;
+$ss--textarea-focus-box-shadow: var($cp--form-control-focus-box-shadow, $ss--form-control-focus-box-shadow) !default;
+
+$ss--textarea-disabled-bg: var($cp--form-control-disabled-bg, $ss--form-control-disabled-bg) !default;
+$ss--textarea-disabled-border-color: var(
+  $cp--form-control-disabled-border-color,
+  $ss--form-control-disabled-border-color
+) !default;

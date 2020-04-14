@@ -1,0 +1,35 @@
+.el-dialog {
+  $dialog-header-height: 60px;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  max-height: 600px;
+  padding: 0 16px;
+  border-radius: var($cp--dialog-border-radius, $ss--dialog-border-radius);
+  box-shadow: var($cp--dialog-box-shadow, $ss--dialog-box-shadow);
+
+  &__header {
+    flex-shrink: 0;
+    height: $dialog-header-height + 1px;
+    padding: 0 20px 0 0 !important;
+    border-bottom: 1px solid #d9d9d9;
+  }
+
+  &__title {
+    font: {
+      size: 18px !important;
+      weight: bold !important;
+    }
+    line-height: $dialog-header-height !important;
+    letter-spacing: 0.64px !important;
+    color: var($cp--dialog-header-color, $ss--dialog-header-color) !important;
+  }
+
+  &__body {
+    flex-grow: 1;
+    overflow: auto;
+    margin: 0 -16px;
+    padding: 24px;
+  }
+}

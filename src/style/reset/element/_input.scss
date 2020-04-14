@@ -1,0 +1,44 @@
+.el-input {
+  font-size: var($cp--input-font-size-lg, $ss--input-font-size-lg);
+
+  &__inner {
+    border: {
+      width: var($cp--input-border-width, $ss--input-border-width);
+      color: var($cp--input-border-color, $ss--input-border-color);
+      radius: var($cp--input-border-radius-lg, $ss--input-border-radius-lg);
+    }
+    box-shadow: var($cp--input-box-shadow, $ss--input-box-shadow);
+
+    &:hover {
+      border-color: var($cp--input-hover-border-color, $ss--input-hover-border-color);
+    }
+
+    &:focus {
+      border-color: var($cp--input-focus-border-color, $ss--input-focus-border-color);
+      box-shadow: var($cp--input-focus-box-shadow, $ss--input-focus-box-shadow);
+    }
+  }
+
+  &--medium,
+  &--mini {
+    font-size: var($cp--input-font-size, $ss--input-font-size);
+  }
+
+  &--medium &__inner,
+  &--mini &__inner {
+    border-radius: var($cp--input-border-radius, $ss--input-border-radius);
+  }
+
+  &--small {
+    font-size: var($cp--input-font-size-sm, $ss--input-font-size-sm);
+  }
+
+  &--small &__inner {
+    border-radius: var($cp--input-border-radius-sm, $ss--input-border-radius-sm);
+  }
+
+  &.is-disabled &__inner {
+    border-color: var($cp--input-disabled-border-color, $ss--input-disabled-border-color);
+    background-color: var($cp--input-disabled-bg, $ss--input-disabled-bg);
+  }
+}

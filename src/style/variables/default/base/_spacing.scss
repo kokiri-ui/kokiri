@@ -1,0 +1,22 @@
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $ss--spacers map, should you need more variation.
+
+$ss--spacer: 1rem !default;
+$ss--spacers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$ss--spacers: map-merge(
+  (
+    0: 0,
+    1: $ss--spacer * 0.25,
+    2: $ss--spacer * 0.5,
+    3: $ss--spacer,
+    4: $ss--spacer * 1.5,
+    5: $ss--spacer * 3,
+  ),
+  $ss--spacers
+);
+
+$ss--negative-spacers: negativify-map($ss--spacers) !default;

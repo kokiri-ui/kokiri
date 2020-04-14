@@ -1,0 +1,28 @@
+@import './component/base';
+
+// 非组件
+@import './component/scrollbar';
+@import './component/body';
+
+// 表单控件
+@import './component/base';
+@import './component/button';
+@import './component/input';
+@import './component/textarea';
+@import './component/select';
+@import './component/radio';
+@import './component/checkbox';
+@import './component/switch';
+@import './component/date-picker';
+
+@import './component/layout';
+@import './component/pagination';
+@import './component/table';
+@import './component/form';
+@import './component/panel';
+@import './component/tabs';
+@import './component/dialog';
+@import './component/tag';
+@import './component/dropdown';
+@import './component/message';
+@import './component/popover';

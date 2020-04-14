@@ -1,0 +1,18 @@
+$ss--tabs-box-shadow: none !default;
+
+$ss--tabs-nav-height: 40px !default;
+$ss--tabs-nav-border-width: var($cp--border-width, $ss--border-width) !default;
+$ss--tabs-nav-border-color: transparent !default;
+$ss--tabs-nav-border-radius: var($cp--border-radius-lg, $ss--border-radius-lg) !default;
+
+$ss--tabs-nav-hover-color: var($cp--primary, $ss--primary) !default;
+
+$ss--tabs-nav-active-color: var($cp--primary, $ss--primary) !default;
+$ss--tabs-nav-active-border-width: var($cp--tabs-nav-border-width, $ss--tabs-nav-border-width) !default;
+$ss--tabs-nav-active-border-color: var($cp--border-color, $ss--border-color) !default;
+$ss--tabs-nav-active-box-shadow: var($cp--tabs-box-shadow, $ss--tabs-box-shadow) !default;
+
+$ss--tabs-content-border-width: var($cp--tabs-nav-active-border-width, $ss--tabs-nav-active-border-width) !default;
+$ss--tabs-content-border-color: var($cp--tabs-nav-active-border-color, $ss--tabs-nav-active-border-color) !default;
+$ss--tabs-content-border-radius: var($cp--tabs-nav-border-radius, $ss--tabs-nav-border-radius) !default;
+$ss--tabs-content-bg: $ss--white !default;

@@ -1,0 +1,22 @@
+$ss--date-picker-disabled-border-color: var(
+  $cp--input-disabled-border-color,
+  $ss--input-disabled-border-color
+) !default;
+$ss--date-picker-disabled-bg: var($cp--input-disabled-bg, $ss--input-disabled-bg) !default;
+
+$ss--date-picker-panel-border-width: var($cp--popup-border-width, $ss--popup-border-width) !default;
+$ss--date-picker-panel-border-color: var($cp--popup-border-color, $ss--popup-border-color) !default;
+$ss--date-picker-panel-border-radius: var($cp--popup-border-radius, $ss--popup-border-radius) !default;
+$ss--date-picker-panel-box-shadow: var($cp--popup-box-shadow, $ss--popup-box-shadow) !default;
+
+$ss--date-picker-date-current-font-weight: bold !default;
+$ss--date-picker-date-current-color: var($cp--primary, $ss--primary) !default;
+$ss--date-picker-date-current-dot-size: 0 !default;
+
+$ss--date-picker-date-hover-color: var($cp--primary-hover, $ss--primary-hover) !default;
+
+$ss--date-picker-date-active-color: $ss--white !default;
+$ss--date-picker-date-active-bg: var($cp--primary, $ss--primary) !default;
+
+$ss--date-picker-range-bg: var($cp--hover-bg, $ss--hover-bg) !default;
+$ss--date-picker-range-hover-bg: var($cp--date-picker-range-bg, $ss--date-picker-range-bg) !default;

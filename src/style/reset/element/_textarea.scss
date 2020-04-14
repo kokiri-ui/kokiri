@@ -1,0 +1,24 @@
+.el-textarea {
+  &__inner {
+    border: {
+      width: var($cp--textarea-border-width, $ss--textarea-border-width);
+      color: var($cp--textarea-border-color, $ss--textarea-border-color);
+      radius: var($cp--textarea-border-radius, $ss--textarea-border-radius);
+    }
+    box-shadow: var($cp--textarea-box-shadow, $ss--textarea-box-shadow);
+
+    &:hover {
+      border-color: var($cp--textarea-hover-border-color, $ss--textarea-hover-border-color);
+    }
+
+    &:focus {
+      border-color: var($cp--textarea-focus-border-color, $ss--textarea-focus-border-color);
+      box-shadow: var($cp--textarea-focus-box-shadow, $ss--textarea-focus-box-shadow);
+    }
+  }
+
+  &.is-disabled &__inner {
+    border-color: var($cp--textarea-disabled-border-color, $ss--textarea-disabled-border-color);
+    background-color: var($cp--textarea-disabled-bg, $ss--textarea-disabled-bg);
+  }
+}
