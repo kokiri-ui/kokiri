@@ -13,6 +13,7 @@ module.exports = {
     resolve: {
       alias: {
         vue$: 'vue/dist/vue.esm.js',
+        'buds-vue': resolve('./src'),
       },
     },
   },
@@ -28,7 +29,7 @@ module.exports = {
       sass: {
         implementation: require('sass'),
         fiber: require('fibers'),
-        data: `@import "~@buds-vue/src/style/helper";`,
+        data: `@import "~buds-vue/style/helper";`,
       },
     },
   },

@@ -20,6 +20,10 @@
   }
 
   &--horizontal {
+    &.has-sidebar {
+      padding-left: var($cp--layout-sidebar-width, $ss--layout-sidebar-width);
+    }
+
     @include pie-clearfix;
   }
 }
@@ -87,7 +91,7 @@ export default class SsLayoutContainer extends LayoutControl implements LayoutCo
       }
     } else if (this.direction === 'horizontal') {
       if (this.hasRole('sidebar') && isNumeric(this.getRoleProp('sidebar', 'width'))) {
-        style.marginLeft = `${this.getRoleProp('sidebar', 'width')}px`;
+        style.paddingLeft = `${this.getRoleProp('sidebar', 'width')}px`;
       }
     }
 
