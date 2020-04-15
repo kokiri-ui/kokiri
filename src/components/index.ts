@@ -5,7 +5,6 @@ export * from './box';
 export * from './breadcrumb';
 export * from './button';
 export * from './cascader';
-export * from './chart';
 export * from './checkbox';
 export * from './collapse';
 export * from './date-picker';

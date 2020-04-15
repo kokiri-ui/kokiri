@@ -16,8 +16,10 @@ import { StatusType, ButtonShape } from '../../typing';
 import { isString } from '../../helper/utils';
 import { SizeControl } from '../../helper/mixins';
 
-@Component
-export default class SsButton extends SizeControl {
+@Component({
+  name: 'BudsButton',
+})
+export default class Button extends SizeControl {
   @Prop({ type: String, default: '' })
   public readonly type!: StatusType;
 
