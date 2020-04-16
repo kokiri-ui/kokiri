@@ -1,26 +1,17 @@
-<style lang="scss" module>
-.Button {
-  &--block {
-    width: 100% !important;
-    max-width: none !important;
-  }
-}
-</style>
-
 <script lang="ts">
 import { CreateElement, VNode } from 'vue';
-import { Vue, Component, Prop, Watch, Emit } from 'vue-property-decorator';
-import { Button as ElButton } from 'element-ui';
+import { Component, Prop, Watch, Emit } from 'vue-property-decorator';
 
 import { SizeType } from '../../typing/aliases';
 import { ButtonType, ButtonShape, IButtonComponent } from '../../typing/interfaces/button';
 import { isString } from '../../helper/utils';
 import { SizeControl } from '../../helper/mixins';
+import { BudsComponent } from '../basic/BudsComponent';
 
 @Component({
   name: 'BudsButton',
 })
-export default class Button extends Vue implements IButtonComponent {
+export default class Button extends BudsComponent implements IButtonComponent {
   @Prop({ type: String })
   public readonly type?: ButtonType;
 
@@ -28,10 +19,10 @@ export default class Button extends Vue implements IButtonComponent {
   public readonly size?: SizeType;
 
   @Prop({ type: String })
-  public readonly icon?: VNode | string;
+  public readonly shape?: ButtonShape;
 
   @Prop({ type: String })
-  public readonly shape?: ButtonShape;
+  public readonly icon?: VNode | string;
 
   @Prop({ type: Boolean })
   public readonly primary?: boolean;
@@ -43,10 +34,10 @@ export default class Button extends Vue implements IButtonComponent {
   public readonly block?: boolean;
 
   @Prop({ type: Boolean })
-  public readonly disabled?: boolean;
+  public readonly loading?: boolean;
 
   @Prop({ type: Boolean })
-  public readonly loading?: boolean;
+  public readonly disabled?: boolean;
 
   @Prop({ type: Boolean, default: true })
   public readonly insertSpaceInButton?: boolean;
@@ -68,20 +59,68 @@ export default class Button extends Vue implements IButtonComponent {
     return this.icon ? `el-icon-${this.icon}` : '';
   }
 
+  private getClassNames(): string[] {
+    const classNames: string[] = [this.$style.Button];
+
+    switch (this.type) {
+      case 'filled':
+        classNames.push(this.$style['Button--filled']);
+        break;
+      case 'dashed':
+        classNames.push(this.$style['Button--dashed']);
+        break;
+      case 'link':
+        classNames.push(this.$style['Button--link']);
+        break;
+    }
+
+    switch (this.size) {
+      case 'large':
+        classNames.push(this.$style['Button--large']);
+        break;
+      case 'small':
+        classNames.push(this.$style['Button--small']);
+        break;
+    }
+
+    switch (this.shape) {
+      case 'round':
+        classNames.push(this.$style['Button--round']);
+        break;
+      case 'circle':
+        classNames.push(this.$style['Button--circle']);
+        break;
+    }
+
+    if (this.danger) {
+      classNames.push(this.$style['is-danger']);
+    } else if (this.primary) {
+      classNames.push(this.$style['is-primary']);
+    }
+
+    if (this.block) {
+      classNames.push(this.$style['is-block']);
+    }
+
+    if (this.loading) {
+      classNames.push(this.$style['is-loading']);
+    }
+
+    return classNames;
+  }
+
   public render(h: CreateElement): VNode {
+    const attrs: { [key: string]: any } = {};
+
+    if (this.disabled) {
+      attrs.disabled = 'disabled';
+    }
+
     return h(
-      ElButton,
+      'button',
       {
-        class: [this.$style.Button, { [this.$style['Button--block']]: this.block }],
-        props: {
-          type: this.type,
-          size: this.size,
-          icon: this.computedIcon,
-          disabled: this.disabled,
-          circle: this.isCircle,
-          round: this.isRound,
-          loading: this.loading,
-        },
+        class: this.getClassNames(),
+        attrs,
         on: {
           click: this.handleClick,
         },
@@ -97,3 +136,5 @@ export default class Button extends Vue implements IButtonComponent {
   }
 }
 </script>
+
+<style lang="scss" src="./style.scss" module></style>

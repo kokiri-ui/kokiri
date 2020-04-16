@@ -3,13 +3,13 @@ import { SizeType } from '../../aliases';
 
 type ButtonType = 'filled' | 'dashed' | 'link';
 
-type ButtonShape = 'circle' | 'round';
+type ButtonShape = 'round' | 'circle';
 
 interface IButtonComponent {
   type?: ButtonType;
   size?: SizeType;
-  icon?: VNode | string;
   shape?: ButtonShape;
+  icon?: VNode | string;
   primary?: boolean;
   danger?: boolean;
   block?: boolean;
