@@ -9,37 +9,44 @@
 
 <script lang="ts">
 import { CreateElement, VNode } from 'vue';
-import { Component, Prop, Watch, Emit } from 'vue-property-decorator';
+import { Vue, Component, Prop, Watch, Emit } from 'vue-property-decorator';
 import { Button as ElButton } from 'element-ui';
 
-import { StatusType, ButtonShape } from '../../typing';
+import { SizeType } from '../../typing/aliases';
+import { ButtonType, ButtonShape, IButtonComponent } from '../../typing/interfaces/button';
 import { isString } from '../../helper/utils';
 import { SizeControl } from '../../helper/mixins';
 
 @Component({
   name: 'BudsButton',
 })
-export default class Button extends SizeControl {
-  @Prop({ type: String, default: '' })
-  public readonly type!: StatusType;
+export default class Button extends Vue implements IButtonComponent {
+  @Prop({ type: String })
+  public readonly type?: ButtonType;
 
-  @Prop({ type: Boolean, default: false })
-  public readonly disabled!: boolean;
+  @Prop({ type: String })
+  public readonly size?: SizeType;
 
-  @Prop({ type: Boolean, default: false })
-  public readonly block!: boolean;
+  @Prop({ type: String })
+  public readonly icon?: VNode | string;
 
-  @Prop({ type: String, default: '' })
-  public readonly icon!: string;
+  @Prop({ type: String })
+  public readonly shape?: ButtonShape;
 
-  @Prop({ type: String, default: '' })
-  public readonly shape!: ButtonShape;
+  @Prop({ type: Boolean })
+  public readonly primary?: boolean;
 
-  @Prop({ type: Boolean, default: false })
-  public readonly loading!: boolean;
+  @Prop({ type: Boolean })
+  public readonly danger?: boolean;
 
-  @Prop({ type: Boolean, default: false })
-  public readonly plain!: boolean;
+  @Prop({ type: Boolean })
+  public readonly block?: boolean;
+
+  @Prop({ type: Boolean })
+  public readonly disabled?: boolean;
+
+  @Prop({ type: Boolean })
+  public readonly loading?: boolean;
 
   @Prop({ type: Boolean, default: true })
   public readonly insertSpaceInButton?: boolean;
@@ -68,13 +75,12 @@ export default class Button extends SizeControl {
         class: [this.$style.Button, { [this.$style['Button--block']]: this.block }],
         props: {
           type: this.type,
-          size: this.resolvedSize,
+          size: this.size,
           icon: this.computedIcon,
           disabled: this.disabled,
           circle: this.isCircle,
           round: this.isRound,
           loading: this.loading,
-          plain: this.plain,
         },
         on: {
           click: this.handleClick,

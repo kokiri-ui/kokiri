@@ -15,8 +15,6 @@ type BasicStatus = 'default' | 'success' | 'warning';
 export type StatusType = BasicStatus | 'primary' | 'danger' | 'info';
 export type ProcessStatusType = BasicStatus | 'error' | 'processing';
 
-export type ButtonShape = 'circle' | 'round';
-
 export type AdjustmentType = 'auto' | 'average';
 export type DirectionType = 'horizontal' | 'vertical';
 export type ResizeType = DirectionType | 'both' | 'none';
