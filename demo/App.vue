@@ -1,17 +1,16 @@
 <template>
   <ss-layout-container>
-    <ss-layout-sidebar>Sidebar</ss-layout-sidebar>
-    <ss-layout-container>
-      <ss-layout-header>Header</ss-layout-header>
-      <ss-layout-content>Hello, Buds!</ss-layout-content>
-      <ss-layout-footer>Footer</ss-layout-footer>
-    </ss-layout-container>
+    <ss-layout-content>
+      <h1>Hello, Buds!</h1>
+      <button-demo />
+    </ss-layout-content>
   </ss-layout-container>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { SsLayoutContainer, SsLayoutHeader, SsLayoutContent, SsLayoutSidebar, SsLayoutFooter } from '../src';
+import { SsLayoutContainer, SsLayoutContent } from '../src';
+import { ButtonDemo } from './blocks';
 
 const docRoot = document.documentElement;
 const APP_CLASSNAME = 'is-buds';
@@ -27,10 +26,8 @@ function addRootClass() {
 @Component({
   components: {
     SsLayoutContainer,
-    SsLayoutHeader,
     SsLayoutContent,
-    SsLayoutSidebar,
-    SsLayoutFooter,
+    ButtonDemo,
   },
 })
 export default class HelloBuds extends Vue {

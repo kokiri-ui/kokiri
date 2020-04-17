@@ -1,11 +1,9 @@
 <script lang="ts">
 import { CreateElement, VNode } from 'vue';
-import { Component, Prop, Watch, Emit } from 'vue-property-decorator';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 
 import { SizeType } from '../../typing/aliases';
 import { ButtonType, ButtonShape, IButtonComponent } from '../../typing/interfaces/button';
-import { isString } from '../../helper/utils';
-import { SizeControl } from '../../helper/mixins';
 import { BudsComponent } from '../basic/BudsComponent';
 
 @Component({
@@ -42,18 +40,8 @@ export default class Button extends BudsComponent implements IButtonComponent {
   @Prop({ type: Boolean, default: true })
   public readonly insertSpaceInButton?: boolean;
 
-  @Watch('shape', { immediate: true })
-  private handleShapeChange(val: ButtonShape): void {
-    this.isCircle = val === 'circle';
-    this.isRound = val === 'round';
-  }
-
   @Emit('click')
   private handleClick(): void {}
-
-  private isCircle!: boolean;
-
-  private isRound!: boolean;
 
   private get computedIcon(): string {
     return this.icon ? `el-icon-${this.icon}` : '';
@@ -125,13 +113,7 @@ export default class Button extends BudsComponent implements IButtonComponent {
           click: this.handleClick,
         },
       },
-      (this.$slots.default || []).map(vn => {
-        if (this.insertSpaceInButton && isString(vn.text) && /^[\u4e00-\u9fa5]{2}$/.test(vn.text!)) {
-          vn.text = vn.text!.split('').join(' ');
-        }
-
-        return vn;
-      }),
+      this.$slots.default,
     );
   }
 }
