@@ -24,7 +24,7 @@ export * from './layout';
 // export * from './link';
 // export * from './list';
 // export * from './mention';
-// export * from './menu';
+export * from './menu';
 // export * from './pagination';
 // export * from './panel';
 // export * from './popover';
