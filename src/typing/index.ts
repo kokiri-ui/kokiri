@@ -27,5 +27,4 @@ export * from './alignment';
 export * from './shape';
 export * from './size';
 export * from './status';
-export * from './layout';
 export * from './icon';
