@@ -1,6 +1,7 @@
 import { LooseSize } from '../../aliases';
+import { IBaseComponent } from '../basic';
 
-interface ILayoutFooterComponent {
+interface ILayoutFooterComponent extends IBaseComponent {
   height?: LooseSize;
 }
 

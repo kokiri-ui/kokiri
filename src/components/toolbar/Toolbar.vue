@@ -1,5 +1,5 @@
 <script lang="ts">
-import { VueConstructor, CreateElement, VNode } from 'vue';
+import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
 import { IToolbarComponent } from '../../typing/interfaces/toolbar';
@@ -18,9 +18,6 @@ export default class Toolbar extends BudsComponent implements IToolbarComponent 
 
   @Prop({ type: [Object, String] })
   public readonly icon?: VNode | string;
-
-  @Prop({ type: [String, Function], default: Box })
-  public readonly tag!: string | VueConstructor;
 
   public render(h: CreateElement): VNode {
     const children: VNode[] = [];

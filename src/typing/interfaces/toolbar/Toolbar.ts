@@ -1,9 +1,9 @@
-import { VueConstructor, VNode } from 'vue';
+import { VNode } from 'vue';
+import { IBaseComponent } from '../basic';
 
-interface IToolbarComponent {
+interface IToolbarComponent extends IBaseComponent {
   title?: string | VNode;
   icon?: VNode | string;
-  tag?: string | VueConstructor;
 }
 
 export { IToolbarComponent };
