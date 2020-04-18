@@ -6,3 +6,4 @@ export * from './button';
 // Layout
 export * from './layout';
 export * from './toolbar';
+export * from './spacer';
