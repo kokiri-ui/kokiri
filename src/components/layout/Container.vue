@@ -13,7 +13,7 @@ import { DirectionType, LayoutRole } from '../../typing/aliases';
 import { ILayoutContainerComponent } from '../../typing/interfaces/layout';
 import { isNumeric } from '../../helper/utils';
 
-import Box from '../box/Box.vue';
+import { Box } from '../box';
 
 import { LayoutControl } from './LayoutControl';
 

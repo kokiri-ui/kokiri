@@ -1,4 +1,9 @@
-export interface IToolbarComponent {
-  title?: string; // 标题
-  icon?: string; // 图标
+import { VueConstructor, VNode } from 'vue';
+
+interface IToolbarComponent {
+  title?: string | VNode;
+  icon?: VNode | string;
+  tag?: string | VueConstructor;
 }
+
+export { IToolbarComponent };

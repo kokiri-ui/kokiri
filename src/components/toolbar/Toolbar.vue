@@ -1,55 +1,56 @@
+<script lang="ts">
+import { VueConstructor, CreateElement, VNode } from 'vue';
+import { Component, Prop } from 'vue-property-decorator';
+
+import { IToolbarComponent } from '../../typing/interfaces/toolbar';
+import { isString } from '../../helper/utils';
+
+import { BudsComponent } from '../basic/BudsComponent';
+import { Box } from '../box';
+import { Text } from '../text';
+
+@Component({
+  name: 'BudsToolbar',
+})
+export default class Toolbar extends BudsComponent implements IToolbarComponent {
+  @Prop({ type: [String, Object] })
+  public readonly title?: string | VNode;
+
+  @Prop({ type: [Object, String] })
+  public readonly icon?: VNode | string;
+
+  @Prop({ type: [String, Function], default: Box })
+  public readonly tag!: string | VueConstructor;
+
+  public render(h: CreateElement): VNode {
+    const children: VNode[] = [];
+
+    if (this.title) {
+      children.push(
+        h(
+          Text,
+          {
+            class: this.$style['Toolbar-title'],
+          },
+          isString(this.title) ? (this.title as string) : [this.title],
+        ),
+      );
+    }
+
+    return h(
+      this.tag,
+      {
+        class: this.$style.Toolbar,
+      },
+      children.concat(this.$slots.default as VNode[]),
+    );
+  }
+}
+</script>
+
 <style lang="scss" module>
-@include component-rules($__toolbar-component-name) {
+.Toolbar {
   display: flex;
   align-items: center;
 }
 </style>
-
-<script lang="ts">
-import { VueConstructor, CreateElement, VNode } from 'vue';
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import Box from '../box/Box.vue';
-import SsText from '../text/Text.vue';
-
-@Component({
-  components: {
-    SsText,
-  },
-})
-export default class Toolbar extends Vue {
-  /**
-   * 标题
-   */
-  @Prop({ type: String, default: '' })
-  readonly title?: string;
-
-  /**
-   * 图标
-   *
-   * TODO: 等图标组件确定后再处理
-   */
-  @Prop({ type: String, default: '' })
-  readonly icon!: string;
-
-  /**
-   * 要渲染的组件/标签
-   */
-  @Prop({ type: [Function, String], default: Box })
-  readonly tag!: VueConstructor | string;
-
-  render(h: CreateElement): VNode {
-    const {
-      title,
-      tag,
-      $slots: { default: vNodes },
-    } = this;
-    const newNodes: VNode[] = [];
-
-    if (title !== '') {
-      newNodes.push(h('ss-text', { class: this.$style['Toolbar-title'] }, title));
-    }
-
-    return h(tag, { class: this.$style.Toolbar }, newNodes.concat(vNodes as VNode[]));
-  }
-}
-</script>

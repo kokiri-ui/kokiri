@@ -1,5 +1,5 @@
 <template>
-  <box class="LayoutContent">
+  <box :class="$style.LayoutContent">
     <slot />
   </box>
 </template>
@@ -11,7 +11,7 @@ import { Component } from 'vue-property-decorator';
 import { LayoutRole } from '../../typing/aliases';
 import { ILayoutContentComponent } from '../../typing/interfaces';
 
-import Box from '../box/Box.vue';
+import { Box } from '../box';
 
 import { LayoutControl } from './LayoutControl';
 
@@ -25,3 +25,8 @@ export default class LayoutContent extends LayoutControl implements ILayoutConte
   protected role: LayoutRole = 'content';
 }
 </script>
+
+<style lang="scss" module>
+.LayoutContent {
+}
+</style>

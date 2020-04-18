@@ -5,6 +5,7 @@ export * from './button';
 
 // Layouts
 export * from './layout';
+export * from './toolbar';
 
 // export * from './alert';
 // export * from './avatar';
@@ -46,7 +47,6 @@ export * from './menu';
 // export * from './text-area';
 // export * from './tile';
 // export * from './time-picker';
-// export * from './toolbar';
 // export * from './tooltip';
 // export * from './tree';
 // export * from './tree-select';
