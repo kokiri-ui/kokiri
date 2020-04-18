@@ -1,4 +1,5 @@
 // General
+export * from './box';
 export * from './button';
 
 // Layouts
@@ -7,7 +8,6 @@ export * from './layout';
 // export * from './alert';
 // export * from './avatar';
 // export * from './badge';
-// export * from './box';
 // export * from './breadcrumb';
 // export * from './cascader';
 // export * from './checkbox';

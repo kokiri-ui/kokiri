@@ -19,11 +19,11 @@
         </ss-menu>
       </layout-sidebar>
       <layout-content class="Page-content">
-        <div class="Page-main">
-          <div class="Page-body">
+        <box class="Page-main">
+          <box class="Page-body">
             <router-view />
-          </div>
-        </div>
+          </box>
+        </box>
       </layout-content>
     </layout-container>
   </layout-container>
@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { LayoutContainer, LayoutHeader, LayoutContent, LayoutSidebar, SsMenu, SsMenuItem } from '../src';
+import { Box, LayoutContainer, LayoutHeader, LayoutContent, LayoutSidebar, SsMenu, SsMenuItem } from '../src';
 
 const docRoot = document.documentElement;
 const APP_CLASSNAME = 'is-buds';
@@ -46,6 +46,7 @@ function addRootClass() {
 
 @Component({
   components: {
+    Box,
     LayoutContainer,
     LayoutHeader,
     LayoutContent,
