@@ -1,5 +1,5 @@
 <template>
-  <toolbar :class="$style.LayoutHeader" tag="header" :style="computeStyle()">
+  <toolbar :class="$style.LayoutHeader" :style="computeStyle()" tag="header">
     <slot />
   </toolbar>
 </template>
@@ -13,7 +13,7 @@ import { LooseSize, LayoutRole } from '../../typing/aliases';
 import { ILayoutHeaderComponent } from '../../typing/interfaces/layout';
 import { isNumeric } from '../../helper/utils';
 
-import Toolbar from '../toolbar/Toolbar.vue';
+import { Toolbar } from '../toolbar';
 
 import { LayoutControl } from './LayoutControl';
 

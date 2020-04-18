@@ -4,24 +4,6 @@
   </box>
 </template>
 
-<style lang="scss" module>
-@include component-rules($__layout-sidebar-component-name) {
-  box-sizing: border-box;
-  float: left;
-  width: var($cp--layout-sidebar-width, $ss--layout-sidebar-width);
-  margin-left: calc(var(#{$cp--layout-sidebar-width}, #{$ss--layout-sidebar-width}) * -1);
-  height: 100%;
-  font: {
-    size: var($cp--layout-sidebar-font-size, $ss--layout-sidebar-font-size);
-    weight: var($cp--layout-sidebar-font-weight, $ss--layout-sidebar-font-weight);
-  }
-  color: var($cp--layout-sidebar-color, $ss--layout-sidebar-color);
-  border-right: var($cp--layout-sidebar-border-width, $ss--layout-sidebar-border-width) solid
-    var($cp--layout-sidebar-border-color, $ss--layout-sidebar-border-color);
-  background-color: var($cp--layout-sidebar-bg, $ss--layout-sidebar-bg);
-}
-</style>
-
 <script lang="ts">
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
@@ -31,7 +13,7 @@ import { LooseSize, LayoutRole } from '../../typing/aliases';
 import { ILayoutSidebarComponent } from '../../typing/interfaces/layout';
 import { isNumeric } from '../../helper/utils';
 
-import Box from '../box/Box.vue';
+import { Box } from '../box';
 
 import { LayoutControl } from './LayoutControl';
 
@@ -61,3 +43,21 @@ export default class LayoutSidebar extends LayoutControl implements ILayoutSideb
   }
 }
 </script>
+
+<style lang="scss" module>
+@include component-rules($__layout-sidebar-component-name) {
+  box-sizing: border-box;
+  float: left;
+  width: var($cp--layout-sidebar-width, $ss--layout-sidebar-width);
+  margin-left: calc(var(#{$cp--layout-sidebar-width}, #{$ss--layout-sidebar-width}) * -1);
+  height: 100%;
+  font: {
+    size: var($cp--layout-sidebar-font-size, $ss--layout-sidebar-font-size);
+    weight: var($cp--layout-sidebar-font-weight, $ss--layout-sidebar-font-weight);
+  }
+  color: var($cp--layout-sidebar-color, $ss--layout-sidebar-color);
+  border-right: var($cp--layout-sidebar-border-width, $ss--layout-sidebar-border-width) solid
+    var($cp--layout-sidebar-border-color, $ss--layout-sidebar-border-color);
+  background-color: var($cp--layout-sidebar-bg, $ss--layout-sidebar-bg);
+}
+</style>
