@@ -7,15 +7,8 @@
       <layout-container class="Page-container">
         <layout-sidebar class="Page-sidebar" width="250">
           <ss-menu>
-            <ss-menu-item
-              :flag="item.key"
-              :key="item.key"
-              @click="gotoPage(item)"
-              v-for="item in menuItems"
-            >
-              {{
-              item.text
-              }}
+            <ss-menu-item :flag="item.key" :key="item.key" @click="gotoPage(item)" v-for="item in menuItems">
+              {{ item.text }}
             </ss-menu-item>
           </ss-menu>
         </layout-sidebar>
@@ -61,6 +54,7 @@ export default class HelloBuds extends Vue {
     { key: 'home', text: 'Home' },
     { key: 'button', text: 'Button' },
     { key: 'flexbox', text: 'Flexbox' },
+    { key: 'panel', text: 'Panel' },
   ];
 
   private gotoPage(menuItem: any): void {

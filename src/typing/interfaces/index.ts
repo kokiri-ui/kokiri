@@ -10,3 +10,4 @@ export * from './flexbox';
 export * from './toolbar';
 export * from './spacer';
 export * from './layout';
+export * from './panel';

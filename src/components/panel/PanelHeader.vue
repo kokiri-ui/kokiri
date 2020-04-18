@@ -1,23 +1,24 @@
 <template>
-  <ss-toolbar :class="$style['Panel-header']" :title="title">
+  <flexbox :class="$style['Panel-header']" align="center">
     <slot />
-  </ss-toolbar>
+  </flexbox>
 </template>
 
-<style lang="scss" src="./style.scss" module></style>
-
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import { Toolbar as SsToolbar } from '../toolbar';
+import { Component, Prop } from 'vue-property-decorator';
+
+import { IPanelHeaderComponent } from '../../typing/interfaces/panel';
+
+import { BudsComponent } from '../basic/BudsComponent';
+import { Flexbox } from '../flexbox';
 
 @Component({
-  name: 'PanelHeader',
+  name: 'BudsPanelHeader',
   components: {
-    SsToolbar,
+    Flexbox,
   },
 })
-export default class PanelHeader extends Vue {
-  @Prop({ type: String, default: '' })
-  public readonly title!: string;
-}
+export default class PanelHeader extends BudsComponent implements IPanelHeaderComponent {}
 </script>
+
+<style lang="scss" src="./style.scss" module></style>

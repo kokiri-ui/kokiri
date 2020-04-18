@@ -1,4 +1,4 @@
-@include component-rules($__panel-component-name) {
+.Panel {
   padding: var($cp--panel-padding-y, $ss--panel-padding-y) var($cp--panel-padding-x, $ss--panel-padding-x);
   border: var($cp--panel-border-width, $ss--panel-border-width) solid
     var($cp--panel-border-color, $ss--panel-border-color);

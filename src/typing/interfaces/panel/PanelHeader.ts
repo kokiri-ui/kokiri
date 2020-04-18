@@ -1,3 +1,5 @@
-export interface IPanelHeaderComponent {
-  title?: string;
-}
+import { IBaseComponent } from '../basic';
+
+interface IPanelHeaderComponent extends IBaseComponent {}
+
+export { IPanelHeaderComponent };

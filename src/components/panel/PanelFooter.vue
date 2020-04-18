@@ -1,20 +1,24 @@
 <template>
-  <ss-toolbar :class="$style['Panel-footer']">
+  <flexbox :class="$style['Panel-footer']" align="center">
     <slot />
-  </ss-toolbar>
+  </flexbox>
 </template>
 
-<style lang="scss" src="./style.scss" module></style>
-
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
-import { Toolbar as SsToolbar } from '../toolbar';
+import { Component } from 'vue-property-decorator';
+
+import { IPanelFooterComponent } from '../../typing/interfaces/panel';
+
+import { BudsComponent } from '../basic/BudsComponent';
+import { Flexbox } from '../flexbox';
 
 @Component({
-  name: 'PanelFooter',
+  name: 'BudsPanelFooter',
   components: {
-    SsToolbar,
+    Flexbox,
   },
 })
-export default class PanelFooter extends Vue {}
+export default class PanelFooter extends BudsComponent implements IPanelFooterComponent {}
 </script>
+
+<style lang="scss" src="./style.scss" module></style>

@@ -10,6 +10,7 @@ export * from './flexbox';
 export * from './toolbar';
 export * from './spacer';
 export * from './layout';
+export * from './panel';
 
 // export * from './alert';
 // export * from './avatar';
@@ -36,7 +37,6 @@ export * from './layout';
 // export * from './mention';
 export * from './menu';
 // export * from './pagination';
-// export * from './panel';
 // export * from './popover';
 // export * from './radio';
 // export * from './rate';
