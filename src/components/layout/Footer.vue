@@ -21,19 +21,22 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
+import { ComponentStyle } from '../../typing';
+import { LooseSize, LayoutRole } from '../../typing/aliases';
+import { ILayoutFooterComponent } from '../../typing/interfaces/layout';
 import { isNumeric } from '../../helper/utils';
-import { LayoutControl } from '../../helper/mixins';
-import { LooseSize, LayoutRole, ComponentStyle } from '../../typing';
 
 import Box from '../box/Box.vue';
 
+import { LayoutControl } from './LayoutControl';
+
 @Component({
-  name: 'SsLayoutFooter',
+  name: 'BudsLayoutFooter',
   components: {
     Box,
   },
 })
-export default class SsLayoutFooter extends LayoutControl {
+export default class LayoutFooter extends LayoutControl implements ILayoutFooterComponent {
   @Prop({ type: [String, Number] })
   public readonly height?: LooseSize;
 

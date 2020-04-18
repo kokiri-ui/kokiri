@@ -1,9 +1,14 @@
+// General
+export * from './button';
+
+// Layouts
+export * from './layout';
+
 // export * from './alert';
 // export * from './avatar';
 // export * from './badge';
 // export * from './box';
 // export * from './breadcrumb';
-export * from './button';
 // export * from './cascader';
 // export * from './checkbox';
 // export * from './collapse';
@@ -20,7 +25,6 @@ export * from './button';
 // export * from './icon-picker';
 // export * from './input';
 // export * from './input-number';
-export * from './layout';
 // export * from './link';
 // export * from './list';
 // export * from './mention';

@@ -1,30 +1,37 @@
 <template>
-  <ss-layout-container class="Page">
-    <ss-layout-header class="Page-header">
+  <layout-container class="Page">
+    <layout-header class="Page-header">
       <router-link :to="{ name: 'home' }">Buds for Vue</router-link>
-    </ss-layout-header>
-    <ss-layout-container class="Page-container">
-      <ss-layout-sidebar class="Page-sidebar" width="250">
+    </layout-header>
+    <layout-container class="Page-container">
+      <layout-sidebar class="Page-sidebar" width="250">
         <ss-menu>
-          <ss-menu-item :flag="item.key" :key="item.key" @click="gotoPage(item)" v-for="item in menuItems">{{
+          <ss-menu-item
+            :flag="item.key"
+            :key="item.key"
+            @click="gotoPage(item)"
+            v-for="item in menuItems"
+          >
+            {{
             item.text
-          }}</ss-menu-item>
+            }}
+          </ss-menu-item>
         </ss-menu>
-      </ss-layout-sidebar>
-      <ss-layout-content class="Page-content">
+      </layout-sidebar>
+      <layout-content class="Page-content">
         <div class="Page-main">
           <div class="Page-body">
             <router-view />
           </div>
         </div>
-      </ss-layout-content>
-    </ss-layout-container>
-  </ss-layout-container>
+      </layout-content>
+    </layout-container>
+  </layout-container>
 </template>
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { SsLayoutContainer, SsLayoutHeader, SsLayoutSidebar, SsLayoutContent, SsMenu, SsMenuItem } from '../src';
+import { LayoutContainer, LayoutHeader, LayoutContent, LayoutSidebar, SsMenu, SsMenuItem } from '../src';
 
 const docRoot = document.documentElement;
 const APP_CLASSNAME = 'is-buds';
@@ -39,10 +46,10 @@ function addRootClass() {
 
 @Component({
   components: {
-    SsLayoutContainer,
-    SsLayoutHeader,
-    SsLayoutSidebar,
-    SsLayoutContent,
+    LayoutContainer,
+    LayoutHeader,
+    LayoutContent,
+    LayoutSidebar,
     SsMenu,
     SsMenuItem,
   },

@@ -36,6 +36,8 @@ export type ComplexPlacementType =
 export type GridType = 'grid' | 'flex';
 export type FormLayoutType = GridType | 'vertical' | 'inline';
 
+export type LayoutRole = 'container' | 'header' | 'footer' | 'content' | 'sidebar';
+
 export type GridBreakpointProp = {
   span?: number;
   offset?: number;

@@ -1,0 +1,3 @@
+interface ILayoutContentComponent {}
+
+export { ILayoutContentComponent };

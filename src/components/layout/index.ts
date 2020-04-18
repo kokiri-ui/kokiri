@@ -1,7 +1,7 @@
-import SsLayoutContainer from './Container.vue';
-import SsLayoutHeader from './Header.vue';
-import SsLayoutFooter from './Footer.vue';
-import SsLayoutContent from './Content.vue';
-import SsLayoutSidebar from './Sidebar.vue';
+import LayoutContainer from './Container.vue';
+import LayoutHeader from './Header.vue';
+import LayoutContent from './Content.vue';
+import LayoutSidebar from './Sidebar.vue';
+import LayoutFooter from './Footer.vue';
 
-export { SsLayoutContainer, SsLayoutHeader, SsLayoutFooter, SsLayoutContent, SsLayoutSidebar };
+export { LayoutContainer, LayoutHeader, LayoutContent, LayoutSidebar, LayoutFooter };

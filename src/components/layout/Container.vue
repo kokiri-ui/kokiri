@@ -4,48 +4,26 @@
   </box>
 </template>
 
-<style lang="scss" module>
-@include component-rules($__layout-container-component-name) {
-  box-sizing: border-box;
-  height: 100%;
-
-  &--vertical {
-    &.has-header {
-      padding-top: var($cp--layout-header-height, $ss--layout-header-height);
-    }
-
-    &.has-footer {
-      padding-bottom: var($cp--layout-footer-height, $ss--layout-footer-height);
-    }
-  }
-
-  &--horizontal {
-    &.has-sidebar {
-      padding-left: var($cp--layout-sidebar-width, $ss--layout-sidebar-width);
-    }
-
-    @include pie-clearfix;
-  }
-}
-</style>
-
 <script lang="ts">
 import { CreateElement, VNode } from 'vue';
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
-import { DirectionType, ComponentStyle, LayoutRole, LayoutContainer } from '../../typing';
+import { ComponentStyle } from '../../typing';
+import { DirectionType, LayoutRole } from '../../typing/aliases';
+import { ILayoutContainerComponent } from '../../typing/interfaces/layout';
 import { isNumeric } from '../../helper/utils';
-import { LayoutControl } from '../../helper/mixins';
 
 import Box from '../box/Box.vue';
 
+import { LayoutControl } from './LayoutControl';
+
 @Component({
-  name: 'SsLayoutContainer',
+  name: 'BudsLayoutContainer',
   components: {
     Box,
   },
 })
-export default class SsLayoutContainer extends LayoutControl implements LayoutContainer {
+export default class LayoutContainer extends LayoutControl implements ILayoutContainerComponent {
   private roles: { [key: string]: Vue } = {};
 
   private direction: DirectionType = '' as any;
@@ -98,7 +76,7 @@ export default class SsLayoutContainer extends LayoutControl implements LayoutCo
     return style;
   }
 
-  public __registerRole($role: Vue, role: LayoutRole): void {
+  public __registerRole(role: LayoutRole, $role: Vue): void {
     this.roles[role] = $role;
   }
 
@@ -115,3 +93,28 @@ export default class SsLayoutContainer extends LayoutControl implements LayoutCo
   }
 }
 </script>
+
+<style lang="scss" module>
+.LayoutContainer {
+  box-sizing: border-box;
+  height: 100%;
+
+  &--vertical {
+    &.has-header {
+      padding-top: var($cp--layout-header-height, $ss--layout-header-height);
+    }
+
+    &.has-footer {
+      padding-bottom: var($cp--layout-footer-height, $ss--layout-footer-height);
+    }
+  }
+
+  &--horizontal {
+    &.has-sidebar {
+      padding-left: var($cp--layout-sidebar-width, $ss--layout-sidebar-width);
+    }
+
+    @include pie-clearfix;
+  }
+}
+</style>
