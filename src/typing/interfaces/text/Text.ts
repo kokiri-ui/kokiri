@@ -1,0 +1,3 @@
+interface ITextComponent {}
+
+export { ITextComponent };

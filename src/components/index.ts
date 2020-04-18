@@ -1,5 +1,6 @@
 // General
 export * from './box';
+export * from './text';
 export * from './button';
 
 // Layouts
@@ -42,7 +43,6 @@ export * from './menu';
 // export * from './table';
 // export * from './tabs';
 // export * from './tag';
-// export * from './text';
 // export * from './text-area';
 // export * from './tile';
 // export * from './time-picker';
