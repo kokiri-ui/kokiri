@@ -1,0 +1,47 @@
+.Flexbox {
+  display: flex;
+
+  &--horizontal {
+    &:not(.is-reverse) {
+      flex-flow: row;
+    }
+
+    &.is-reverse {
+      flex-flow: row-reverse;
+    }
+  }
+
+  &--vertical {
+    &:not(.is-reverse) {
+      flex-flow: column;
+    }
+
+    &.is-reverse {
+      flex-flow: column-reverse;
+    }
+  }
+
+  &--alignStart {
+    align-items: flex-start;
+  }
+
+  &--alignCenter {
+    align-items: center;
+  }
+
+  &--alignEnd {
+    align-items: flex-end;
+  }
+
+  &--justifyStart {
+    justify-content: flex-start;
+  }
+
+  &--justifyCenter {
+    justify-content: center;
+  }
+
+  &--justifyEnd {
+    justify-content: flex-end;
+  }
+}

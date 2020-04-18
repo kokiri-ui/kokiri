@@ -171,8 +171,4 @@
     width: 100% !important;
     max-width: none !important;
   }
-
-  + .Button {
-    margin-left: var($cp--button-between-gap, $ss--button-between-gap);
-  }
 }

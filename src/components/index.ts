@@ -4,8 +4,10 @@ export * from './text';
 export * from './button';
 
 // Layouts
-export * from './layout';
+export * from './flexbox';
 export * from './toolbar';
+export * from './spacer';
+export * from './layout';
 
 // export * from './alert';
 // export * from './avatar';
@@ -38,7 +40,6 @@ export * from './menu';
 // export * from './rate';
 // export * from './select';
 // export * from './slider';
-// export * from './spacer';
 // export * from './steps';
 // export * from './switch';
 // export * from './table';

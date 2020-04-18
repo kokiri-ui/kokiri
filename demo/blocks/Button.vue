@@ -1,6 +1,6 @@
 <template>
   <box>
-    <h1>Buttons</h1>
+    <h1>Button</h1>
     <section>
       <h2>Normal buttons</h2>
       <box>

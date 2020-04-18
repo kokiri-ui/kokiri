@@ -59,6 +59,7 @@ export default class HelloBuds extends Vue {
   private menuItems: any[] = [
     { key: 'home', text: 'Home' },
     { key: 'button', text: 'Button' },
+    { key: 'flexbox', text: 'Flexbox' },
   ];
 
   private gotoPage(menuItem: any): void {
