@@ -1,0 +1,3 @@
+interface IBoxHeaderComponent {}
+
+export { IBoxHeaderComponent };

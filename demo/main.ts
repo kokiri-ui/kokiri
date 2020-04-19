@@ -1,7 +1,7 @@
 import Vue, { CreateElement, VNode } from 'vue';
 import VueRouter from 'vue-router';
 
-import { HomePage, ButtonDemo, FlexboxDemo, PanelDemo } from './blocks';
+import { HomePage, BoxDemo, ButtonDemo, FlexboxDemo, PanelDemo } from './blocks';
 
 import App from './App.vue';
 
@@ -16,6 +16,7 @@ new Vue({
     mode: 'history',
     routes: [
       { path: '/', name: 'home', component: HomePage },
+      { path: '/box', name: 'box', component: BoxDemo },
       { path: '/button', name: 'button', component: ButtonDemo },
       { path: '/flexbox', name: 'flexbox', component: FlexboxDemo },
       { path: '/panel', name: 'panel', component: PanelDemo },

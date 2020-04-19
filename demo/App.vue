@@ -52,6 +52,7 @@ import {
 export default class HelloBuds extends Vue {
   private menuItems: any[] = [
     { key: 'home', text: 'Home' },
+    { key: 'box', text: 'Box' },
     { key: 'button', text: 'Button' },
     { key: 'flexbox', text: 'Flexbox' },
     { key: 'panel', text: 'Panel' },
