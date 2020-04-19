@@ -1,12 +1,11 @@
 import { VNode } from 'vue';
 import { SizeType } from '../../aliases';
-import { IBaseComponent } from '../basic';
 
 type ButtonType = 'filled' | 'dashed' | 'link';
 
 type ButtonShape = 'round' | 'circle';
 
-interface IButtonComponent extends IBaseComponent {
+interface IButtonComponent {
   type?: ButtonType;
   size?: SizeType;
   shape?: ButtonShape;

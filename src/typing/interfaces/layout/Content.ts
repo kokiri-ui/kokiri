@@ -1,5 +1,3 @@
-import { IBaseComponent } from '../basic';
-
-interface ILayoutContentComponent extends IBaseComponent {}
+interface ILayoutContentComponent {}
 
 export { ILayoutContentComponent };

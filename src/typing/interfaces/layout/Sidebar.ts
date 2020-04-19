@@ -1,7 +1,6 @@
 import { LooseSize } from '../../aliases';
-import { IBaseComponent } from '../basic';
 
-interface ILayoutSidebarComponent extends IBaseComponent {
+interface ILayoutSidebarComponent {
   width?: LooseSize;
 }
 

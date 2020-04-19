@@ -5,7 +5,7 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 import { ISpacerComponent } from '../../typing/interfaces/spacer';
-import { BudsComponent } from '../basic/BudsComponent';
+import { BaseComponent } from '../basic/BaseComponent';
 import { Box } from '../box';
 
 @Component({
@@ -14,7 +14,7 @@ import { Box } from '../box';
     Box,
   },
 })
-export default class Spacer extends BudsComponent implements ISpacerComponent {}
+export default class Spacer extends BaseComponent implements ISpacerComponent {}
 </script>
 
 <style lang="scss" module>

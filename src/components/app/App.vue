@@ -9,7 +9,7 @@ import { CreateElement, VNode } from 'vue';
 import { Component } from 'vue-property-decorator';
 
 import { IAppComponent } from '../../typing/interfaces/app';
-import { BudsComponent } from '../basic/BudsComponent';
+import { BaseComponent } from '../basic/BaseComponent';
 import { Box } from '../box';
 
 const docRoot = document.documentElement;
@@ -23,7 +23,7 @@ const docBody = document.body;
     Box,
   },
 })
-export default class App extends BudsComponent implements IAppComponent {
+export default class App extends BaseComponent implements IAppComponent {
   private addHostClassName(): void {
     const hostClassName = this.$style.Host;
     const bodyClassName = this.$style['Host-body'];

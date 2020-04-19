@@ -6,14 +6,14 @@ import { ComponentStyle } from '../../typing';
 import { IPanelComponent } from '../../typing/interfaces/panel';
 import { isSpecificComponent } from '../../helper/utils';
 
-import { BudsComponent } from '../basic/BudsComponent';
+import { BaseComponent } from '../basic/BaseComponent';
 import { Box } from '../box';
 import PanelHeader from './PanelHeader.vue';
 
 @Component({
   name: 'BudsPanel',
 })
-export default class Panel extends BudsComponent implements IPanelComponent {
+export default class Panel extends BaseComponent implements IPanelComponent {
   @Prop({ type: String })
   public readonly title?: string;
 

@@ -1,6 +1,6 @@
-import Vue, { VueConstructor } from 'vue';
+import { VueConstructor } from 'vue';
 
-interface IBaseComponent extends Vue {
+interface IBaseComponent {
   tag?: string | VueConstructor;
 }
 

@@ -10,7 +10,7 @@ import { Component, Prop } from 'vue-property-decorator';
 import { DirectionType } from '../../typing/aliases';
 import { FlexboxAlignment, IFlexboxComponent } from '../../typing/interfaces/flexbox';
 
-import { BudsComponent } from '../basic/BudsComponent';
+import { BaseComponent } from '../basic/BaseComponent';
 import { Box } from '../box';
 
 @Component({
@@ -19,7 +19,7 @@ import { Box } from '../box';
     Box,
   },
 })
-export default class Flexbox extends BudsComponent implements IFlexboxComponent {
+export default class Flexbox extends BaseComponent implements IFlexboxComponent {
   @Prop({ type: String })
   public readonly direction?: DirectionType;
 

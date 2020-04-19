@@ -1,19 +1,22 @@
+import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
 import { LayoutRole } from '../../typing/aliases';
 import { ILayoutContainerComponent } from '../../typing/interfaces/layout';
 import { findSpecificAncestor } from '../../helper/utils';
-import { BudsComponent } from '../basic/BudsComponent';
+import { BaseComponent } from '../basic/BaseComponent';
+
+type SelfContainer = ILayoutContainerComponent & Vue;
 
 @Component
-class LayoutControl extends BudsComponent {
+class LayoutControl extends BaseComponent {
   protected role!: LayoutRole;
 
-  protected container!: ILayoutContainerComponent | null;
+  protected container!: SelfContainer | null;
 
   public mounted(): void {
     const ancestor = findSpecificAncestor(this, 'BudsLayoutContainer');
-    const container = ancestor ? (ancestor as ILayoutContainerComponent) : null;
+    const container = ancestor ? (ancestor as SelfContainer) : null;
 
     if (container) {
       container.__registerRole(this.role, this);

@@ -1,6 +1,4 @@
-import { IBaseComponent } from '../basic';
-
-interface IPanelComponent extends IBaseComponent {
+interface IPanelComponent {
   title?: string;
   bodyStyle?: any;
   bodyClass?: string;

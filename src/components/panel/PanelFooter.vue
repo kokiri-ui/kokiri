@@ -9,7 +9,7 @@ import { Component } from 'vue-property-decorator';
 
 import { IPanelFooterComponent } from '../../typing/interfaces/panel';
 
-import { BudsComponent } from '../basic/BudsComponent';
+import { BaseComponent } from '../basic/BaseComponent';
 import { Flexbox } from '../flexbox';
 
 @Component({
@@ -18,7 +18,7 @@ import { Flexbox } from '../flexbox';
     Flexbox,
   },
 })
-export default class PanelFooter extends BudsComponent implements IPanelFooterComponent {}
+export default class PanelFooter extends BaseComponent implements IPanelFooterComponent {}
 </script>
 
 <style lang="scss" src="./style.scss" module></style>

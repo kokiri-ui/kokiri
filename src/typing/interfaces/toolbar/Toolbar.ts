@@ -1,7 +1,6 @@
 import { VNode } from 'vue';
-import { IBaseComponent } from '../basic';
 
-interface IToolbarComponent extends IBaseComponent {
+interface IToolbarComponent {
   title?: string | VNode;
   icon?: VNode | string;
 }

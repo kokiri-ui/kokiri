@@ -1,5 +1,3 @@
-import { IBaseComponent } from '../basic';
-
-interface IAppComponent extends IBaseComponent {}
+interface IAppComponent {}
 
 export { IAppComponent };

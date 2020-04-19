@@ -4,12 +4,12 @@ import { Component, Prop, Emit } from 'vue-property-decorator';
 
 import { SizeType } from '../../typing/aliases';
 import { ButtonType, ButtonShape, IButtonComponent } from '../../typing/interfaces/button';
-import { BudsComponent } from '../basic/BudsComponent';
+import { BaseComponent } from '../basic/BaseComponent';
 
 @Component({
   name: 'BudsButton',
 })
-export default class Button extends BudsComponent implements IButtonComponent {
+export default class Button extends BaseComponent implements IButtonComponent {
   @Prop({ type: String })
   public readonly type?: ButtonType;
 

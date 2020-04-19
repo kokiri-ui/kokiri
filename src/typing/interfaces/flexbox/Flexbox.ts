@@ -1,9 +1,8 @@
 import { DirectionType } from '../../aliases';
-import { IBaseComponent } from '../basic';
 
 type FlexboxAlignment = 'start' | 'center' | 'end';
 
-interface IFlexboxComponent extends IBaseComponent {
+interface IFlexboxComponent {
   direction?: DirectionType;
   align?: FlexboxAlignment;
   justify?: FlexboxAlignment;

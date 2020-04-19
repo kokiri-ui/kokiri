@@ -3,7 +3,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 import { IBaseComponent } from '../../typing/interfaces/basic';
 
 @Component
-class BudsComponent extends Vue implements IBaseComponent {
+class BaseComponent extends Vue implements IBaseComponent {
   @Prop({ type: [String, Function] })
   public readonly tag?: string | VueConstructor;
 
@@ -12,4 +12,4 @@ class BudsComponent extends Vue implements IBaseComponent {
   }
 }
 
-export { BudsComponent };
+export { BaseComponent };

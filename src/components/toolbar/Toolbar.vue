@@ -5,14 +5,14 @@ import { Component, Prop } from 'vue-property-decorator';
 import { IToolbarComponent } from '../../typing/interfaces/toolbar';
 import { isString } from '../../helper/utils';
 
-import { BudsComponent } from '../basic/BudsComponent';
+import { BaseComponent } from '../basic/BaseComponent';
 import { Box } from '../box';
 import { Text } from '../text';
 
 @Component({
   name: 'BudsToolbar',
 })
-export default class Toolbar extends BudsComponent implements IToolbarComponent {
+export default class Toolbar extends BaseComponent implements IToolbarComponent {
   @Prop({ type: [String, Object] })
   public readonly title?: string | VNode;
 

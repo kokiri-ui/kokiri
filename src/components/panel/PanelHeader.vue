@@ -9,7 +9,7 @@ import { Component, Prop } from 'vue-property-decorator';
 
 import { IPanelHeaderComponent } from '../../typing/interfaces/panel';
 
-import { BudsComponent } from '../basic/BudsComponent';
+import { BaseComponent } from '../basic/BaseComponent';
 import { Flexbox } from '../flexbox';
 
 @Component({
@@ -18,7 +18,7 @@ import { Flexbox } from '../flexbox';
     Flexbox,
   },
 })
-export default class PanelHeader extends BudsComponent implements IPanelHeaderComponent {}
+export default class PanelHeader extends BaseComponent implements IPanelHeaderComponent {}
 </script>
 
 <style lang="scss" src="./style.scss" module></style>

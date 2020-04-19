@@ -1,5 +1,3 @@
-import { IBaseComponent } from '../basic';
-
-interface ITextComponent extends IBaseComponent {}
+interface ITextComponent {}
 
 export { ITextComponent };

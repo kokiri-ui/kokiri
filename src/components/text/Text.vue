@@ -7,12 +7,12 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 import { ITextComponent } from '../../typing/interfaces/text';
-import { BudsComponent } from '../basic/BudsComponent';
+import { BaseComponent } from '../basic/BaseComponent';
 
 @Component({
   name: 'BudsText',
 })
-export default class Text extends BudsComponent implements ITextComponent {}
+export default class Text extends BaseComponent implements ITextComponent {}
 </script>
 
 <style lang="scss" module>

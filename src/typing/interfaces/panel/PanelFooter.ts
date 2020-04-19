@@ -1,5 +1,3 @@
-import { IBaseComponent } from '../basic';
-
-interface IPanelFooterComponent extends IBaseComponent {}
+interface IPanelFooterComponent {}
 
 export { IPanelFooterComponent };

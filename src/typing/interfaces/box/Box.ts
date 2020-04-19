@@ -1,5 +1,3 @@
-import { IBaseComponent } from '../basic';
-
-interface IBoxComponent extends IBaseComponent {}
+interface IBoxComponent {}
 
 export { IBoxComponent };

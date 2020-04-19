@@ -8,12 +8,12 @@
 import { Component } from 'vue-property-decorator';
 
 import { IBoxComponent } from '../../typing/interfaces/box';
-import { BudsComponent } from '../basic/BudsComponent';
+import { BaseComponent } from '../basic/BaseComponent';
 
 @Component({
   name: 'BudsBox',
 })
-export default class Box extends BudsComponent implements IBoxComponent {}
+export default class Box extends BaseComponent implements IBoxComponent {}
 </script>
 
 <style lang="scss" module>
