@@ -1,0 +1,3 @@
+interface IListFooterComponent {}
+
+export { IListFooterComponent };

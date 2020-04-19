@@ -1,6 +1,21 @@
-<script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
+<template>
+  <box>
+    <slot />
+  </box>
+</template>
 
-@Component
-export default class ListFooter extends Vue {}
+<script lang="ts">
+import { Component } from 'vue-property-decorator';
+
+import { IListFooterComponent } from '../../typing/interfaces/list';
+import { BaseComponent } from '../basic/BaseComponent';
+import { Box } from '../box';
+
+@Component({
+  name: 'BudsListFooter',
+  components: {
+    Box,
+  },
+})
+export default class ListFooter extends BaseComponent implements IListFooterComponent {}
 </script>

@@ -1,22 +1,23 @@
 <template>
-  <toolbar :class="$style['List-header']" :title="title">
+  <flex :class="$style['List-header']" align="center">
     <slot />
-  </toolbar>
+  </flex>
 </template>
 
-<style lang="scss" src="./style.scss" module></style>
-
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import { Toolbar } from '../toolbar';
+import { Component } from 'vue-property-decorator';
+
+import { IListHeaderComponent } from '../../typing/interfaces/list';
+import { BaseComponent } from '../basic/BaseComponent';
+import { Flex } from '../flex';
 
 @Component({
+  name: 'BudsListHeader',
   components: {
-    Toolbar,
+    Flex,
   },
 })
-export default class ListHeader extends Vue {
-  @Prop({ type: String, default: '' })
-  readonly title!: string;
-}
+export default class ListHeader extends BaseComponent implements IListHeaderComponent {}
 </script>
+
+<style lang="scss" src="./style.scss" module></style>

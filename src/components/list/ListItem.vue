@@ -4,11 +4,16 @@
   </li>
 </template>
 
-<style lang="scss" src="./style.scss" module></style>
-
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Component } from 'vue-property-decorator';
 
-@Component
-export default class ListItem extends Vue {}
+import { IListItemComponent } from '../../typing/interfaces/list';
+import { BaseComponent } from '../basic/BaseComponent';
+
+@Component({
+  name: 'BudsListItem',
+})
+export default class ListItem extends BaseComponent implements IListItemComponent {}
 </script>
+
+<style lang="scss" src="./style.scss" module></style>

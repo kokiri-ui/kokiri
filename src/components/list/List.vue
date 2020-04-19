@@ -1,33 +1,16 @@
-<style lang="scss" src="./style.scss" module></style>
-
 <script lang="ts">
 import { CreateElement, VNode } from 'vue';
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import Box from '../box/Box.vue';
-import ListHeader from './ListHeader.vue';
+import { Component, Prop } from 'vue-property-decorator';
 
-function isListHeader(tag) {
-  return tag === 'ListHeader' || tag === 'list-header';
-}
-
-function isListFooter(tag) {
-  return tag === 'ListFooter' || tag === 'list-footer';
-}
-
-function isListItem(tag) {
-  return tag === 'ListItem' || tag === 'list-item';
-}
+import { IListComponent } from '../../typing/interfaces/list';
+import { isSpecificComponent } from '../../helper/utils';
+import { BaseComponent } from '../basic/BaseComponent';
+import { Box } from '../box';
 
 @Component({
-  components: {
-    Box,
-    ListHeader,
-  },
+  name: 'BudsList',
 })
-export default class List extends Vue {
-  @Prop({ type: String, default: '' })
-  public readonly title!: string;
-
+export default class List extends BaseComponent implements IListComponent {
   @Prop({ type: Boolean, default: false })
   public readonly bordered!: boolean;
 
@@ -38,80 +21,60 @@ export default class List extends Vue {
   public readonly loading!: boolean;
 
   @Prop({ type: String })
-  public readonly bodyClassName?: string;
+  public readonly bodyClass?: string;
 
   public render(h: CreateElement): VNode {
-    const {
-      $slots: { default: vNodes = [] },
-      title,
-      bordered,
-      divided,
-    } = this;
-    const newNodes: any[] = [];
-    const bodyNodes: any[] = [];
+    const children: VNode[] = [];
+    const bodyNodes: VNode[] = [];
 
-    let header;
-    let footer;
+    let header: VNode | undefined;
+    let footer: VNode | undefined;
 
-    vNodes.forEach(vn => {
-      if (!vn.componentOptions) {
-        return;
-      }
-
-      const { tag } = vn.componentOptions;
-
-      if (isListHeader(tag)) {
+    (this.$slots.default || ([] as VNode[])).forEach(vn => {
+      if (isSpecificComponent(vn, 'BudsListHeader')) {
         header = vn;
-
-        return;
-      }
-
-      if (isListFooter(tag)) {
+      } else if (isSpecificComponent(vn, 'BudsListFooter')) {
         footer = vn;
-
-        return;
-      }
-
-      if (isListItem(tag)) {
+      } else if (isSpecificComponent(vn, 'BudsListItem')) {
         bodyNodes.push(vn);
       }
     });
 
-    if (bodyNodes.length > 0) {
-      const bodyClassNames = [this.$style['List-body']];
+    const bodyClassNames: string[] = [this.$style['List-body']];
 
-      if (this.bodyClassName) {
-        bodyClassNames.push(this.bodyClassName);
-      }
-
-      newNodes.push(h('ul', { class: bodyClassNames }, bodyNodes));
+    if (this.bodyClass) {
+      bodyClassNames.push(this.bodyClass);
     }
 
-    if (!header && title) {
-      header = h('list-header', { props: { title } });
+    if (bodyNodes.length > 0) {
+      children.push(h(Box, { class: bodyClassNames }, [h('ul', bodyNodes)]));
+    } else {
+      children.push(h(Box, { class: bodyClassNames }));
     }
 
     if (header) {
-      newNodes.unshift(header);
+      children.unshift(header);
     }
 
     if (footer) {
-      newNodes.push(footer);
+      children.push(footer);
     }
 
     return h(
-      'box',
+      Box,
       {
         class: [
           this.$style.List,
           {
-            [this.$style['is-bordered']]: bordered,
-            [this.$style['is-divided']]: divided,
+            [this.$style['is-bordered']]: this.bordered,
+            [this.$style['is-divided']]: this.divided,
           },
         ],
       },
-      newNodes,
+      children,
     );
   }
 }
 </script>
+
+<style lang="scss" src="./style.scss" module></style>

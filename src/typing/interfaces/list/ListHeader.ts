@@ -1,3 +1,3 @@
-export interface IListHeaderComponent {
-  title?: string;
-}
+interface IListHeaderComponent {}
+
+export { IListHeaderComponent };
