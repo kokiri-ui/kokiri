@@ -6,11 +6,11 @@
       </layout-header>
       <layout-container class="Page-container">
         <layout-sidebar class="Page-sidebar" width="250">
-          <ss-menu>
-            <ss-menu-item :flag="item.key" :key="item.key" @click="gotoPage(item)" v-for="item in menuItems">
+          <ul>
+            <li :key="item.key" @click="gotoPage(item)" v-for="item in menuItems">
               {{ item.text }}
-            </ss-menu-item>
-          </ss-menu>
+            </li>
+          </ul>
         </layout-sidebar>
         <layout-content class="Page-content">
           <box class="Page-main">
@@ -26,16 +26,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import {
-  App as BudsApp,
-  Box,
-  LayoutContainer,
-  LayoutHeader,
-  LayoutContent,
-  LayoutSidebar,
-  SsMenu,
-  SsMenuItem,
-} from '../src';
+import { App as BudsApp, Box, LayoutContainer, LayoutHeader, LayoutContent, LayoutSidebar } from '../src';
 
 @Component({
   components: {
@@ -45,8 +36,6 @@ import {
     LayoutHeader,
     LayoutContent,
     LayoutSidebar,
-    SsMenu,
-    SsMenuItem,
   },
 })
 export default class HelloBuds extends Vue {

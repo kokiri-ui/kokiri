@@ -35,7 +35,7 @@ export * from './panel';
 // export * from './link';
 // export * from './list';
 // export * from './mention';
-export * from './menu';
+// export * from './menu';
 // export * from './pagination';
 // export * from './popover';
 // export * from './radio';
