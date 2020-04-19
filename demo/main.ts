@@ -1,7 +1,7 @@
 import Vue, { CreateElement, VNode } from 'vue';
 import VueRouter from 'vue-router';
 
-import { HomePage, BoxDemo, ButtonDemo, FlexboxDemo, PanelDemo } from './blocks';
+import { HomePage, BoxDemo, ButtonDemo, FlexDemo, PanelDemo } from './blocks';
 
 import App from './App.vue';
 
@@ -18,7 +18,7 @@ new Vue({
       { path: '/', name: 'home', component: HomePage },
       { path: '/box', name: 'box', component: BoxDemo },
       { path: '/button', name: 'button', component: ButtonDemo },
-      { path: '/flexbox', name: 'flexbox', component: FlexboxDemo },
+      { path: '/flex', name: 'flex', component: FlexDemo },
       { path: '/panel', name: 'panel', component: PanelDemo },
     ],
   }),

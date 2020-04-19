@@ -6,7 +6,7 @@ export * from './text';
 export * from './button';
 
 // Layout
-export * from './flexbox';
+export * from './flex';
 export * from './toolbar';
 export * from './spacer';
 export * from './layout';

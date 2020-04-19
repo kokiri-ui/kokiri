@@ -1,83 +1,83 @@
 <template>
   <box>
-    <h1>Flexbox</h1>
+    <h1>Flex</h1>
     <section>
-      <h2>Horizontal flexbox</h2>
+      <h2>Horizontal flex</h2>
       <box>
         <h3>Normal</h3>
         <box>
-          <flexbox>
+          <flex>
             <buds-button>normal button</buds-button>
             <buds-button size="large" primary>large button</buds-button>
             <buds-button size="small" danger>small button</buds-button>
-          </flexbox>
-          <flexbox align="center" justify="center">
+          </flex>
+          <flex align="center" justify="center">
             <buds-button>normal button</buds-button>
             <buds-button size="large" primary>large button</buds-button>
             <buds-button size="small" danger>small button</buds-button>
-          </flexbox>
-          <flexbox align="end" justify="end">
+          </flex>
+          <flex align="end" justify="end">
             <buds-button>normal button</buds-button>
             <buds-button size="large" primary>large button</buds-button>
             <buds-button size="small" danger>small button</buds-button>
-          </flexbox>
+          </flex>
         </box>
         <h3>Reversed</h3>
         <box>
-          <flexbox reverse>
+          <flex reverse>
             <buds-button>normal button</buds-button>
             <buds-button size="large" primary>large button</buds-button>
             <buds-button size="small" danger>small button</buds-button>
-          </flexbox>
-          <flexbox align="center" justify="center" reverse>
+          </flex>
+          <flex align="center" justify="center" reverse>
             <buds-button>normal button</buds-button>
             <buds-button size="large" primary>large button</buds-button>
             <buds-button size="small" danger>small button</buds-button>
-          </flexbox>
-          <flexbox align="end" justify="end" reverse>
+          </flex>
+          <flex align="end" justify="end" reverse>
             <buds-button>normal button</buds-button>
             <buds-button size="large" primary>large button</buds-button>
             <buds-button size="small" danger>small button</buds-button>
-          </flexbox>
+          </flex>
         </box>
       </box>
-      <h2>Vertical flexbox</h2>
+      <h2>Vertical flex</h2>
       <box>
         <h3>Normal</h3>
         <box>
-          <flexbox direction="vertical">
+          <flex direction="vertical">
             <buds-button>normal button</buds-button>
             <buds-button size="large" primary>large button</buds-button>
             <buds-button size="small" danger>small button</buds-button>
-          </flexbox>
-          <flexbox direction="vertical" align="center" justify="center">
+          </flex>
+          <flex direction="vertical" align="center" justify="center">
             <buds-button>normal button</buds-button>
             <buds-button size="large" primary>large button</buds-button>
             <buds-button size="small" danger>small button</buds-button>
-          </flexbox>
-          <flexbox direction="vertical" align="end" justify="end">
+          </flex>
+          <flex direction="vertical" align="end" justify="end">
             <buds-button>normal button</buds-button>
             <buds-button size="large" primary>large button</buds-button>
             <buds-button size="small" danger>small button</buds-button>
-          </flexbox>
+          </flex>
         </box>
         <h3>Reversed</h3>
         <box>
-          <flexbox direction="vertical" reverse>
+          <flex direction="vertical" reverse>
             <buds-button>normal button</buds-button>
             <buds-button size="large" primary>large button</buds-button>
             <buds-button size="small" danger>small button</buds-button>
-          </flexbox>
-          <flexbox direction="vertical" align="center" justify="center" reverse>
+          </flex>
+          <flex direction="vertical" align="center" justify="center" reverse>
             <buds-button>normal button</buds-button>
             <buds-button size="large" primary>large button</buds-button>
             <buds-button size="small" danger>small button</buds-button>
-          </flexbox>
-          <flexbox direction="vertical" align="end" justify="end" reverse>
+          </flex>
+          <flex direction="vertical" align="end" justify="end" reverse>
             <buds-button>normal button</buds-button>
             <buds-button size="large" primary>large button</buds-button>
             <buds-button size="small" danger>small button</buds-button>
-          </flexbox>
+          </flex>
         </box>
       </box>
     </section>
@@ -86,14 +86,14 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import { Box, Flexbox, Button as BudsButton } from '../../src';
+import { Box, Flex, Button as BudsButton } from '../../src';
 
 @Component({
   components: {
     Box,
-    Flexbox,
+    Flex,
     BudsButton,
   },
 })
-export default class FlexboxDemoBlock extends Vue {}
+export default class FlexDemoBlock extends Vue {}
 </script>

@@ -1,7 +1,7 @@
 <template>
-  <flexbox :class="$style['Panel-footer']" align="center">
+  <flex :class="$style['Panel-footer']" align="center">
     <slot />
-  </flexbox>
+  </flex>
 </template>
 
 <script lang="ts">
@@ -10,12 +10,12 @@ import { Component } from 'vue-property-decorator';
 import { IPanelFooterComponent } from '../../typing/interfaces/panel';
 
 import { BaseComponent } from '../basic/BaseComponent';
-import { Flexbox } from '../flexbox';
+import { Flex } from '../flex';
 
 @Component({
   name: 'BudsPanelFooter',
   components: {
-    Flexbox,
+    Flex,
   },
 })
 export default class PanelFooter extends BaseComponent implements IPanelFooterComponent {}
