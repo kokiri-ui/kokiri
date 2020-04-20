@@ -1,4 +1,4 @@
-import Row from './Row.vue';
-import Col from './Col.vue';
+import GridRow from './GridRow.vue';
+import GridCol from './GridCol.vue';
 
-export { Row as GridRow, Col as GridCol };
+export { GridRow, GridCol };

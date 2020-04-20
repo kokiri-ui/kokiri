@@ -7,6 +7,7 @@ export * from './button';
 
 // Layout
 export * from './flex';
+export * from './grid';
 export * from './spacer';
 export * from './layout';
 export * from './panel';

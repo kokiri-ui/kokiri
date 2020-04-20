@@ -7,6 +7,7 @@ export * from './button';
 
 // Layouts
 export * from './flex';
+export * from './grid';
 export * from './spacer';
 export * from './layout';
 export * from './panel';
@@ -20,7 +21,6 @@ export * from './list';
 // export * from './divider';
 // export * from './feed';
 // export * from './form';
-// export * from './grid';
 // export * from './link';
 // export * from './menu';
 // export * from './tabs';

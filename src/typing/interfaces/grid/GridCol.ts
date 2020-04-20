@@ -1,10 +1,6 @@
 import { GridBreakpointProp } from '../../aliases';
 
-export interface IGridColComponent {
-  span?: number;
-  offset?: number;
-  pull?: number;
-  push?: number;
+interface IGridColComponent extends GridBreakpointProp {
   xs?: number | GridBreakpointProp;
   sm?: number | GridBreakpointProp;
   md?: number | GridBreakpointProp;
@@ -12,3 +8,5 @@ export interface IGridColComponent {
   xl?: number | GridBreakpointProp;
   xxl?: number | GridBreakpointProp;
 }
+
+export { IGridColComponent };

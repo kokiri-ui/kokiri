@@ -1,4 +1,4 @@
-.Row {
+.GridRow {
   &:not(&--flex) {
     @include pie-clearfix;
   }
@@ -45,7 +45,7 @@
   }
 }
 
-.Col {
+.GridCol {
   @include generate-columns();
 
   $points: (
@@ -63,10 +63,10 @@
   }
 }
 
-.Row--flex {
+.GridRow--flex {
   flex-flow: row nowrap;
 
-  .Col {
+  .GridCol {
     flex: 0 0 auto;
   }
 }

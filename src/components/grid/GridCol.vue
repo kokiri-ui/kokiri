@@ -4,113 +4,107 @@
   </box>
 </template>
 
-<style lang="scss" src="./style.scss" module></style>
-
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Component, Prop } from 'vue-property-decorator';
+
+import { GridBreakpointProp } from '../../typing/aliases';
+import { IGridColComponent } from '../../typing/interfaces/grid';
 import { isSpecificComponent } from '../../helper/utils';
+
+import { BaseComponent } from '../basic/BaseComponent';
 import { Box } from '../box';
 
-interface BreakpointProp {
-  span?: number;
-  offset?: number;
-  pull?: number;
-  push?: number;
-}
-
-/**
- * 栅格布局单元格
- */
 @Component({
+  name: 'BudsGridCol',
   components: {
     Box,
   },
 })
-export default class Col extends Vue {
+export default class GridCol extends BaseComponent implements IGridColComponent {
   /**
    * 栅格占位格数
    *
    * 为 `0` 时相当于 `display: none;`
    */
   @Prop({ type: Number, default: -1 })
-  span!: number;
+  public readonly span!: number;
 
   /**
    * 栅格左侧的间隔格数
    */
   @Prop({ type: Number, default: 0 })
-  offset!: number;
+  public readonly offset!: number;
 
   /**
    * 栅格向左移动格数
    */
   @Prop({ type: Number, default: 0 })
-  pull!: number;
+  public readonly pull!: number;
 
   /**
    * 栅格向右移动格数
    */
   @Prop({ type: Number, default: 0 })
-  push!: number;
+  public readonly push!: number;
 
   /**
    * `<576px` 响应式栅格
    *
    * 可为栅格数或一个包含其他属性的对象
    */
-  @Prop({ default: -1 })
-  xs!: number | BreakpointProp;
+  @Prop({ type: [Number, Object], default: -1 })
+  public readonly xs!: number | GridBreakpointProp;
 
   /**
    * `≥576px` 响应式栅格
    *
    * 可为栅格数或一个包含其他属性的对象
    */
-  @Prop({ default: -1 })
-  sm!: number | BreakpointProp;
+  @Prop({ type: [Number, Object], default: -1 })
+  public readonly sm!: number | GridBreakpointProp;
 
   /**
    * `≥768px` 响应式栅格
    *
    * 可为栅格数或一个包含其他属性的对象
    */
-  @Prop({ default: -1 })
-  md!: number | BreakpointProp;
+  @Prop({ type: [Number, Object], default: -1 })
+  public readonly md!: number | GridBreakpointProp;
 
   /**
    * `≥992px` 响应式栅格
    *
    * 可为栅格数或一个包含其他属性的对象
    */
-  @Prop({ default: -1 })
-  lg!: number | BreakpointProp;
+  @Prop({ type: [Number, Object], default: -1 })
+  public readonly lg!: number | GridBreakpointProp;
 
   /**
    * `≥1200px` 响应式栅格
    *
    * 可为栅格数或一个包含其他属性的对象
    */
-  @Prop({ default: -1 })
-  xl!: number | BreakpointProp;
+  @Prop({ type: [Number, Object], default: -1 })
+  public readonly xl!: number | GridBreakpointProp;
 
   /**
    * ≥1600px 响应式栅格
    *
    * 可为栅格数或一个包含其他属性的对象
    */
-  @Prop({ default: -1 })
-  xxl!: number | BreakpointProp;
+  @Prop({ type: [Number, Object], default: -1 })
+  public readonly xxl!: number | GridBreakpointProp;
 
   private getResponsiveClass(span: number, point: string = ''): string {
     const pointClass = point ? `${point}-` : '';
 
-    return span === -1 ? '' : span === 0 ? `Col--${pointClass}hidden` : `Col--${pointClass}${span}`;
+    return span === -1 ? '' : span === 0 ? `GridCol--${pointClass}hidden` : `GridCol--${pointClass}${span}`;
   }
 
   private get rowGutter(): any {
     let parent = this.$parent as any;
 
-    while (parent && parent.$vnode && !isSpecificComponent(parent.$vnode, 'Row')) {
+    while (parent && parent.$vnode && !isSpecificComponent(parent.$vnode, 'BudsGridRow')) {
       parent = parent.$parent;
     }
 
@@ -130,7 +124,7 @@ export default class Col extends Vue {
   }
 
   private get computedClassNames(): string {
-    const classNames = [this.$style.Col];
+    const classNames = [this.$style.GridCol];
     const spanClass = this.getResponsiveClass(this.span);
 
     if (spanClass) {
@@ -138,7 +132,7 @@ export default class Col extends Vue {
     }
 
     if (this.offset > 0) {
-      classNames.push(this.$style[`Col--offset-${this.offset}`]);
+      classNames.push(this.$style[`GridCol--offset-${this.offset}`]);
     }
 
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach(bp => {
@@ -153,3 +147,5 @@ export default class Col extends Vue {
   }
 }
 </script>
+
+<style lang="scss" src="./style.scss" module></style>
