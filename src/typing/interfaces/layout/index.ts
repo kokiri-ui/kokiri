@@ -1,5 +1,5 @@
 export * from './Container';
 export * from './Header';
-export * from './Content';
-export * from './Sidebar';
+export * from './Main';
+export * from './Aside';
 export * from './Footer';

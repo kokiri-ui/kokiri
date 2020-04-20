@@ -1,5 +1,5 @@
 <template>
-  <box :class="$style.LayoutSidebar" :style="computeStyle()">
+  <box :class="$style.LayoutAside" :style="computeStyle()">
     <slot />
   </box>
 </template>
@@ -10,7 +10,7 @@ import { Component, Prop } from 'vue-property-decorator';
 
 import { ComponentStyle } from '../../typing';
 import { LooseSize, LayoutRole } from '../../typing/aliases';
-import { ILayoutSidebarComponent } from '../../typing/interfaces/layout';
+import { ILayoutAsideComponent } from '../../typing/interfaces/layout';
 import { isNumeric } from '../../helper/utils';
 
 import { Box } from '../box';
@@ -18,16 +18,16 @@ import { Box } from '../box';
 import { LayoutControl } from './LayoutControl';
 
 @Component({
-  name: 'BudsLayoutSidebar',
+  name: 'BudsLayoutAside',
   components: {
     Box,
   },
 })
-export default class LayoutSidebar extends LayoutControl implements ILayoutSidebarComponent {
+export default class LayoutAside extends LayoutControl implements ILayoutAsideComponent {
   @Prop({ type: [String, Number] })
   public readonly width?: LooseSize;
 
-  protected role: LayoutRole = 'sidebar';
+  protected role: LayoutRole = 'aside';
 
   private computeStyle(): ComponentStyle {
     let style: ComponentStyle = {};
@@ -45,7 +45,7 @@ export default class LayoutSidebar extends LayoutControl implements ILayoutSideb
 </script>
 
 <style lang="scss" module>
-@include component-rules($__layout-sidebar-component-name) {
+.LayoutAside {
   box-sizing: border-box;
   float: left;
   width: var($cp--layout-sidebar-width, $ss--layout-sidebar-width);

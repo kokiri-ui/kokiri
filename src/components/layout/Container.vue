@@ -43,7 +43,7 @@ export default class LayoutContainer extends LayoutControl implements ILayoutCon
       classNames.push(this.$style[`LayoutContainer--${this.direction}`]);
     }
 
-    (['header', 'footer', 'sidebar'] as LayoutRole[]).forEach((role: LayoutRole) => {
+    (['header', 'footer', 'aside'] as LayoutRole[]).forEach((role: LayoutRole) => {
       if (this.hasRole(role)) {
         classNames.push(this.$style[`has-${role}`]);
       }
@@ -68,8 +68,8 @@ export default class LayoutContainer extends LayoutControl implements ILayoutCon
         style.paddingBottom = `${this.getRoleProp('footer', 'height')}px`;
       }
     } else if (this.direction === 'horizontal') {
-      if (this.hasRole('sidebar') && isNumeric(this.getRoleProp('sidebar', 'width'))) {
-        style.paddingLeft = `${this.getRoleProp('sidebar', 'width')}px`;
+      if (this.hasRole('aside') && isNumeric(this.getRoleProp('aside', 'width'))) {
+        style.paddingLeft = `${this.getRoleProp('aside', 'width')}px`;
       }
     }
 
@@ -110,7 +110,7 @@ export default class LayoutContainer extends LayoutControl implements ILayoutCon
   }
 
   &--horizontal {
-    &.has-sidebar {
+    &.has-aside {
       padding-left: var($cp--layout-sidebar-width, $ss--layout-sidebar-width);
     }
 

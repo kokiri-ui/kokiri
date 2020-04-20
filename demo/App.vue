@@ -5,20 +5,18 @@
         <router-link :to="{ name: 'home' }">Buds for Vue</router-link>
       </layout-header>
       <layout-container class="Page-container">
-        <layout-sidebar class="Page-sidebar" width="250">
+        <layout-aside class="Page-sidebar" width="250">
           <ul>
-            <li :key="item.key" @click="gotoPage(item)" v-for="item in menuItems">
-              {{ item.text }}
-            </li>
+            <li :key="item.key" @click="gotoPage(item)" v-for="item in menuItems">{{ item.text }}</li>
           </ul>
-        </layout-sidebar>
-        <layout-content class="Page-content">
+        </layout-aside>
+        <layout-main class="Page-content">
           <box class="Page-main">
             <box class="Page-body">
               <router-view />
             </box>
           </box>
-        </layout-content>
+        </layout-main>
       </layout-container>
     </layout-container>
   </buds-app>
@@ -26,7 +24,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { App as BudsApp, Box, LayoutContainer, LayoutHeader, LayoutContent, LayoutSidebar } from '../src';
+import { App as BudsApp, Box, LayoutContainer, LayoutHeader, LayoutMain, LayoutAside } from '../src';
 
 @Component({
   components: {
@@ -34,8 +32,8 @@ import { App as BudsApp, Box, LayoutContainer, LayoutHeader, LayoutContent, Layo
     Box,
     LayoutContainer,
     LayoutHeader,
-    LayoutContent,
-    LayoutSidebar,
+    LayoutMain,
+    LayoutAside,
   },
 })
 export default class HelloBuds extends Vue {

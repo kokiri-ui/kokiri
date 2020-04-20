@@ -1,5 +1,5 @@
 <template>
-  <box :class="$style.LayoutContent">
+  <box :class="$style.LayoutMain">
     <slot />
   </box>
 </template>
@@ -9,24 +9,24 @@ import { CreateElement, VNode } from 'vue';
 import { Component } from 'vue-property-decorator';
 
 import { LayoutRole } from '../../typing/aliases';
-import { ILayoutContentComponent } from '../../typing/interfaces';
+import { ILayoutMainComponent } from '../../typing/interfaces';
 
 import { Box } from '../box';
 
 import { LayoutControl } from './LayoutControl';
 
 @Component({
-  name: 'BudsLayoutContent',
+  name: 'BudsLayoutMain',
   components: {
     Box,
   },
 })
-export default class LayoutContent extends LayoutControl implements ILayoutContentComponent {
-  protected role: LayoutRole = 'content';
+export default class LayoutMain extends LayoutControl implements ILayoutMainComponent {
+  protected role: LayoutRole = 'main';
 }
 </script>
 
 <style lang="scss" module>
-.LayoutContent {
+.LayoutMain {
 }
 </style>
