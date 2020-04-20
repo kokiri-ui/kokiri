@@ -4,13 +4,13 @@
       <tab-pane label="Tab 1">1</tab-pane>
       <tab-pane label="Tab 2">2</tab-pane>
       <tab-pane label="Tab 3">
-        <toolbar title="这里是工具栏">
+        <flex align="center">
           <spacer />
-          <ss-button type="primary" @click="handleButtonClick">设为第一个</ss-button>
+          <buds-button primary @click="handleButtonClick">设为第一个</buds-button>
           <box style="background-color: orange;">3</box>
-          <ss-button type="error">Error</ss-button>
-          <ss-button disabled>Disabled</ss-button>
-        </toolbar>
+          <buds-button danger>Error</buds-button>
+          <buds-button disabled>Disabled</buds-button>
+        </flex>
       </tab-pane>
       <tab-pane label="Tab 4">4</tab-pane>
       <tab-pane label="Tab 5" disabled>5</tab-pane>
@@ -40,18 +40,18 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import { Box } from '../../box';
-import { Toolbar } from '../../toolbar';
+import { Flex } from '../../flex';
 import { Spacer } from '../../spacer';
-import { SsButton } from '../../button';
+import { Button as BudsButton } from '../../button';
 import Tabs from '../Tabs.vue';
 import TabPane from '../TabPane.vue';
 
 @Component({
   components: {
     Box,
-    Toolbar,
+    Flex,
     Spacer,
-    SsButton,
+    BudsButton,
     Tabs,
     TabPane,
   },

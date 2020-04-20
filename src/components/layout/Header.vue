@@ -1,7 +1,7 @@
 <template>
-  <toolbar :class="$style.LayoutHeader" :style="computeStyle()" tag="header">
+  <flex :class="$style.LayoutHeader" :style="computeStyle()" align="center" tag="header">
     <slot />
-  </toolbar>
+  </flex>
 </template>
 
 <script lang="ts">
@@ -13,14 +13,14 @@ import { LooseSize, LayoutRole } from '../../typing/aliases';
 import { ILayoutHeaderComponent } from '../../typing/interfaces/layout';
 import { isNumeric } from '../../helper/utils';
 
-import { Toolbar } from '../toolbar';
+import { Flex } from '../flex';
 
 import { LayoutControl } from './LayoutControl';
 
 @Component({
   name: 'BudsLayoutHeader',
   components: {
-    Toolbar,
+    Flex,
   },
 })
 export default class LayoutHeader extends LayoutControl implements ILayoutHeaderComponent {

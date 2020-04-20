@@ -4,7 +4,7 @@
       <avatar :class="$style['Feed-avatar']" :src="avatar" :style="avatarStyle" />
     </box>
     <box :class="$style['Feed-content']" :style="contentStyle">
-      <toolbar :class="$style['Feed-header']" :style="headerStyle">{{ title }}</toolbar>
+      <flex :class="$style['Feed-header']" :style="headerStyle" align="center">{{ title }}</flex>
       <box :class="$style['Feed-body']" :style="bodyStyle" v-if="$slots.default">
         <slot />
       </box>
@@ -44,14 +44,14 @@
 import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
 
 import { ComponentStyle } from '../../typing';
-import Box from '../box/Box.vue';
-import Toolbar from '../toolbar/Toolbar.vue';
+import { Box } from '../box';
+import { Flex } from '../flex';
 import Avatar from '../avatar/Avatar.vue';
 
 @Component({
   components: {
     Box,
-    Toolbar,
+    Flex,
     Avatar,
   },
 })
