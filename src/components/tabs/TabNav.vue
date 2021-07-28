@@ -1,55 +1,43 @@
 <template>
-  <box
-    :class="[$style.TabNav, { [$style['is-active']]: active, [$style['is-disabled']]: nav.disabled }]"
-    @click.native.stop="handleClick"
-  >
-    <icon :type="nav.label" provider="el" v-if="nav.icon" />
-    <ss-text v-else>{{ nav.label }}</ss-text>
-    <icon
-      :class="$style['TabNav-close']"
-      type="close"
-      provider="el"
-      @click.native.stop="handleRemove"
-      v-if="editable"
-    />
-  </box>
+  <div :class="getComponentClassNames()" @click.stop="handleClick">
+    <slot />
+  </div>
 </template>
 
-<style lang="scss" src="./style.scss" module></style>
-
 <script lang="ts">
-import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
-import { Box } from '../box';
-import { SsText } from '../text';
-import { Icon } from '../icon';
+import { Component, Prop } from 'vue-property-decorator';
+
+import { TabNavFlag, ITabNavComponent, TabNavHeadlessComponent } from '@petals/tabs';
+
+import { getComponentName, BaseStructuralComponent } from '../basic';
 
 @Component({
-  components: {
-    Box,
-    SsText,
-    Icon,
-  },
+  name: getComponentName('tabNav'),
 })
-export default class TabNav extends Vue {
-  @Prop({ default: () => ({}) })
-  readonly nav: any;
-
-  @Prop(Number)
-  readonly index!: number;
-
-  @Prop(Boolean)
-  readonly active!: boolean;
+export default class TabNav
+  extends BaseStructuralComponent<TabNavHeadlessComponent>
+  implements ITabNavComponent {
+  @Prop({ type: [Number, String], default: 0 })
+  public readonly flag!: TabNavFlag;
 
   @Prop({ type: Boolean, default: false })
-  readonly editable?: boolean;
+  public readonly active!: boolean;
 
-  @Emit('remove')
-  private handleRemove() {}
+  @Prop({ type: Boolean, default: false })
+  public readonly disabled!: boolean;
 
-  private handleClick(...args) {
-    if (!this.active && !this.nav.disabled) {
-      this.$emit('change', this.index, this.nav);
+  private handleClick(): void {
+    if (this.active || this.disabled) {
+      return;
     }
+
+    this.$emit('change', this.flag);
+  }
+
+  public created(): void {
+    this.setHeadlessComponent(new TabNavHeadlessComponent(this));
   }
 }
 </script>
+
+<style lang="scss" src="./style.scss" module></style>

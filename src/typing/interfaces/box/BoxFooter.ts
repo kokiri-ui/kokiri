@@ -1,3 +1,0 @@
-interface IBoxFooterComponent {}
-
-export { IBoxFooterComponent };

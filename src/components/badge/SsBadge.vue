@@ -1,57 +1,18 @@
 <template>
-  <ss-text :class="[$style.Badge, $style['Badge--status']]">
-    <ss-text :class="componentClassNames" :style="computedStyle" />
-    <ss-text :class="$style['Badge-text']">{{ text }}</ss-text>
-  </ss-text>
+  <text :class="[$style.Badge, $style['Badge--status']]">
+    <text :class="componentClassNames" :style="computedStyle" />
+    <text :class="$style['Badge-text']">{{ text }}</text>
+  </text>
 </template>
-
-<style lang="scss" module>
-@include component-rules($__badge-component-name) {
-  &--status &-dot,
-  &--status &-text {
-    display: inline-block;
-  }
-
-  &--status &-dot {
-    position: relative;
-    top: -1px;
-    margin-right: 8px;
-    vertical-align: middle;
-    @include circle(6px);
-  }
-
-  &-dot {
-    &--default {
-      background-color: #d9d9d9;
-    }
-
-    &--processing {
-      background-color: #1890ff;
-    }
-
-    &--success {
-      background-color: #52c41a;
-    }
-
-    &--error {
-      background-color: #f5222d;
-    }
-
-    &--warning {
-      background-color: #faad14;
-    }
-  }
-}
-</style>
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { SsText } from '../text';
-import { ProcessStatus } from '../../typing';
+import { ProcessStatus } from '@petals/basic';
+import { Text } from '../text';
 
 @Component({
   components: {
-    SsText,
+    Text,
   },
 })
 export default class SsBadge extends Vue {
@@ -86,3 +47,5 @@ export default class SsBadge extends Vue {
   }
 }
 </script>
+
+<style src="./style.scss" lang="scss" module></style>

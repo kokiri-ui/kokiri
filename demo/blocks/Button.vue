@@ -1,96 +1,219 @@
 <template>
-  <box>
-    <h1>Button</h1>
-    <section>
-      <h2>Normal buttons</h2>
-      <box>
-        <h3>Medium size</h3>
-        <box>
-          <buds-button>default</buds-button>
-          <buds-button type="filled">filled</buds-button>
-          <buds-button type="dashed">dashed</buds-button>
-          <buds-button type="link">link</buds-button>
-        </box>
-        <h3>Large size</h3>
-        <box>
-          <buds-button size="large">default</buds-button>
-          <buds-button type="filled" size="large">filled</buds-button>
-          <buds-button type="dashed" size="large">dashed</buds-button>
-          <buds-button type="link" size="large">link</buds-button>
-        </box>
-        <h3>Small size</h3>
-        <box>
-          <buds-button size="small">default</buds-button>
-          <buds-button type="filled" size="small">filled</buds-button>
-          <buds-button type="dashed" size="small">dashed</buds-button>
-          <buds-button type="link" size="small">link</buds-button>
-        </box>
-      </box>
-    </section>
-    <section>
-      <h2>Primary buttons</h2>
-      <box>
-        <h3>Medium size</h3>
-        <box>
-          <buds-button primary>default</buds-button>
-          <buds-button type="filled" primary>filled</buds-button>
-          <buds-button type="dashed" primary>dashed</buds-button>
-          <buds-button type="link" primary>link</buds-button>
-        </box>
-        <h3>Large size</h3>
-        <box>
-          <buds-button size="large" primary>default</buds-button>
-          <buds-button type="filled" size="large" primary>filled</buds-button>
-          <buds-button type="dashed" size="large" primary>dashed</buds-button>
-          <buds-button type="link" size="large" primary>link</buds-button>
-        </box>
-        <h3>Small size</h3>
-        <box>
-          <buds-button size="small" primary>default</buds-button>
-          <buds-button type="filled" size="small" primary>filled</buds-button>
-          <buds-button type="dashed" size="small" primary>dashed</buds-button>
-          <buds-button type="link" size="small" primary>link</buds-button>
-        </box>
-      </box>
-    </section>
-    <section>
-      <h2>Danger buttons</h2>
-      <box>
-        <h3>Medium size</h3>
-        <box>
-          <buds-button danger>default</buds-button>
-          <buds-button type="filled" danger>filled</buds-button>
-          <buds-button type="dashed" danger>dashed</buds-button>
-          <buds-button type="link" danger>link</buds-button>
-        </box>
-        <h3>Large size</h3>
-        <box>
-          <buds-button size="large" danger>default</buds-button>
-          <buds-button type="filled" size="large" danger>filled</buds-button>
-          <buds-button type="dashed" size="large" danger>dashed</buds-button>
-          <buds-button type="link" size="large" danger>link</buds-button>
-        </box>
-        <h3>Small size</h3>
-        <box>
-          <buds-button size="small" danger>default</buds-button>
-          <buds-button type="filled" size="small" danger>filled</buds-button>
-          <buds-button type="dashed" size="small" danger>dashed</buds-button>
-          <buds-button type="link" size="small" danger>link</buds-button>
-        </box>
-      </box>
-    </section>
-  </box>
+  <demo-container title="按钮 Button">
+    <demo-section title="演示">
+      <demo-block title="边框">
+        <kokiri-button class="ButtonDemo-button">实线边框</kokiri-button>
+        <kokiri-button class="ButtonDemo-button" border="dashed">虚线边框</kokiri-button>
+        <kokiri-button class="ButtonDemo-button" border="none">无边框</kokiri-button>
+      </demo-block>
+      <demo-block title="颜色">
+        <kokiri-button class="ButtonDemo-button">Default</kokiri-button>
+        <kokiri-button class="ButtonDemo-button" color="primary">Primary</kokiri-button>
+        <kokiri-button class="ButtonDemo-button" color="danger">Danger</kokiri-button>
+      </demo-block>
+      <demo-block title="线框按钮">
+        <div class="ButtonDemo-darkBgLayer">
+          <div class="ButtonDemo-group">
+            <kokiri-button class="ButtonDemo-button" outlined>实线边框</kokiri-button>
+            <kokiri-button class="ButtonDemo-button" border="dashed" outlined
+              >虚线边框</kokiri-button
+            >
+            <kokiri-button class="ButtonDemo-button" border="none" outlined>无边框</kokiri-button>
+          </div>
+          <div class="ButtonDemo-group">
+            <kokiri-button class="ButtonDemo-button" color="primary" outlined
+              >Primary</kokiri-button
+            >
+            <kokiri-button class="ButtonDemo-button" color="danger" outlined>Danger</kokiri-button>
+          </div>
+        </div>
+      </demo-block>
+      <demo-block title="尺寸">
+        <div class="ButtonDemo-group">
+          <kokiri-button class="ButtonDemo-button" size="large">大号</kokiri-button>
+          <kokiri-button class="ButtonDemo-button" size="medium">常规</kokiri-button>
+          <kokiri-button class="ButtonDemo-button" size="small">小号</kokiri-button>
+        </div>
+        <div class="ButtonDemo-group">
+          <kokiri-button class="ButtonDemo-button" border="dashed" size="large">大号</kokiri-button>
+          <kokiri-button class="ButtonDemo-button" border="dashed" size="medium"
+            >常规</kokiri-button
+          >
+          <kokiri-button class="ButtonDemo-button" border="dashed" size="small">小号</kokiri-button>
+        </div>
+        <div class="ButtonDemo-group">
+          <kokiri-button class="ButtonDemo-button" border="none" size="large">大号</kokiri-button>
+          <kokiri-button class="ButtonDemo-button" border="none" size="medium">常规</kokiri-button>
+          <kokiri-button class="ButtonDemo-button" border="none" size="small">小号</kokiri-button>
+        </div>
+        <div class="ButtonDemo-group">
+          <kokiri-button class="ButtonDemo-button" color="primary" size="large">大号</kokiri-button>
+          <kokiri-button class="ButtonDemo-button" color="primary" size="medium"
+            >常规</kokiri-button
+          >
+          <kokiri-button class="ButtonDemo-button" color="primary" size="small">小号</kokiri-button>
+        </div>
+        <div class="ButtonDemo-group">
+          <kokiri-button class="ButtonDemo-button" color="danger" size="large">大号</kokiri-button>
+          <kokiri-button class="ButtonDemo-button" color="danger" size="medium">常规</kokiri-button>
+          <kokiri-button class="ButtonDemo-button" color="danger" size="small">小号</kokiri-button>
+        </div>
+        <div class="ButtonDemo-group ButtonDemo-darkBgLayer">
+          <kokiri-button class="ButtonDemo-button" size="large" outlined>大号</kokiri-button>
+          <kokiri-button class="ButtonDemo-button" size="medium" outlined>常规</kokiri-button>
+          <kokiri-button class="ButtonDemo-button" size="small" outlined>小号</kokiri-button>
+        </div>
+        <div class="ButtonDemo-group ButtonDemo-darkBgLayer">
+          <kokiri-button class="ButtonDemo-button" border="dashed" size="large" outlined
+            >大号</kokiri-button
+          >
+          <kokiri-button class="ButtonDemo-button" border="dashed" size="medium" outlined
+            >常规</kokiri-button
+          >
+          <kokiri-button class="ButtonDemo-button" border="dashed" size="small" outlined
+            >小号</kokiri-button
+          >
+        </div>
+        <div class="ButtonDemo-group ButtonDemo-darkBgLayer">
+          <kokiri-button class="ButtonDemo-button" border="none" size="large" outlined
+            >大号</kokiri-button
+          >
+          <kokiri-button class="ButtonDemo-button" border="none" size="medium" outlined
+            >常规</kokiri-button
+          >
+          <kokiri-button class="ButtonDemo-button" border="none" size="small" outlined
+            >小号</kokiri-button
+          >
+        </div>
+        <div class="ButtonDemo-group ButtonDemo-darkBgLayer">
+          <kokiri-button class="ButtonDemo-button" color="primary" size="large" outlined
+            >大号</kokiri-button
+          >
+          <kokiri-button class="ButtonDemo-button" color="primary" size="medium" outlined
+            >常规</kokiri-button
+          >
+          <kokiri-button class="ButtonDemo-button" color="primary" size="small" outlined
+            >小号</kokiri-button
+          >
+        </div>
+        <div class="ButtonDemo-group ButtonDemo-darkBgLayer">
+          <kokiri-button class="ButtonDemo-button" color="danger" size="large" outlined
+            >大号</kokiri-button
+          >
+          <kokiri-button class="ButtonDemo-button" color="danger" size="medium" outlined
+            >常规</kokiri-button
+          >
+          <kokiri-button class="ButtonDemo-button" color="danger" size="small" outlined
+            >小号</kokiri-button
+          >
+        </div>
+      </demo-block>
+      <demo-block title="状态">
+        <div class="ButtonDemo-darkBgLayer">
+          <div class="ButtonDemo-group">
+            <kokiri-button class="ButtonDemo-button">实底实边按钮</kokiri-button>
+            <kokiri-button class="ButtonDemo-button" disabled>实底实边按钮（禁用）</kokiri-button>
+          </div>
+          <div class="ButtonDemo-group">
+            <kokiri-button class="ButtonDemo-button" outlined>线框实边按钮</kokiri-button>
+            <kokiri-button class="ButtonDemo-button" outlined disabled
+              >线框实边按钮（禁用）</kokiri-button
+            >
+          </div>
+          <div class="ButtonDemo-group">
+            <kokiri-button class="ButtonDemo-button" border="dashed">实底虚边按钮</kokiri-button>
+            <kokiri-button class="ButtonDemo-button" border="dashed" disabled
+              >实底虚边按钮（禁用）</kokiri-button
+            >
+          </div>
+          <div class="ButtonDemo-group">
+            <kokiri-button class="ButtonDemo-button" border="dashed" outlined
+              >线框虚边按钮</kokiri-button
+            >
+            <kokiri-button class="ButtonDemo-button" border="dashed" outlined disabled
+              >线框虚边按钮（禁用）</kokiri-button
+            >
+          </div>
+          <div class="ButtonDemo-group">
+            <kokiri-button class="ButtonDemo-button" border="none">实底无边按钮</kokiri-button>
+            <kokiri-button class="ButtonDemo-button" border="none" disabled
+              >实底无边按钮（禁用）</kokiri-button
+            >
+          </div>
+          <div class="ButtonDemo-group">
+            <kokiri-button class="ButtonDemo-button" border="none" outlined
+              >线框无边按钮</kokiri-button
+            >
+            <kokiri-button class="ButtonDemo-button" border="none" outlined disabled
+              >线框无边按钮（禁用）</kokiri-button
+            >
+          </div>
+          <div class="ButtonDemo-group">
+            <kokiri-button class="ButtonDemo-button" color="primary">实底主要按钮</kokiri-button>
+            <kokiri-button class="ButtonDemo-button" color="primary" disabled
+              >实底主要按钮（禁用）</kokiri-button
+            >
+          </div>
+          <div class="ButtonDemo-group">
+            <kokiri-button class="ButtonDemo-button" color="primary" outlined
+              >线框主要按钮</kokiri-button
+            >
+            <kokiri-button class="ButtonDemo-button" color="primary" outlined disabled
+              >线框主要按钮（禁用）</kokiri-button
+            >
+          </div>
+          <div class="ButtonDemo-group">
+            <kokiri-button class="ButtonDemo-button" color="danger">实底危险按钮</kokiri-button>
+            <kokiri-button class="ButtonDemo-button" color="danger" disabled
+              >实底危险按钮（禁用）</kokiri-button
+            >
+          </div>
+          <div class="ButtonDemo-group">
+            <kokiri-button class="ButtonDemo-button" color="danger" outlined
+              >线框危险按钮</kokiri-button
+            >
+            <kokiri-button class="ButtonDemo-button" color="danger" outlined disabled
+              >线框危险按钮（禁用）</kokiri-button
+            >
+          </div>
+        </div>
+      </demo-block>
+    </demo-section>
+  </demo-container>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import { Box, Button as BudsButton } from '../../src';
+
+import { Button as KokiriButton } from '../../components';
+import { DemoContainer, DemoSection, DemoBlock } from '../containers';
 
 @Component({
   components: {
-    Box,
-    BudsButton,
+    DemoContainer,
+    DemoSection,
+    DemoBlock,
+    KokiriButton,
   },
 })
-export default class ButtonDemoBlock extends Vue {}
+export default class ButtonDemo extends Vue {}
 </script>
+
+<style lang="scss" scoped>
+.ButtonDemo {
+  &-button {
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+
+  &-darkBgLayer {
+    padding-top: 8px;
+    padding-left: 8px;
+    background-color: #bec8c8;
+  }
+
+  &-group + &-group:not(&-darkBgLayer) {
+    margin-top: 8px;
+  }
+}
+</style>

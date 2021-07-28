@@ -1,5 +1,5 @@
 <template>
-  <box>
+  <box :class="getClassNames()">
     <slot />
   </box>
 </template>
@@ -7,8 +7,9 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
-import { IListFooterComponent } from '../../typing/interfaces/list';
-import { BaseComponent } from '../basic/BaseComponent';
+import { IListFooterComponent, ListFooterHeadlessComponent } from '@petals/list';
+
+import { BaseStructuralComponent } from '../basic';
 import { Box } from '../box';
 
 @Component({
@@ -17,5 +18,16 @@ import { Box } from '../box';
     Box,
   },
 })
-export default class ListFooter extends BaseComponent implements IListFooterComponent {}
+export default class ListFooter extends BaseStructuralComponent<ListFooterHeadlessComponent> implements IListFooterComponent {
+  private getClassNames(): string[] {
+    return [
+      this.$style[`${BaseStructuralComponent.getComponentClassName('list')}-footer`],
+      ...this.getComponentClassNames(),
+    ];
+  }
+
+  public created(): void {
+    this.setHeadlessComponent(new ListFooterHeadlessComponent(this));
+  }
+}
 </script>

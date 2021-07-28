@@ -1,36 +1,40 @@
 <template>
-  <box :class="$style.GridRow" :style="computedStyle">
+  <div :class="getComponentClassNames()" :style="computedStyle">
     <slot />
-  </box>
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
 
-import { IGridRowComponent } from '../../typing/interfaces/grid';
-import { isNumber } from '../../helper/utils';
-import { BaseComponent } from '../basic/BaseComponent';
-import { Box } from '../box';
+import { ComponentStyle } from '@petals/basic';
+import { IGridRowComponent, GridRowHeadlessComponent } from '@petals/grid';
+
+import { getComponentName, BaseStructuralComponent } from '../basic';
 
 @Component({
-  name: 'BudsGridRow',
-  components: {
-    Box,
-  },
+  name: getComponentName('gridRow'),
 })
-export default class GridRow extends BaseComponent implements IGridRowComponent {
-  @Prop({ type: Number })
-  public readonly gutter?: number;
+export default class GridRow
+  extends BaseStructuralComponent<GridRowHeadlessComponent>
+  implements IGridRowComponent {
+  @Prop({ type: Number, default: 0 })
+  public readonly gutter!: number;
 
-  private get computedStyle(): any {
-    const ret: any = {};
+  private get computedStyle(): ComponentStyle {
+    const gutter: number = this.getHeadlessComponent()!.getGutter();
 
-    if (isNumber(this.gutter) && this.gutter! > 0) {
-      ret.marginLeft = `-${this.gutter! / 2}px`;
-      ret.marginRight = ret.marginLeft;
+    if (gutter === 0) {
+      return {};
     }
 
-    return ret;
+    const gutterSize = `-${gutter / 2}px`;
+
+    return { marginLeft: gutterSize, marginRight: gutterSize };
+  }
+
+  public created(): void {
+    this.setHeadlessComponent(new GridRowHeadlessComponent(this));
   }
 }
 </script>

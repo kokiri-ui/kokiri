@@ -1,3 +1,0 @@
-interface ITextComponent {}
-
-export { ITextComponent };

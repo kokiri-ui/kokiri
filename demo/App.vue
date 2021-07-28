@@ -1,87 +1,71 @@
 <template>
-  <buds-app>
-    <layout-container class="Page">
-      <layout-header class="Page-header">
-        <router-link :to="{ name: 'home' }">Buds for Vue</router-link>
-      </layout-header>
-      <layout-container class="Page-container">
-        <layout-aside class="Page-sidebar" width="250">
-          <ul>
-            <li :key="item.key" @click="gotoPage(item)" v-for="item in menuItems">{{ item.text }}</li>
-          </ul>
-        </layout-aside>
-        <layout-main class="Page-content">
-          <box class="Page-main">
-            <box class="Page-body">
-              <router-view />
-            </box>
-          </box>
+  <kokiri-app class="HelloWorld">
+    <layout-container>
+      <layout-aside class="HelloWorld-sidebar">
+        <router-link class="HelloWorld-brand" :to="{ name: 'home' }">Kokiri for Vue</router-link>
+        <ul class="HelloWorld-menu">
+          <li :key="item.name" v-for="item in menuItems">
+            <router-link :to="{ name: item.name }">{{ item.text }}</router-link>
+          </li>
+        </ul>
+      </layout-aside>
+      <layout-container>
+        <layout-header> </layout-header>
+        <layout-main>
+          <router-view />
         </layout-main>
       </layout-container>
     </layout-container>
-  </buds-app>
+  </kokiri-app>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import { App as BudsApp, Box, LayoutContainer, LayoutHeader, LayoutMain, LayoutAside } from '../src';
+import { Vue, Component } from 'vue-property-decorator';
+
+import {
+  App as KokiriApp,
+  LayoutContainer,
+  LayoutHeader,
+  LayoutMain,
+  LayoutAside,
+} from '../components';
+import { demoRoutes } from './blocks';
 
 @Component({
   components: {
-    BudsApp,
-    Box,
+    KokiriApp,
     LayoutContainer,
     LayoutHeader,
     LayoutMain,
     LayoutAside,
   },
 })
-export default class HelloBuds extends Vue {
-  private menuItems: any[] = [
-    { key: 'home', text: 'Home' },
-    { key: 'button', text: 'Button' },
-    { key: 'box', text: 'Box' },
-    { key: 'flex', text: 'Flex' },
-    { key: 'panel', text: 'Panel' },
-  ];
-
-  private gotoPage(menuItem: any): void {
-    (this as any).$router.push({ name: menuItem.key });
-  }
+export default class HelloWorld extends Vue {
+  private menuItems: any[] = demoRoutes;
 }
 </script>
 
 <style lang="scss" scoped>
-.Page {
-  &-header {
-    position: relative;
-    z-index: 2;
+.HelloWorld {
+  &-brand,
+  &-menu {
+    padding-left: 24px;
   }
 
-  &-container {
-    background-color: #fafafa;
+  &-brand,
+  &-menu a {
+    color: #fff;
   }
 
-  &-sidebar {
-    border-right: 1px solid #e6e6e6;
+  &-brand {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 48px;
+    text-decoration: none;
   }
 
-  &-content {
-    height: 100%;
-    display: flex;
-    flex-flow: column;
-  }
-
-  &-main {
-    position: relative;
-    z-index: 1;
-    flex-grow: 1;
-  }
-
-  &-body {
-    padding: 16px;
-    overflow: auto;
-    @include stretch;
+  &-menu {
+    margin-top: 24px;
   }
 }
 </style>

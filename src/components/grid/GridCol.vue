@@ -1,5 +1,5 @@
 <template>
-  <box :class="computedClassNames" :style="computedStyle">
+  <box :class="getComponentClassNames()" :style="computedStyle">
     <slot />
   </box>
 </template>
@@ -7,20 +7,22 @@
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
 
-import { GridBreakpointProp } from '../../typing/aliases';
-import { IGridColComponent } from '../../typing/interfaces/grid';
-import { isSpecificComponent } from '../../helper/utils';
+import { ComponentStyle } from '@petals/basic';
+import { GridBreakpointOption, IGridColComponent, GridColHeadlessComponent } from '@petals/grid';
 
-import { BaseComponent } from '../basic/BaseComponent';
+import { isSpecificComponent } from '../../helper/utils';
+import { getComponentName, BaseStructuralComponent } from '../basic';
 import { Box } from '../box';
 
 @Component({
-  name: 'BudsGridCol',
+  name: getComponentName('gridCol'),
   components: {
     Box,
   },
 })
-export default class GridCol extends BaseComponent implements IGridColComponent {
+export default class GridCol
+  extends BaseStructuralComponent<GridColHeadlessComponent>
+  implements IGridColComponent {
   /**
    * 栅格占位格数
    *
@@ -35,17 +37,17 @@ export default class GridCol extends BaseComponent implements IGridColComponent 
   @Prop({ type: Number, default: 0 })
   public readonly offset!: number;
 
-  /**
-   * 栅格向左移动格数
-   */
-  @Prop({ type: Number, default: 0 })
-  public readonly pull!: number;
+  // /**
+  //  * 栅格向左移动格数
+  //  */
+  // @Prop({ type: Number, default: 0 })
+  // public readonly pull!: number;
 
-  /**
-   * 栅格向右移动格数
-   */
-  @Prop({ type: Number, default: 0 })
-  public readonly push!: number;
+  // /**
+  //  * 栅格向右移动格数
+  //  */
+  // @Prop({ type: Number, default: 0 })
+  // public readonly push!: number;
 
   /**
    * `<576px` 响应式栅格
@@ -53,7 +55,7 @@ export default class GridCol extends BaseComponent implements IGridColComponent 
    * 可为栅格数或一个包含其他属性的对象
    */
   @Prop({ type: [Number, Object], default: -1 })
-  public readonly xs!: number | GridBreakpointProp;
+  public readonly xs!: GridBreakpointOption;
 
   /**
    * `≥576px` 响应式栅格
@@ -61,7 +63,7 @@ export default class GridCol extends BaseComponent implements IGridColComponent 
    * 可为栅格数或一个包含其他属性的对象
    */
   @Prop({ type: [Number, Object], default: -1 })
-  public readonly sm!: number | GridBreakpointProp;
+  public readonly sm!: GridBreakpointOption;
 
   /**
    * `≥768px` 响应式栅格
@@ -69,7 +71,7 @@ export default class GridCol extends BaseComponent implements IGridColComponent 
    * 可为栅格数或一个包含其他属性的对象
    */
   @Prop({ type: [Number, Object], default: -1 })
-  public readonly md!: number | GridBreakpointProp;
+  public readonly md!: GridBreakpointOption;
 
   /**
    * `≥992px` 响应式栅格
@@ -77,7 +79,7 @@ export default class GridCol extends BaseComponent implements IGridColComponent 
    * 可为栅格数或一个包含其他属性的对象
    */
   @Prop({ type: [Number, Object], default: -1 })
-  public readonly lg!: number | GridBreakpointProp;
+  public readonly lg!: GridBreakpointOption;
 
   /**
    * `≥1200px` 响应式栅格
@@ -85,65 +87,36 @@ export default class GridCol extends BaseComponent implements IGridColComponent 
    * 可为栅格数或一个包含其他属性的对象
    */
   @Prop({ type: [Number, Object], default: -1 })
-  public readonly xl!: number | GridBreakpointProp;
+  public readonly xl!: GridBreakpointOption;
 
-  /**
-   * ≥1600px 响应式栅格
-   *
-   * 可为栅格数或一个包含其他属性的对象
-   */
-  @Prop({ type: [Number, Object], default: -1 })
-  public readonly xxl!: number | GridBreakpointProp;
-
-  private getResponsiveClass(span: number, point: string = ''): string {
-    const pointClass = point ? `${point}-` : '';
-
-    return span === -1 ? '' : span === 0 ? `GridCol--${pointClass}hidden` : `GridCol--${pointClass}${span}`;
-  }
-
-  private get rowGutter(): any {
+  private get rowGutter(): number {
     let parent = this.$parent as any;
 
-    while (parent && parent.$vnode && !isSpecificComponent(parent.$vnode, 'BudsGridRow')) {
+    while (
+      parent &&
+      parent.$vnode &&
+      !isSpecificComponent(parent.$vnode, getComponentName('gridRow'))
+    ) {
       parent = parent.$parent;
     }
 
-    return parent ? parent.gutter : 0;
+    return parent && parent.getHeadlessComponent ? parent.getHeadlessComponent()!.getGutter() : 0;
   }
 
-  private get computedStyle(): any {
-    const rowGutter = this.rowGutter;
-    const style: any = {};
+  private get computedStyle(): ComponentStyle {
+    const gutter: number = this.rowGutter;
 
-    if (rowGutter > 0) {
-      style.paddingLeft = `${rowGutter / 2}px`;
-      style.paddingRight = style.paddingLeft;
+    if (gutter === 0) {
+      return {};
     }
 
-    return style;
+    const gutterSize = `${gutter / 2}px`;
+
+    return { paddingLeft: gutterSize, paddingRight: gutterSize };
   }
 
-  private get computedClassNames(): string {
-    const classNames = [this.$style.GridCol];
-    const spanClass = this.getResponsiveClass(this.span);
-
-    if (spanClass) {
-      classNames.push(this.$style[spanClass]);
-    }
-
-    if (this.offset > 0) {
-      classNames.push(this.$style[`GridCol--offset-${this.offset}`]);
-    }
-
-    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach(bp => {
-      const cls = this.getResponsiveClass(this[bp], bp);
-
-      if (cls) {
-        classNames.push(this.$style[cls]);
-      }
-    });
-
-    return classNames.join(' ');
+  public created(): void {
+    this.setHeadlessComponent(new GridColHeadlessComponent(this));
   }
 }
 </script>

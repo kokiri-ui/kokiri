@@ -1,3 +1,0 @@
-interface IPanelHeaderComponent {}
-
-export { IPanelHeaderComponent };

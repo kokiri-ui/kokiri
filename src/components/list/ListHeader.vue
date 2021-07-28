@@ -1,5 +1,5 @@
 <template>
-  <flex :class="$style['List-header']" align="center">
+  <flex :class="getClassNames()" align="center">
     <slot />
   </flex>
 </template>
@@ -7,8 +7,9 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
-import { IListHeaderComponent } from '../../typing/interfaces/list';
-import { BaseComponent } from '../basic/BaseComponent';
+import { IListHeaderComponent, ListHeaderHeadlessComponent } from '@petals/list';
+
+import { BaseStructuralComponent } from '../basic';
 import { Flex } from '../flex';
 
 @Component({
@@ -17,7 +18,18 @@ import { Flex } from '../flex';
     Flex,
   },
 })
-export default class ListHeader extends BaseComponent implements IListHeaderComponent {}
+export default class ListHeader extends BaseStructuralComponent<ListHeaderHeadlessComponent> implements IListHeaderComponent {
+  private getClassNames(): string[] {
+    return [
+      this.$style[`${BaseStructuralComponent.getComponentClassName('list')}-header`],
+      ...this.getComponentClassNames(),
+    ];
+  }
+
+  public created(): void {
+    this.setHeadlessComponent(new ListHeaderHeadlessComponent(this));
+  }
+}
 </script>
 
 <style lang="scss" src="./style.scss" module></style>

@@ -1,36 +1,36 @@
 <template>
-  <box :class="$style.TabPane">
+  <div :class="getComponentClassNames()">
     <slot />
-  </box>
+  </div>
 </template>
 
-<style lang="scss" src="./style.scss" module></style>
-
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import { Box } from '../box';
+import { Component, Prop } from 'vue-property-decorator';
+
+import { ITabPaneComponent, TabPaneHeadlessComponent } from '@petals/tabs';
+
+import { getComponentName, BaseStructuralComponent } from '../basic';
 
 @Component({
-  name: 'TabPane',
-  components: {
-    Box,
-  },
+  name: getComponentName('tabPane'),
 })
-export default class TabPane extends Vue {
+export default class TabPane
+  extends BaseStructuralComponent<TabPaneHeadlessComponent>
+  implements ITabPaneComponent {
   /**
    * 选项卡文本
    */
   @Prop({ type: String, required: true })
-  label!: string;
+  public readonly label!: string;
 
-  /**
-   * 是否禁用选项卡
-   */
-  @Prop({ type: Boolean, default: false })
-  disabled?: boolean;
+  public created(): void {
+    this.setHeadlessComponent(new TabPaneHeadlessComponent(this));
+  }
 
-  updated() {
-    this.$parent.$emit('tab-nav-update');
+  public updated(): void {
+    this.$parent.$emit('tab-pane-update');
   }
 }
 </script>
+
+<style lang="scss" src="./style.scss" module></style>

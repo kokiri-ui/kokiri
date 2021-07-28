@@ -2,39 +2,39 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
-import { ComponentStyle } from '../../typing';
-import { IPanelComponent } from '../../typing/interfaces/panel';
-import { isSpecificComponent } from '../../helper/utils';
+import { PanelBodyStyle, IPanelComponent, PanelHeadlessComponent } from '@petals/panel';
 
-import { BaseComponent } from '../basic/BaseComponent';
-import { Box } from '../box';
+import { isSpecificComponent } from '../../helper/utils';
+import { getComponentName, BaseStructuralComponent } from '../basic';
 import PanelHeader from './PanelHeader.vue';
 
 @Component({
-  name: 'BudsPanel',
+  name: getComponentName('panel'),
 })
-export default class Panel extends BaseComponent implements IPanelComponent {
-  @Prop({ type: String })
-  public readonly title?: string;
+export default class Panel
+  extends BaseStructuralComponent<PanelHeadlessComponent>
+  implements IPanelComponent {
+  @Prop({ type: String, default: '' })
+  public readonly title!: string;
 
-  @Prop({ type: Object })
-  public readonly bodyStyle?: ComponentStyle;
+  @Prop({ type: Boolean, default: false })
+  public readonly fixed!: boolean;
 
-  @Prop({ type: String })
-  public readonly bodyClass?: string;
+  @Prop({ type: String, default: '' })
+  public readonly bodyClassName!: string;
+
+  @Prop({ type: Object, default: () => ({}) })
+  public readonly bodyStyle!: PanelBodyStyle;
 
   public render(h: CreateElement): VNode {
     const children: VNode[] = [];
     const bodyNodes: VNode[] = [];
 
     let header: VNode | undefined;
-    let footer: VNode | undefined;
 
     (this.$slots.default || ([] as VNode[])).forEach((vn: any) => {
-      if (isSpecificComponent(vn, 'BudsPanelHeader')) {
+      if (isSpecificComponent(vn, getComponentName('panelHeader'))) {
         header = vn;
-      } else if (isSpecificComponent(vn, 'BudsPanelFooter')) {
-        footer = vn;
       } else {
         bodyNodes.push(vn);
       }
@@ -42,9 +42,9 @@ export default class Panel extends BaseComponent implements IPanelComponent {
 
     children.push(
       h(
-        Box,
+        'div',
         {
-          class: [this.$style['Panel-body'], this.bodyClass],
+          class: [this.getDescendantClassName('body'), this.bodyClassName],
           style: this.bodyStyle,
         },
         bodyNodes,
@@ -52,18 +52,18 @@ export default class Panel extends BaseComponent implements IPanelComponent {
     );
 
     if (!header && this.title) {
-      header = h(PanelHeader, this.title);
+      header = h(PanelHeader, { props: { title: this.title } });
     }
 
     if (header) {
       children.unshift(header);
     }
 
-    if (footer) {
-      children.push(footer);
-    }
+    return h('div', { class: this.getComponentClassNames() }, children);
+  }
 
-    return h(Box, { class: this.$style.Panel }, children);
+  public created(): void {
+    this.setHeadlessComponent(new PanelHeadlessComponent(this));
   }
 }
 </script>

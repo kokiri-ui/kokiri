@@ -6,15 +6,16 @@
   </box>
 </template>
 
-<style lang="scss" src="./style.scss" module></style>
-
 <script lang="ts">
 import { Component, Prop, Watch, Inject } from 'vue-property-decorator';
 
-import Box from '../box/Box.vue';
+import { LooseSize } from '@petals/basic';
+import { IBoxContentComponent } from '@petals/divided-box';
+
+import { Box } from '../box';
 import FlexBox from './FlexBox';
 
-interface StyleObject {
+type StyleObject = {
   width?: number | string;
   height?: number | string;
   flexGrow?: number;
@@ -25,20 +26,21 @@ interface StyleObject {
  * `HDividedBox` 和 `VDividedBox` 的子组件
  */
 @Component({
+  name: 'BudsBoxContent',
   components: {
     Box,
   },
 })
-export default class BoxContent extends FlexBox {
+export default class BoxContent extends FlexBox implements IBoxContentComponent {
   // 宽度，只在 `HDividedBox` 中有效
-  @Prop([Number, String])
-  public readonly width?: number | string;
+  @Prop({ type: [Number, String] })
+  public readonly width!: LooseSize;
 
   // 高度，只在 `VDividedBox` 中有效
-  @Prop([Number, String])
-  public readonly height?: number | string;
+  @Prop({ type: [Number, String] })
+  public readonly height!: LooseSize;
 
-  @Inject({ from: '__ss-parentDividedBox', default: () => ({}) })
+  @Inject({ from: '__buds-parentDividedBox', default: () => ({}) })
   private readonly parentDividedBox!: any;
 
   private resolveClassNames(): string[] {
@@ -71,3 +73,5 @@ export default class BoxContent extends FlexBox {
   }
 }
 </script>
+
+<style lang="scss" src="./style.scss" module></style>

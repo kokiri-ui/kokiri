@@ -5,11 +5,11 @@
 </template>
 
 <script lang="ts">
-import { CreateElement, VNode } from 'vue';
 import { Component } from 'vue-property-decorator';
 
-import { IAppComponent } from '../../typing/interfaces/app';
-import { BaseComponent } from '../basic/BaseComponent';
+import { IAppComponent, AppHeadlessComponent } from '@petals/app';
+
+import { getComponentName, BaseStructuralComponent } from '../basic';
 import { Box } from '../box';
 
 const docRoot = document.documentElement;
@@ -18,22 +18,29 @@ const docBody = document.body;
 @Component({
   // @ts-ignore
   abstract: true,
-  name: 'BudsApp',
+  name: getComponentName('app'),
   components: {
     Box,
   },
 })
-export default class App extends BaseComponent implements IAppComponent {
+export default class App
+  extends BaseStructuralComponent<AppHeadlessComponent>
+  implements IAppComponent
+{
   private addHostClassName(): void {
     const hostClassName = this.$style.Host;
     const bodyClassName = this.$style['Host-body'];
 
     if (docRoot.className.indexOf(hostClassName) === -1) {
-      docRoot.className = docRoot.className ? `${docRoot.className} ${hostClassName}` : hostClassName;
+      docRoot.className = docRoot.className
+        ? `${docRoot.className} ${hostClassName}`
+        : hostClassName;
     }
 
     if (docBody.className.indexOf(bodyClassName) === -1) {
-      docBody.className = docBody.className ? `${docBody.className} ${bodyClassName}` : bodyClassName;
+      docBody.className = docBody.className
+        ? `${docBody.className} ${bodyClassName}`
+        : bodyClassName;
     }
   }
 
@@ -43,6 +50,7 @@ export default class App extends BaseComponent implements IAppComponent {
   }
 
   public created(): void {
+    this.setHeadlessComponent(new AppHeadlessComponent(this));
     this.addHostClassName();
   }
 

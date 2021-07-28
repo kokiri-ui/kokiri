@@ -1,3 +1,0 @@
-interface ILayoutMainComponent {}
-
-export { ILayoutMainComponent };

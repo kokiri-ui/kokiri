@@ -1,6 +1,6 @@
-import SsMenu from './Menu';
-import SsMenuItem from './MenuItem.vue';
-import SsMenuItemGroup from './MenuItemGroup';
-import SsSubMenu from './SubMenu.vue';
+import Menu from './Menu.vue';
+import MenuItem from './MenuItem.vue';
+import MenuItemGroup from './MenuItemGroup.vue';
+import SubMenu from './SubMenu.vue';
 
-export { SsMenu, SsMenuItem, SsMenuItemGroup, SsSubMenu };
+export { Menu, MenuItem, MenuItemGroup, SubMenu };

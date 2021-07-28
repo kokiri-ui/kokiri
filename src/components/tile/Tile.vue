@@ -1,38 +1,39 @@
-<style lang="scss" module>
-.Tile {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-
-  &.is-horizontal {
-    flex-direction: row;
-  }
-
-  &.is-vertical {
-    flex-direction: column;
-  }
-}
-</style>
-
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import Box from '../box/Box.vue';
+import { CreateElement, VNode } from 'vue';
+import { Component, Prop } from 'vue-property-decorator';
+
+import { LooseSize, DirectionType } from '@petals/basic';
+import { ITileComponent } from '@petals/tile';
+
+import { getComponentName, BaseStructuralComponent } from '../basic';
+import { Box } from '../box';
 import TileCell from './TileCell.vue';
 
+function resolveNumeric(num: LooseSize): number {
+  if (typeof num === 'number') {
+    return num;
+  }
+
+  const resolved: number = parseFloat(num);
+
+  return isNaN(resolved) ? 0 : resolved;
+}
+
 @Component({
+  name: getComponentName('tile'),
   components: {
     Box,
     TileCell,
   },
 })
-export default class Tile extends Vue {
+export default class Tile extends BaseStructuralComponent implements ITileComponent {
   /**
    * 排列方向
    *
    * 可选值为 `'horizontal'` 和 `'vertical'`，默认为 `'horizontal'`
    */
-  @Prop(String)
-  direction?: string;
+  @Prop({ type: String, default: 'horizontal' })
+  public readonly direction!: DirectionType;
 
   /**
    * 每个单元格的宽度
@@ -40,7 +41,7 @@ export default class Tile extends Vue {
    * 为 `0` 时自动获取子项中最宽的作为基准
    */
   @Prop({ type: Number, default: 0 })
-  width!: number;
+  public readonly width!: LooseSize;
 
   /**
    * 每个单元格的高度
@@ -48,7 +49,7 @@ export default class Tile extends Vue {
    * 为 `0` 时自动获取子项中最高的作为基准
    */
   @Prop({ type: Number, default: 0 })
-  height!: number;
+  public readonly height!: LooseSize;
 
   private tileWidth: number = 0;
   private tileHeight: number = 0;
@@ -63,12 +64,15 @@ export default class Tile extends Vue {
     let tileWidth: number = 0;
     let tileHeight: number = 0;
 
-    if (width > 0) {
-      tileWidth = width;
+    const resolvedWidth: number = resolveNumeric(width);
+    const resolvedHeight: number = resolveNumeric(height);
+
+    if (resolvedWidth > 0) {
+      tileWidth = resolvedWidth;
     }
 
-    if (height > 0) {
-      tileHeight = height;
+    if (resolvedHeight > 0) {
+      tileHeight = resolvedHeight;
     }
 
     if (vNodes && (tileWidth === 0 || tileHeight === 0)) {
@@ -97,7 +101,7 @@ export default class Tile extends Vue {
     this.tileHeight = tileHeight;
   }
 
-  render(createVNodes) {
+  public render(createVNodes: CreateElement): VNode {
     const { direction, tileWidth, tileHeight } = this;
     const vNodes = this.$slots.default || [];
     const isHorizontal = direction !== 'vertical';
@@ -124,23 +128,32 @@ export default class Tile extends Vue {
     return createVNodes(
       'box',
       {
-        class: [this.$style.Tile, isHorizontal ? this.$style['is-horizontal'] : this.$style['is-vertical']],
+        class: [
+          this.$style.Tile,
+          isHorizontal ? this.$style['is-horizontal'] : this.$style['is-vertical'],
+        ],
         style: containerStyle,
       },
-      vNodes.map(vn => createVNodes('TileCell', { props: { width: this.tileWidth, height: this.tileHeight } }, [vn])),
+      vNodes.map(vn =>
+        createVNodes('TileCell', { props: { width: this.tileWidth, height: this.tileHeight } }, [
+          vn,
+        ]),
+      ),
     );
   }
 
-  created() {
+  public created(): void {
     this.$on('tile-cell-update', this.calcSize.bind(this));
   }
 
-  mounted() {
+  public mounted(): void {
     this.calcSize();
   }
 
-  update() {
+  public update(): void {
     this.calcSize();
   }
 }
 </script>
+
+<style src="./style.scss" lang="scss" module></style>

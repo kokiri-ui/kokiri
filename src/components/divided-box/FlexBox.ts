@@ -1,9 +1,12 @@
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Component, Prop } from 'vue-property-decorator';
 
-import { HorizontalAlignment, VerticalAlignment, ResizeType } from '../../typing';
+import { HorizontalAlignment, VerticalAlignment, ResizeType } from '@petals/basic';
+import { IFlexBoxComponent } from '@petals/divided-box';
+
+import { BaseStructuralComponent } from '../basic';
 
 @Component
-export default class FlexBox extends Vue {
+export default class FlexBox extends BaseStructuralComponent implements IFlexBoxComponent {
   @Prop({ type: String, default: 'left' })
   public readonly horizontalAlign!: HorizontalAlignment;
 

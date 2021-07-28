@@ -1,25 +1,30 @@
-const path = require('path');
+const { join: joinPath, resolve: resolvePath } = require('path'); // eslint-disable-line @typescript-eslint/no-var-requires
+const mock = require('mocker-api'); // eslint-disable-line @typescript-eslint/no-var-requires
 
 function resolve(dir) {
-  return path.join(__dirname, dir);
+  return joinPath(__dirname, dir);
 }
+
+const APP_SRC = './test/app';
 
 module.exports = {
   publicPath: '/',
   configureWebpack: {
     entry: {
-      app: './demo/main.ts',
+      app: `${APP_SRC}/main.ts`,
     },
     resolve: {
       alias: {
-        vue$: 'vue/dist/vue.esm.js',
-        'buds-vue': resolve('./src'),
+        '@': resolve(`${APP_SRC}/shared`),
+        '@petals': resolve('./test/external/petals'),
+        '@kokiri': resolve('./test/external/kokiri'),
+        'handie-vue': resolve('./src'),
       },
     },
   },
   chainWebpack: config => {
     config.plugin('html').tap(args => {
-      args[0].template = resolve('demo/index.html');
+      args[0].template = resolve('./test/public/index.html');
 
       return args;
     });
@@ -28,12 +33,15 @@ module.exports = {
     loaderOptions: {
       sass: {
         implementation: require('sass'),
-        fiber: require('fibers'),
-        data: `@import "~buds-vue/style/helper";`,
+        sassOptions: {
+          fiber: require('fibers'),
+        },
+        additionalData: `@import "~@kokiri/themes/antd/helper";`,
       },
     },
   },
   devServer: {
     disableHostCheck: true,
+    before: app => mock(app, resolvePath('./test/mock/index.js')),
   },
 };

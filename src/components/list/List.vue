@@ -2,26 +2,31 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
-import { IListComponent } from '../../typing/interfaces/list';
+import { ComponentStyle } from '@petals/basic';
+import { IListComponent, ListHeadlessComponent } from '@petals/list';
+
 import { isSpecificComponent } from '../../helper/utils';
-import { BaseComponent } from '../basic/BaseComponent';
+import { BaseStructuralComponent } from '../basic';
 import { Box } from '../box';
 
 @Component({
   name: 'BudsList',
 })
-export default class List extends BaseComponent implements IListComponent {
+export default class List extends BaseStructuralComponent<ListHeadlessComponent> implements IListComponent {
+  @Prop({ type: String, default: '' })
+  public readonly title!: string;
+
   @Prop({ type: Boolean, default: false })
   public readonly bordered!: boolean;
 
-  @Prop({ type: Boolean, default: true })
+  @Prop({ type: Boolean, default: false })
   public readonly divided!: boolean;
 
-  @Prop({ type: Boolean, default: false })
-  public readonly loading!: boolean;
+  @Prop({ type: String, default: '' })
+  public readonly bodyClassName!: string;
 
-  @Prop({ type: String })
-  public readonly bodyClass?: string;
+  @Prop({ type: Object, default: () => ({}) })
+  public readonly bodyStyle!: ComponentStyle;
 
   public render(h: CreateElement): VNode {
     const children: VNode[] = [];
@@ -40,10 +45,10 @@ export default class List extends BaseComponent implements IListComponent {
       }
     });
 
-    const bodyClassNames: string[] = [this.$style['List-body']];
+    const bodyClassNames: string[] = [this.getDescendantClassName('body')];
 
-    if (this.bodyClass) {
-      bodyClassNames.push(this.bodyClass);
+    if (this.bodyClassName) {
+      bodyClassNames.push(this.bodyClassName);
     }
 
     if (bodyNodes.length > 0) {
@@ -60,19 +65,11 @@ export default class List extends BaseComponent implements IListComponent {
       children.push(footer);
     }
 
-    return h(
-      Box,
-      {
-        class: [
-          this.$style.List,
-          {
-            [this.$style['is-bordered']]: this.bordered,
-            [this.$style['is-divided']]: this.divided,
-          },
-        ],
-      },
-      children,
-    );
+    return h(Box, { class: this.getComponentClassNames() }, children);
+  }
+
+  public created(): void {
+    this.setHeadlessComponent(new ListHeadlessComponent(this));
   }
 }
 </script>

@@ -1,3 +1,0 @@
-interface IListItemComponent {}
-
-export { IListItemComponent };

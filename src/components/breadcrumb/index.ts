@@ -1,4 +1,4 @@
-import SsBreadcrumb from './Breadcrumb.vue';
-import SsBreadcrumbItem from './BreadcrumbItem.vue';
+import Breadcrumb from './Breadcrumb.vue';
+import BreadcrumbItem from './BreadcrumbItem.vue';
 
-export { SsBreadcrumb, SsBreadcrumbItem };
+export { Breadcrumb, BreadcrumbItem };

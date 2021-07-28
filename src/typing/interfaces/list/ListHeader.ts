@@ -1,3 +1,0 @@
-interface IListHeaderComponent {}
-
-export { IListHeaderComponent };

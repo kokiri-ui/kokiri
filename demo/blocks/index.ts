@@ -1,7 +1,10 @@
-import HomePage from './Home.vue';
-import BoxDemo from './Box.vue';
-import ButtonDemo from './Button.vue';
-import FlexDemo from './Flex.vue';
-import PanelDemo from './Panel.vue';
+import DemoHome from './Home.vue';
 
-export { HomePage, BoxDemo, ButtonDemo, FlexDemo, PanelDemo };
+import demoRoutes from './routes';
+
+const routes = [
+  { path: '/', name: 'home', component: DemoHome },
+  ...demoRoutes.map(({ text, ...others }) => others),
+];
+
+export { routes, demoRoutes };

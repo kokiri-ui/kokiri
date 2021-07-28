@@ -4,29 +4,28 @@
   </box>
 </template>
 
-<style lang="scss" module>
-.TileCell {
-  overflow: hidden;
-}
-</style>
-
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import Box from '../box/Box.vue';
+import { Component, Prop } from 'vue-property-decorator';
+
+import { ITileCellComponent } from '@petals/tile';
+
+import { getComponentName, BaseStructuralComponent } from '../basic';
+import { Box } from '../box';
 
 @Component({
+  name: getComponentName('tileCell'),
   components: {
     Box,
   },
 })
-export default class TileCell extends Vue {
+export default class TileCell extends BaseStructuralComponent implements ITileCellComponent {
   @Prop({ type: Number, required: true })
-  width!: number;
+  public readonly width!: number;
 
   @Prop({ type: Number, required: true })
-  height!: number;
+  public readonly height!: number;
 
-  get computedStyle(): any {
+  private get computedStyle(): any {
     const { width, height } = this;
 
     if (width > 0 && height > 0) {
@@ -39,8 +38,10 @@ export default class TileCell extends Vue {
     return {};
   }
 
-  updated() {
+  public updated(): void {
     this.$parent.$emit('tile-cell-update');
   }
 }
 </script>
+
+<style src="./style.scss" lang="scss" module></style>

@@ -1,19 +1,20 @@
-<style lang="scss" src="./style.scss" module></style>
-
 <script lang="ts">
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop, Provide } from 'vue-property-decorator';
-import { DirectionType } from '../../typing';
-import Box from '../box/Box.vue';
+
+import { DirectionType, AdjustmentType } from '@petals/basic';
+import { IDividedBoxComponent } from '@petals/divided-box';
+
+import { Box } from '../box';
 import FlexBox from './FlexBox';
 
 @Component({
-  name: 'SsDividedBox',
+  name: 'BudsDividedBox',
   components: {
     Box,
   },
 })
-export default class SsDividedBox extends FlexBox {
+export default class DividedBox extends FlexBox implements IDividedBoxComponent {
   @Prop({ type: String, default: 'vertical' })
   public readonly direction!: DirectionType;
 
@@ -24,9 +25,9 @@ export default class SsDividedBox extends FlexBox {
    * `HDividedBox` 默认为 `'average'`，`VDividedBox` 默认为 `'auto'`
    */
   @Prop({ type: String })
-  public readonly adjust?: string;
+  public readonly adjust!: AdjustmentType;
 
-  @Provide('__ss-parentDividedBox')
+  @Provide('__buds-parentDividedBox')
   private readonly parentDividedBox: any = {};
 
   private get defaultAdjustment(): string {
@@ -59,3 +60,5 @@ export default class SsDividedBox extends FlexBox {
   }
 }
 </script>
+
+<style lang="scss" src="./style.scss" module></style>

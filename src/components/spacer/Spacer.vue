@@ -1,24 +1,28 @@
 <template>
-  <box :class="$style.Spacer" />
+  <box :class="getComponentClassNames()" />
 </template>
 
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
-import { ISpacerComponent } from '../../typing/interfaces/spacer';
-import { BaseComponent } from '../basic/BaseComponent';
+
+import { ISpacerComponent, SpacerHeadlessComponent } from '@petals/spacer';
+
+import { getComponentName, BaseStructuralComponent } from '../basic';
 import { Box } from '../box';
 
 @Component({
-  name: 'BudsSpacer',
+  name: getComponentName('spacer'),
   components: {
     Box,
   },
 })
-export default class Spacer extends BaseComponent implements ISpacerComponent {}
+export default class Spacer
+  extends BaseStructuralComponent<SpacerHeadlessComponent>
+  implements ISpacerComponent {
+  public created(): void {
+    this.setHeadlessComponent(new SpacerHeadlessComponent(this));
+  }
+}
 </script>
 
-<style lang="scss" module>
-.Spacer {
-  flex-grow: 1 !important;
-}
-</style>
+<style src="./style.scss" lang="scss" module></style>

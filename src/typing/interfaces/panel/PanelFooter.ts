@@ -1,3 +1,0 @@
-interface IPanelFooterComponent {}
-
-export { IPanelFooterComponent };

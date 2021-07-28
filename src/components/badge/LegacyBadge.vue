@@ -4,11 +4,6 @@
   </el-badge>
 </template>
 
-<style lang="scss" module>
-@include component-rules($__badge-component-name) {
-}
-</style>
-
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import { Badge as ElBadge } from 'element-ui';

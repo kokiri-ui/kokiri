@@ -1,4 +1,4 @@
-# Buds for Vue
+# Kokiri
 
 ## 约定
 

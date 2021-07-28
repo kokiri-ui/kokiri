@@ -1,53 +1,68 @@
 <template>
-  <el-avatar :class="computedClassName" :shape="shape" :size="size" :src="src" :icon="icon" :alt="alt" />
+  <el-avatar
+    :class="getComponentClassNames()"
+    :src="getSourceUrl()"
+    :alt="alt"
+    :fit="fit"
+    :size="size"
+    :shape="shape"
+    :icon="icon"
+  >
+    <slot />
+  </el-avatar>
 </template>
 
-<style lang="scss" module>
-@include component-rules($__avatar-component-name) {
-  &--image {
-    background-color: transparent;
-
-    img {
-      width: 100%;
-    }
-  }
-}
-</style>
-
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Component, Prop } from 'vue-property-decorator';
 import { Avatar as ElAvatar } from 'element-ui';
-import { AvatarShape, SizeType } from '../../typing';
+
+import {
+  AvatarShape,
+  AvatarSize,
+  AvatarFit,
+  IAvatarComponent,
+  AvatarHeadlessComponent,
+} from '@petals/avatar';
+
+import { getComponentName, BaseStructuralComponent } from '../basic';
 
 @Component({
+  name: getComponentName('avatar'),
   components: {
     ElAvatar,
   },
 })
-export default class SsAvatar extends Vue {
-  @Prop({ type: String, default: 'circle' })
-  public readonly shape!: AvatarShape;
-
-  @Prop({ type: [String, Number], default: 'medium' })
-  public readonly size!: SizeType | number;
-
+export default class Avatar
+  extends BaseStructuralComponent<AvatarHeadlessComponent>
+  implements IAvatarComponent {
   @Prop({ type: String, default: '' })
   public readonly src!: string;
 
   @Prop({ type: String, default: '' })
-  public readonly icon!: string;
+  public readonly fallback!: string;
 
   @Prop({ type: String, default: '' })
   public readonly alt!: string;
 
-  private get computedClassName(): string[] {
-    const classNames = [this.$style.Avatar];
+  @Prop({ type: String, default: 'cover' })
+  public readonly fit!: AvatarFit;
 
-    if (this.src !== '') {
-      classNames.push(this.$style['Avatar--image']);
-    }
+  @Prop({ type: Boolean, default: false })
+  public readonly lazy!: boolean;
 
-    return classNames;
+  @Prop({ type: [String, Number], default: 'medium' })
+  public readonly size!: AvatarSize;
+
+  @Prop({ type: String, default: 'circle' })
+  public readonly shape!: AvatarShape;
+
+  @Prop({ type: String, default: '' })
+  public readonly icon!: string;
+
+  public created(): void {
+    this.setHeadlessComponent(new AvatarHeadlessComponent(this));
   }
 }
 </script>
+
+<style src="./style.scss" lang="scss" module></style>

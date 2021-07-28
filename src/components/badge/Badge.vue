@@ -7,9 +7,11 @@
 <script lang="ts">
 import { VueConstructor } from 'vue';
 import { Vue, Component, Prop } from 'vue-property-decorator';
+
+import { ProcessStatus } from '@petals/basic';
+
 import SsBadge from './SsBadge.vue';
 import LegacyBadge from './LegacyBadge.vue';
-import { ProcessStatus } from '../../typing';
 
 @Component({
   components: {

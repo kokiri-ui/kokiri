@@ -1,36 +1,45 @@
 <template>
-  <el-divider :direction="direction" :content-position="orientation">
+  <el-divider
+    :class="getComponentClassNames()"
+    :direction="direction"
+    :content-position="alignment"
+  >
     <slot />
   </el-divider>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Watch, Emit, Prop } from 'vue-property-decorator';
+import { Component, Prop } from 'vue-property-decorator';
 import { Divider as ElDivider } from 'element-ui';
-import { DirectionType } from '../../typing';
 
-enum OrientationType {
-  Left = 'left',
-  Center = 'center',
-  Right = 'right',
-}
+import { DirectionType, HorizontalAlignment } from '@petals/basic';
+import { IDividerComponent, DividerHeadlessComponent } from '@petals/divider';
+
+import { getComponentName, BaseStructuralComponent } from '../basic';
 
 @Component({
+  name: getComponentName('divider'),
   components: {
     ElDivider,
   },
 })
-export default class SsDivider extends Vue {
+export default class Divider
+  extends BaseStructuralComponent<DividerHeadlessComponent>
+  implements IDividerComponent {
   /**
    * 分割线方向
    */
   @Prop({ type: String, default: 'horizontal' })
-  readonly direction!: DirectionType;
+  public readonly direction!: DirectionType;
 
   /**
    * 分割线文案位置
    */
-  @Prop({ type: String, default: OrientationType.Center })
-  readonly orientation!: OrientationType;
+  @Prop({ type: String, default: 'center' })
+  public readonly alignment!: HorizontalAlignment;
+
+  public created(): void {
+    this.setHeadlessComponent(new DividerHeadlessComponent(this));
+  }
 }
 </script>

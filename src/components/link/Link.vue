@@ -1,29 +1,34 @@
 <template>
-  <el-link :href="url" :type="type" :underline="underline" :disabled="disabled">
+  <a :class="getComponentClassNames()" :href="href" :target="`_${target}`">
     <slot />
-  </el-link>
+  </a>
 </template>
+
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
-import { Link as ElLink } from 'element-ui';
-import { StatusType } from '../../typing';
+import { Component, Prop } from 'vue-property-decorator';
+
+import { LinkTarget, ILinkComponent, LinkHeadlessComponent } from '@petals/link';
+
+import { getComponentName, BaseStructuralComponent } from '../basic';
+
+type LinkHref = string;
 
 @Component({
-  components: {
-    ElLink,
-  },
+  name: getComponentName('link'),
 })
-export default class SsLink extends Vue {
+export default class Link
+  extends BaseStructuralComponent<LinkHeadlessComponent>
+  implements ILinkComponent<LinkHref> {
   @Prop({ type: String, default: 'javascript:void(0);' })
-  readonly url!: string;
+  public readonly href!: LinkHref;
 
-  @Prop({ type: String, default: 'default' })
-  readonly type!: StatusType;
+  @Prop({ type: String, default: 'self' })
+  public readonly target!: LinkTarget;
 
-  @Prop({ type: Boolean, default: false })
-  readonly underline!: boolean;
-
-  @Prop({ type: Boolean, default: false })
-  readonly disabled!: boolean;
+  public created(): void {
+    this.setHeadlessComponent(new LinkHeadlessComponent(this));
+  }
 }
 </script>
+
+<style src="./style.scss" lang="scss" module></style>

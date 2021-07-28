@@ -1,22 +1,40 @@
 <template>
-  <span :class="$style.Text" v-on="$listeners">
+  <span :class="getComponentClassNames()" v-on="$listeners">
     <slot />
   </span>
 </template>
 
 <script lang="ts">
-import { Component } from 'vue-property-decorator';
-import { ITextComponent } from '../../typing/interfaces/text';
-import { BaseComponent } from '../basic/BaseComponent';
+import { Component, Prop } from 'vue-property-decorator';
+
+import {
+  TypoLinePosition,
+  TypoTextColor,
+  ITextComponent,
+  TextHeadlessComponent,
+} from '@petals/text';
+
+import { getComponentName, BaseStructuralComponent } from '../basic';
 
 @Component({
-  name: 'BudsText',
+  name: getComponentName('text'),
 })
-export default class Text extends BaseComponent implements ITextComponent {}
+export default class Text
+  extends BaseStructuralComponent<TextHeadlessComponent>
+  implements ITextComponent {
+  @Prop({ type: String, default: 'none' })
+  public readonly line!: TypoLinePosition;
+
+  @Prop({ type: String, default: '' })
+  public readonly color!: TypoTextColor;
+
+  @Prop({ type: Boolean, default: false })
+  public readonly bold!: boolean;
+
+  public created(): void {
+    this.setHeadlessComponent(new TextHeadlessComponent(this));
+  }
+}
 </script>
 
-<style lang="scss" module>
-.Text {
-  display: inline;
-}
-</style>
+<style src="./style.scss" lang="scss" module></style>

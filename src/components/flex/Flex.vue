@@ -1,75 +1,36 @@
 <template>
-  <box :class="computeClassNames()">
+  <div :class="getComponentClassNames()">
     <slot />
-  </box>
+  </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
 
-import { DirectionType } from '../../typing/aliases';
-import { FlexAlignment, IFlexComponent } from '../../typing/interfaces/flex';
+import { FlexDirection, FlexAlignment, IFlexComponent, FlexHeadlessComponent } from '@petals/flex';
 
-import { BaseComponent } from '../basic/BaseComponent';
-import { Box } from '../box';
+import { getComponentName, BaseStructuralComponent } from '../basic';
 
 @Component({
-  name: 'BudsFlex',
-  components: {
-    Box,
-  },
+  name: getComponentName('flex'),
 })
-export default class Flex extends BaseComponent implements IFlexComponent {
-  @Prop({ type: String })
-  public readonly direction?: DirectionType;
+export default class Flex
+  extends BaseStructuralComponent<FlexHeadlessComponent>
+  implements IFlexComponent {
+  @Prop({ type: String, default: 'horizontal' })
+  public readonly direction!: FlexDirection;
 
-  @Prop({ type: String })
-  public readonly align?: FlexAlignment;
+  @Prop({ type: String, default: 'start' })
+  public readonly align!: FlexAlignment;
 
-  @Prop({ type: String })
-  public readonly justify?: FlexAlignment;
+  @Prop({ type: String, default: 'start' })
+  public readonly justify!: FlexAlignment;
 
-  @Prop({ type: Boolean })
-  public readonly reverse?: boolean;
+  @Prop({ type: Boolean, default: false })
+  public readonly reverse!: boolean;
 
-  private computeClassNames(): string[] {
-    const classNames: string[] = [this.$style.Flex];
-
-    if (this.direction === 'vertical') {
-      classNames.push(this.$style['Flex--vertical']);
-    } else {
-      classNames.push(this.$style['Flex--horizontal']);
-    }
-
-    switch (this.align) {
-      case 'center':
-        classNames.push(this.$style['Flex--alignCenter']);
-        break;
-      case 'end':
-        classNames.push(this.$style['Flex--alignEnd']);
-        break;
-      default:
-        classNames.push(this.$style['Flex--alignStart']);
-        break;
-    }
-
-    switch (this.justify) {
-      case 'center':
-        classNames.push(this.$style['Flex--justifyCenter']);
-        break;
-      case 'end':
-        classNames.push(this.$style['Flex--justifyEnd']);
-        break;
-      default:
-        classNames.push(this.$style['Flex--justifyStart']);
-        break;
-    }
-
-    if (this.reverse) {
-      classNames.push(this.$style['is-reverse']);
-    }
-
-    return classNames;
+  public created(): void {
+    this.setHeadlessComponent(new FlexHeadlessComponent(this));
   }
 }
 </script>

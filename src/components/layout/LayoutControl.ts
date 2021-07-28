@@ -1,22 +1,28 @@
-import Vue from 'vue';
-import { Component } from 'vue-property-decorator';
+import { Vue, Component } from 'vue-property-decorator';
 
-import { LayoutRole } from '../../typing/aliases';
-import { ILayoutContainerComponent } from '../../typing/interfaces/layout';
+import { BaseHeadlessComponent } from '@petals/basic';
+import { LayoutRole, ILayoutContainerComponent } from '@petals/layout';
+
 import { findSpecificAncestor } from '../../helper/utils';
-import { BaseComponent } from '../basic/BaseComponent';
+import { getComponentName, BaseStructuralComponent } from '../basic';
 
-type SelfContainer = ILayoutContainerComponent & Vue;
+type SelfContainer = ILayoutContainerComponent &
+  Vue & {
+    __registerRole: (role: LayoutRole, $role: Vue) => void;
+    __removeRole: (role: LayoutRole) => void;
+  };
 
 @Component
-class LayoutControl extends BaseComponent {
+class LayoutControl<
+  HeadlessComponent = BaseHeadlessComponent
+> extends BaseStructuralComponent<HeadlessComponent> {
   protected role!: LayoutRole;
 
   protected container!: SelfContainer | null;
 
   public mounted(): void {
-    const ancestor = findSpecificAncestor(this, 'BudsLayoutContainer');
-    const container = ancestor ? (ancestor as SelfContainer) : null;
+    const ancestor: Vue | null = findSpecificAncestor(this, getComponentName('layoutContainer'));
+    const container: SelfContainer | null = ancestor ? (ancestor as SelfContainer) : null;
 
     if (container) {
       container.__registerRole(this.role, this);

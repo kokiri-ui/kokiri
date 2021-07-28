@@ -12,50 +12,26 @@
   </box>
 </template>
 
-<style lang="scss" module>
-@include component-rules($__feed-component-name) {
-  display: flex;
-
-  &-aside {
-    padding-right: 12px;
-  }
-
-  &-avatar {
-    display: block;
-  }
-
-  &-content {
-    flex-grow: 1;
-  }
-
-  &-header {
-    font-size: 14px;
-    font-weight: bold;
-  }
-
-  &-body {
-    padding-top: 8px;
-    font-size: 12px;
-  }
-}
-</style>
-
 <script lang="ts">
-import { Vue, Component, Prop, Emit } from 'vue-property-decorator';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 
-import { ComponentStyle } from '../../typing';
+import { ComponentStyle } from '@petals/basic';
+import { IFeedComponent } from '@petals/feed';
+
+import { getComponentName, BaseStructuralComponent } from '../basic';
 import { Box } from '../box';
 import { Flex } from '../flex';
-import Avatar from '../avatar/Avatar.vue';
+import { Avatar } from '../avatar';
 
 @Component({
+  name: getComponentName('feed'),
   components: {
     Box,
     Flex,
     Avatar,
   },
 })
-export default class Feed extends Vue {
+export default class Feed extends BaseStructuralComponent implements IFeedComponent {
   @Prop({ type: String, default: '' })
   public readonly avatar!: string;
 
@@ -81,3 +57,5 @@ export default class Feed extends Vue {
   private handleClick() {}
 }
 </script>
+
+<style src="./style.scss" lang="scss" module></style>

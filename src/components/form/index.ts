@@ -1,4 +1,6 @@
 import Form from './Form.vue';
-import FormItem from './FormItem.vue';
+import FormField from './FormField.vue';
+import FormFieldLabel from './FormFieldLabel.vue';
+import FormFieldHint from './FormFieldHint.vue';
 
-export { Form, FormItem };
+export { Form, FormField, FormFieldLabel, FormFieldHint };

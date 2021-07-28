@@ -1,99 +1,166 @@
 <template>
-  <box>
-    <h1>Flex</h1>
-    <section>
-      <h2>Horizontal flex</h2>
-      <box>
-        <h3>Normal</h3>
-        <box>
-          <flex>
-            <buds-button>normal button</buds-button>
-            <buds-button size="large" primary>large button</buds-button>
-            <buds-button size="small" danger>small button</buds-button>
-          </flex>
-          <flex align="center" justify="center">
-            <buds-button>normal button</buds-button>
-            <buds-button size="large" primary>large button</buds-button>
-            <buds-button size="small" danger>small button</buds-button>
-          </flex>
-          <flex align="end" justify="end">
-            <buds-button>normal button</buds-button>
-            <buds-button size="large" primary>large button</buds-button>
-            <buds-button size="small" danger>small button</buds-button>
-          </flex>
-        </box>
-        <h3>Reversed</h3>
-        <box>
-          <flex reverse>
-            <buds-button>normal button</buds-button>
-            <buds-button size="large" primary>large button</buds-button>
-            <buds-button size="small" danger>small button</buds-button>
-          </flex>
-          <flex align="center" justify="center" reverse>
-            <buds-button>normal button</buds-button>
-            <buds-button size="large" primary>large button</buds-button>
-            <buds-button size="small" danger>small button</buds-button>
-          </flex>
-          <flex align="end" justify="end" reverse>
-            <buds-button>normal button</buds-button>
-            <buds-button size="large" primary>large button</buds-button>
-            <buds-button size="small" danger>small button</buds-button>
-          </flex>
-        </box>
-      </box>
-      <h2>Vertical flex</h2>
-      <box>
-        <h3>Normal</h3>
-        <box>
-          <flex direction="vertical">
-            <buds-button>normal button</buds-button>
-            <buds-button size="large" primary>large button</buds-button>
-            <buds-button size="small" danger>small button</buds-button>
-          </flex>
-          <flex direction="vertical" align="center" justify="center">
-            <buds-button>normal button</buds-button>
-            <buds-button size="large" primary>large button</buds-button>
-            <buds-button size="small" danger>small button</buds-button>
-          </flex>
-          <flex direction="vertical" align="end" justify="end">
-            <buds-button>normal button</buds-button>
-            <buds-button size="large" primary>large button</buds-button>
-            <buds-button size="small" danger>small button</buds-button>
-          </flex>
-        </box>
-        <h3>Reversed</h3>
-        <box>
-          <flex direction="vertical" reverse>
-            <buds-button>normal button</buds-button>
-            <buds-button size="large" primary>large button</buds-button>
-            <buds-button size="small" danger>small button</buds-button>
-          </flex>
-          <flex direction="vertical" align="center" justify="center" reverse>
-            <buds-button>normal button</buds-button>
-            <buds-button size="large" primary>large button</buds-button>
-            <buds-button size="small" danger>small button</buds-button>
-          </flex>
-          <flex direction="vertical" align="end" justify="end" reverse>
-            <buds-button>normal button</buds-button>
-            <buds-button size="large" primary>large button</buds-button>
-            <buds-button size="small" danger>small button</buds-button>
-          </flex>
-        </box>
-      </box>
-    </section>
-  </box>
+  <demo-container title="弹性框 Flex">
+    <demo-section title="演示">
+      <demo-block title="正向横向排列水平对齐">
+        <kokiri-flex class="FlexDemo-horizontalFlexContainer">
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex class="FlexDemo-horizontalFlexContainer" justify="center">
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex class="FlexDemo-horizontalFlexContainer" justify="end">
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+      </demo-block>
+      <demo-block title="正向横向排列垂直对齐">
+        <kokiri-flex class="FlexDemo-horizontalFlexContainer">
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex class="FlexDemo-horizontalFlexContainer" align="center">
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex class="FlexDemo-horizontalFlexContainer" align="end">
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+      </demo-block>
+      <demo-block title="反向横向排列水平对齐">
+        <kokiri-flex class="FlexDemo-horizontalFlexContainer" reverse>
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex class="FlexDemo-horizontalFlexContainer" justify="center" reverse>
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex class="FlexDemo-horizontalFlexContainer" justify="end" reverse>
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+      </demo-block>
+      <demo-block title="反向横向排列垂直对齐">
+        <kokiri-flex class="FlexDemo-horizontalFlexContainer" reverse>
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex class="FlexDemo-horizontalFlexContainer" align="center" reverse>
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex class="FlexDemo-horizontalFlexContainer" align="end" reverse>
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+      </demo-block>
+      <demo-block title="正向纵向排列垂直对齐">
+        <kokiri-flex class="FlexDemo-verticalFlexContainer" direction="vertical">
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex class="FlexDemo-verticalFlexContainer" direction="vertical" justify="center">
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex class="FlexDemo-verticalFlexContainer" direction="vertical" justify="end">
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+      </demo-block>
+      <demo-block title="正向纵向排列水平对齐">
+        <kokiri-flex class="FlexDemo-verticalFlexContainer" direction="vertical">
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex class="FlexDemo-verticalFlexContainer" direction="vertical" align="center">
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex class="FlexDemo-verticalFlexContainer" direction="vertical" align="end">
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+      </demo-block>
+      <demo-block title="反向纵向排列垂直对齐">
+        <kokiri-flex class="FlexDemo-verticalFlexContainer" direction="vertical" reverse>
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex
+          class="FlexDemo-verticalFlexContainer"
+          direction="vertical"
+          justify="center"
+          reverse
+        >
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex
+          class="FlexDemo-verticalFlexContainer"
+          direction="vertical"
+          justify="end"
+          reverse
+        >
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+      </demo-block>
+      <demo-block title="反向纵向排列水平对齐">
+        <kokiri-flex class="FlexDemo-verticalFlexContainer" direction="vertical" reverse>
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex
+          class="FlexDemo-verticalFlexContainer"
+          direction="vertical"
+          align="center"
+          reverse
+        >
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+        <kokiri-flex
+          class="FlexDemo-verticalFlexContainer"
+          direction="vertical"
+          align="end"
+          reverse
+        >
+          <div class="FlexDemo-flexItem" :key="`n-${n}`" v-for="n in 3">{{ n }}</div>
+        </kokiri-flex>
+      </demo-block>
+    </demo-section>
+  </demo-container>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
-import { Box, Flex, Button as BudsButton } from '../../src';
+
+import { Flex as KokiriFlex } from '../../components';
+import { DemoContainer, DemoSection, DemoBlock } from '../containers';
 
 @Component({
   components: {
-    Box,
-    Flex,
-    BudsButton,
+    DemoContainer,
+    DemoSection,
+    DemoBlock,
+    KokiriFlex,
   },
 })
-export default class FlexDemoBlock extends Vue {}
+export default class FlexDemo extends Vue {}
 </script>
+
+<style lang="scss" scoped>
+.FlexDemo {
+  &-horizontalFlexContainer,
+  &-verticalFlexContainer {
+    background-color: #eee;
+  }
+
+  &-horizontalFlexContainer {
+    height: 100px;
+  }
+
+  &-verticalFlexContainer {
+    height: 200px;
+  }
+
+  &-horizontalFlexContainer + &-horizontalFlexContainer,
+  &-verticalFlexContainer + &-verticalFlexContainer {
+    margin-top: 8px;
+  }
+
+  &-flexItem {
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    text-align: center;
+    background-color: #0092ff;
+
+    &:nth-child(odd) {
+      background-color: rgba(0, 146, 255, 0.75);
+    }
+  }
+}
+</style>
