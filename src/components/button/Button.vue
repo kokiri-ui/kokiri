@@ -7,7 +7,7 @@ import {
   ButtonSize,
   IButtonComponent,
   ButtonHeadlessComponent,
-} from '@petals/button';
+} from '../../external/petals/button';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

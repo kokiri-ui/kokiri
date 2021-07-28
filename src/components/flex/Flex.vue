@@ -7,7 +7,12 @@
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
 
-import { FlexDirection, FlexAlignment, IFlexComponent, FlexHeadlessComponent } from '@petals/flex';
+import {
+  FlexDirection,
+  FlexAlignment,
+  IFlexComponent,
+  FlexHeadlessComponent,
+} from '../../external/petals/flex';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

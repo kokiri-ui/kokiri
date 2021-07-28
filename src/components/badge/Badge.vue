@@ -1,5 +1,13 @@
 <template>
-  <component :is="badgeComponent" :count="count" :max="max" :dot="dot" :text="text" :status="status" :color="color">
+  <component
+    :is="badgeComponent"
+    :count="count"
+    :max="max"
+    :dot="dot"
+    :text="text"
+    :status="status"
+    :color="color"
+  >
     <slot />
   </component>
 </template>
@@ -8,7 +16,7 @@
 import { VueConstructor } from 'vue';
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
-import { ProcessStatus } from '@petals/basic';
+import { ProcessStatus } from '../../external/petals/basic';
 
 import SsBadge from './SsBadge.vue';
 import LegacyBadge from './LegacyBadge.vue';

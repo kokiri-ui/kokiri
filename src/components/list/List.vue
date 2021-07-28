@@ -2,8 +2,8 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
-import { ComponentStyle } from '@petals/basic';
-import { IListComponent, ListHeadlessComponent } from '@petals/list';
+import { ComponentStyle } from '../../external/petals/basic';
+import { IListComponent, ListHeadlessComponent } from '../../external/petals/list';
 
 import { isSpecificComponent } from '../../helper/utils';
 import { BaseStructuralComponent } from '../basic';
@@ -12,7 +12,9 @@ import { Box } from '../box';
 @Component({
   name: 'BudsList',
 })
-export default class List extends BaseStructuralComponent<ListHeadlessComponent> implements IListComponent {
+export default class List
+  extends BaseStructuralComponent<ListHeadlessComponent>
+  implements IListComponent {
   @Prop({ type: String, default: '' })
   public readonly title!: string;
 

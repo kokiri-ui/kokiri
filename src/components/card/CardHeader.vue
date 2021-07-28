@@ -2,7 +2,7 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
-import { ICardHeaderComponent, CardHeaderHeadlessComponent } from '@petals/card';
+import { ICardHeaderComponent, CardHeaderHeadlessComponent } from '../../external/petals/card';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 import { Toolbar } from '../toolbar';

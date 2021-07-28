@@ -12,7 +12,7 @@ import {
   TypoTextColor,
   ITextComponent,
   TextHeadlessComponent,
-} from '@petals/text';
+} from '../../external/petals/text';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

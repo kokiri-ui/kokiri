@@ -7,8 +7,12 @@
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
 
-import { ComponentStyle, LooseSize } from '@petals/basic';
-import { LayoutRole, ILayoutAsideComponent, LayoutAsideHeadlessComponent } from '@petals/layout';
+import { ComponentStyle, LooseSize } from '../../external/petals/basic';
+import {
+  LayoutRole,
+  ILayoutAsideComponent,
+  LayoutAsideHeadlessComponent,
+} from '../../external/petals/layout';
 
 import { getComponentName } from '../basic';
 import { LayoutControl } from './LayoutControl';

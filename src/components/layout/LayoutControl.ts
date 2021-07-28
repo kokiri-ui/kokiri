@@ -1,7 +1,7 @@
 import { Vue, Component } from 'vue-property-decorator';
 
-import { BaseHeadlessComponent } from '@petals/basic';
-import { LayoutRole, ILayoutContainerComponent } from '@petals/layout';
+import { BaseHeadlessComponent } from '../../external/petals/basic';
+import { LayoutRole, ILayoutContainerComponent } from '../../external/petals/layout';
 
 import { findSpecificAncestor } from '../../helper/utils';
 import { getComponentName, BaseStructuralComponent } from '../basic';

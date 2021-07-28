@@ -7,8 +7,12 @@
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
 
-import { ComponentStyle } from '@petals/basic';
-import { GridBreakpointOption, IGridColComponent, GridColHeadlessComponent } from '@petals/grid';
+import { ComponentStyle } from '../../external/petals/basic';
+import {
+  GridBreakpointOption,
+  IGridColComponent,
+  GridColHeadlessComponent,
+} from '../../external/petals/grid';
 
 import { isSpecificComponent } from '../../helper/utils';
 import { getComponentName, BaseStructuralComponent } from '../basic';

@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
-import { IListHeaderComponent, ListHeaderHeadlessComponent } from '@petals/list';
+import { IListHeaderComponent, ListHeaderHeadlessComponent } from '../../external/petals/list';
 
 import { BaseStructuralComponent } from '../basic';
 import { Flex } from '../flex';
@@ -18,7 +18,9 @@ import { Flex } from '../flex';
     Flex,
   },
 })
-export default class ListHeader extends BaseStructuralComponent<ListHeaderHeadlessComponent> implements IListHeaderComponent {
+export default class ListHeader
+  extends BaseStructuralComponent<ListHeaderHeadlessComponent>
+  implements IListHeaderComponent {
   private getClassNames(): string[] {
     return [
       this.$style[`${BaseStructuralComponent.getComponentClassName('list')}-header`],

@@ -17,9 +17,8 @@
     "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
-      "@petals/*": ["external/petals/*"],
       "@kokiri/*": ["src/*"]
     }
   },
-  "include": ["src", "external", "demo"]
+  "include": ["src", "demo"]
 }

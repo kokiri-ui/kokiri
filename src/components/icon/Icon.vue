@@ -20,7 +20,7 @@ import {
   IIconComponent,
   registerAndLoadIconProviders,
   IconHeadlessComponent,
-} from '@petals/icon';
+} from '../../external/petals/icon';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

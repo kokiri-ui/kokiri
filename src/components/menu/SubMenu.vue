@@ -9,7 +9,7 @@
 import { Component, Prop } from 'vue-property-decorator';
 import { Submenu as ElSubmenu } from 'element-ui';
 
-import { INavSubMenuComponent, NavSubMenuHeadlessComponent } from '@petals/nav-menu';
+import { INavSubMenuComponent, NavSubMenuHeadlessComponent } from '../../external/petals/nav-menu';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -26,8 +26,7 @@ import { BaseStructuralComponent } from '../basic';
 })
 export default class SubMenu
   extends BaseStructuralComponent<NavSubMenuHeadlessComponent>
-  implements INavSubMenuComponent
-{
+  implements INavSubMenuComponent {
   @Prop({ type: String, default: '' })
   public readonly flag!: string;
 

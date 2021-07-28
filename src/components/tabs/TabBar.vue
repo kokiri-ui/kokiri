@@ -20,7 +20,12 @@
 <script lang="ts">
 import { Component, Prop, Watch, Emit } from 'vue-property-decorator';
 
-import { TabNavFlag, TabNavType, ITabBarComponent, TabBarHeadlessComponent } from '@petals/tabs';
+import {
+  TabNavFlag,
+  TabNavType,
+  ITabBarComponent,
+  TabBarHeadlessComponent,
+} from '../../external/petals/tabs';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 import TabNav from './TabNav.vue';

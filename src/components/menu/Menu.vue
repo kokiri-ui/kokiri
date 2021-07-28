@@ -9,7 +9,7 @@ import {
   SubMenuTrigger,
   INavMenuComponent,
   NavMenuHeadlessComponent,
-} from '@petals/nav-menu';
+} from '../../external/petals/nav-menu';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -18,8 +18,7 @@ import { BaseStructuralComponent } from '../basic';
 })
 export default class Menu
   extends BaseStructuralComponent<NavMenuHeadlessComponent>
-  implements INavMenuComponent
-{
+  implements INavMenuComponent {
   @Prop({ type: String, default: 'vertical' })
   public readonly direction!: MenuDirection;
 

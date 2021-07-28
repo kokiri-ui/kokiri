@@ -5,7 +5,7 @@ import {
   getComponentConfig,
   getDescendantClassName,
   BaseHeadlessComponent,
-} from '@petals/basic';
+} from '../../external/petals/basic';
 
 import { ComponentTag } from './typing';
 

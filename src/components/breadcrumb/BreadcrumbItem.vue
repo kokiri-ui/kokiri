@@ -8,7 +8,10 @@
 import { Component, Prop } from 'vue-property-decorator';
 import { BreadcrumbItem as ElBreadcrumbItem } from 'element-ui';
 
-import { IBreadcrumbItemComponent, BreadcrumbItemHeadlessComponent } from '@petals/breadcrumb';
+import {
+  IBreadcrumbItemComponent,
+  BreadcrumbItemHeadlessComponent,
+} from '../../external/petals/breadcrumb';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -20,7 +23,9 @@ type LinkHref = string;
     ElBreadcrumbItem,
   },
 })
-export default class BreadcrumbItem extends BaseStructuralComponent<BreadcrumbItemHeadlessComponent> implements IBreadcrumbItemComponent<LinkHref> {
+export default class BreadcrumbItem
+  extends BaseStructuralComponent<BreadcrumbItemHeadlessComponent>
+  implements IBreadcrumbItemComponent<LinkHref> {
   @Prop({ type: String, default: '' })
   public readonly href!: LinkHref;
 }

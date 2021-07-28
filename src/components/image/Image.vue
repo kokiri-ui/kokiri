@@ -19,8 +19,13 @@
 <script lang="ts">
 import { Component, Prop, Watch } from 'vue-property-decorator';
 
-import { ComponentStyle } from '@petals/basic';
-import { ImageFit, ImageSize, IImageComponent, ImageHeadlessComponent } from '@petals/image';
+import { ComponentStyle } from '../../external/petals/basic';
+import {
+  ImageFit,
+  ImageSize,
+  IImageComponent,
+  ImageHeadlessComponent,
+} from '../../external/petals/image';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

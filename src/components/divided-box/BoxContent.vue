@@ -9,8 +9,8 @@
 <script lang="ts">
 import { Component, Prop, Watch, Inject } from 'vue-property-decorator';
 
-import { LooseSize } from '@petals/basic';
-import { IBoxContentComponent } from '@petals/divided-box';
+import { LooseSize } from '../../external/petals/basic';
+import { IBoxContentComponent } from '../../external/petals/divided-box';
 
 import { Box } from '../box';
 import FlexBox from './FlexBox';
@@ -20,7 +20,7 @@ type StyleObject = {
   height?: number | string;
   flexGrow?: number;
   overflow?: string;
-}
+};
 
 /**
  * `HDividedBox` 和 `VDividedBox` 的子组件

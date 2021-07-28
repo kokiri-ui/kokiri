@@ -2,8 +2,8 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop, Provide } from 'vue-property-decorator';
 
-import { DirectionType, AdjustmentType } from '@petals/basic';
-import { IDividedBoxComponent } from '@petals/divided-box';
+import { DirectionType, AdjustmentType } from '../../external/petals/basic';
+import { IDividedBoxComponent } from '../../external/petals/divided-box';
 
 import { Box } from '../box';
 import FlexBox from './FlexBox';
@@ -35,7 +35,9 @@ export default class DividedBox extends FlexBox implements IDividedBoxComponent 
   }
 
   private resolveClassNames(): string[] {
-    const adjustment = ['average', 'auto'].some(a => this.adjust === a) ? this.adjust! : this.defaultAdjustment;
+    const adjustment = ['average', 'auto'].some(a => this.adjust === a)
+      ? this.adjust!
+      : this.defaultAdjustment;
 
     this.parentDividedBox.adjustment = adjustment;
 

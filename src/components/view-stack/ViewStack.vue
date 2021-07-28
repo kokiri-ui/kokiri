@@ -2,8 +2,8 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
-import { NumberOrString } from '@petals/basic';
-import { IViewStackComponent, ViewStackHeadlessComponent } from '@petals/view-stack';
+import { NumberOrString } from '../../external/petals/basic';
+import { IViewStackComponent, ViewStackHeadlessComponent } from '../../external/petals/view-stack';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

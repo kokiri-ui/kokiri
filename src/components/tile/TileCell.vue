@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
 
-import { ITileCellComponent } from '@petals/tile';
+import { ITileCellComponent } from '../../external/petals/tile';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 import { Box } from '../box';

@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
 
-import { ITabPaneComponent, TabPaneHeadlessComponent } from '@petals/tabs';
+import { ITabPaneComponent, TabPaneHeadlessComponent } from '../../external/petals/tabs';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

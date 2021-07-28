@@ -9,7 +9,10 @@
 import { Component, Prop, Emit } from 'vue-property-decorator';
 import { MenuItem as ElMenuItem } from 'element-ui';
 
-import { INavMenuItemComponent, NavMenuItemHeadlessComponent } from '@petals/nav-menu';
+import {
+  INavMenuItemComponent,
+  NavMenuItemHeadlessComponent,
+} from '../../external/petals/nav-menu';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -23,8 +26,7 @@ type LinkHref = string;
 })
 export default class MenuItem
   extends BaseStructuralComponent<NavMenuItemHeadlessComponent>
-  implements INavMenuItemComponent<LinkHref>
-{
+  implements INavMenuItemComponent<LinkHref> {
   @Prop({ type: String, default: '' })
   public readonly flag!: string;
 

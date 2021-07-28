@@ -7,7 +7,11 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
-import { LayoutRole, ILayoutMainComponent, LayoutMainHeadlessComponent } from '@petals/layout';
+import {
+  LayoutRole,
+  ILayoutMainComponent,
+  LayoutMainHeadlessComponent,
+} from '../../external/petals/layout';
 
 import { getComponentName } from '../basic';
 import { LayoutControl } from './LayoutControl';

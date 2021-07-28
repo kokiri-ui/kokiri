@@ -6,14 +6,16 @@ import {
   FormFieldLabelPosition,
   IFormFieldLabelComponent,
   FormFieldLabelHeadlessComponent,
-} from '@petals/form';
+} from '../../external/petals/form';
 
 import { BaseStructuralComponent } from '../basic';
 
 @Component({
   name: 'BudsFormFieldLabel',
 })
-export default class FormFieldLabel extends BaseStructuralComponent<FormFieldLabelHeadlessComponent> implements IFormFieldLabelComponent {
+export default class FormFieldLabel
+  extends BaseStructuralComponent<FormFieldLabelHeadlessComponent>
+  implements IFormFieldLabelComponent {
   @Prop({ type: [Number, String], default: 'none' })
   public readonly width!: FormFieldLabelWidth;
 

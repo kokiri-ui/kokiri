@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
 
-import { TabNavFlag, ITabNavComponent, TabNavHeadlessComponent } from '@petals/tabs';
+import { TabNavFlag, ITabNavComponent, TabNavHeadlessComponent } from '../../external/petals/tabs';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

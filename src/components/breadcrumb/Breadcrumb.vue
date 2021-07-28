@@ -8,7 +8,10 @@
 import { Component, Prop } from 'vue-property-decorator';
 import { Breadcrumb as ElBreadcrumb } from 'element-ui';
 
-import { IBreadcrumbComponent, BreadcrumbHeadlessComponent } from '@petals/breadcrumb';
+import {
+  IBreadcrumbComponent,
+  BreadcrumbHeadlessComponent,
+} from '../../external/petals/breadcrumb';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -18,7 +21,9 @@ import { BaseStructuralComponent } from '../basic';
     ElBreadcrumb,
   },
 })
-export default class Breadcrumb extends BaseStructuralComponent<BreadcrumbHeadlessComponent> implements IBreadcrumbComponent {
+export default class Breadcrumb
+  extends BaseStructuralComponent<BreadcrumbHeadlessComponent>
+  implements IBreadcrumbComponent {
   @Prop({ type: String, default: '/' })
   public readonly separator!: string;
 

@@ -2,7 +2,11 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
-import { FormFieldLabelOption, IFormFieldComponent, FormFieldHeadlessComponent } from '@petals/form';
+import {
+  FormFieldLabelOption,
+  IFormFieldComponent,
+  FormFieldHeadlessComponent,
+} from '../../external/petals/form';
 
 import { BaseStructuralComponent } from '../basic';
 import { Box } from '../box';
@@ -11,7 +15,9 @@ import { GridRow, GridCol } from '../grid';
 @Component({
   name: 'BudsFormField',
 })
-export default class FormField extends BaseStructuralComponent<FormFieldHeadlessComponent> implements IFormFieldComponent {
+export default class FormField
+  extends BaseStructuralComponent<FormFieldHeadlessComponent>
+  implements IFormFieldComponent {
   @Prop({ type: Object, default: () => ({}) })
   public readonly labelOption!: FormFieldLabelOption;
 

@@ -3,7 +3,10 @@ import { VNode, CreateElement } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 import { MenuItemGroup as ElMenuItemGroup } from 'element-ui';
 
-import { INavMenuItemGroupComponent, NavMenuItemGroupHeadlessComponent } from '@petals/nav-menu';
+import {
+  INavMenuItemGroupComponent,
+  NavMenuItemGroupHeadlessComponent,
+} from '../../external/petals/nav-menu';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -12,8 +15,7 @@ import { BaseStructuralComponent } from '../basic';
 })
 export default class MenuItemGroup
   extends BaseStructuralComponent<NavMenuItemGroupHeadlessComponent>
-  implements INavMenuItemGroupComponent
-{
+  implements INavMenuItemGroupComponent {
   @Prop({ type: String, default: '' })
   public readonly title!: string;
 

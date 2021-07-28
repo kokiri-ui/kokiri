@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { ProcessStatus } from '@petals/basic';
+import { ProcessStatus } from '../../external/petals/basic';
 import { Text } from '../text';
 
 @Component({

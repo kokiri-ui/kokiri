@@ -7,12 +7,12 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 
-import { ComponentStyle, DirectionType, normalizeLooseSize } from '@petals/basic';
+import { ComponentStyle, DirectionType, normalizeLooseSize } from '../../external/petals/basic';
 import {
   LayoutRole,
   ILayoutContainerComponent,
   LayoutContainerHeadlessComponent,
-} from '@petals/layout';
+} from '../../external/petals/layout';
 
 import { getComponentName } from '../basic';
 import { LayoutControl } from './LayoutControl';

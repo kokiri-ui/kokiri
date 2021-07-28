@@ -14,7 +14,6 @@ module.exports = {
     },
     resolve: {
       alias: {
-        '@petals': resolve('./external/petals'),
         '@kokiri': resolve('./src'),
       },
     },

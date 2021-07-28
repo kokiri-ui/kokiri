@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
-import { IListFooterComponent, ListFooterHeadlessComponent } from '@petals/list';
+import { IListFooterComponent, ListFooterHeadlessComponent } from '../../external/petals/list';
 
 import { BaseStructuralComponent } from '../basic';
 import { Box } from '../box';
@@ -18,7 +18,9 @@ import { Box } from '../box';
     Box,
   },
 })
-export default class ListFooter extends BaseStructuralComponent<ListFooterHeadlessComponent> implements IListFooterComponent {
+export default class ListFooter
+  extends BaseStructuralComponent<ListFooterHeadlessComponent>
+  implements IListFooterComponent {
   private getClassNames(): string[] {
     return [
       this.$style[`${BaseStructuralComponent.getComponentClassName('list')}-footer`],

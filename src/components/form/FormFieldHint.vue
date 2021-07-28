@@ -1,14 +1,19 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
-import { IFormFieldHintComponent, FormFieldHintHeadlessComponent } from '@petals/form';
+import {
+  IFormFieldHintComponent,
+  FormFieldHintHeadlessComponent,
+} from '../../external/petals/form';
 
 import { BaseStructuralComponent } from '../basic';
 
 @Component({
   name: 'BudsFormFieldHint',
 })
-export default class FormFieldHint extends BaseStructuralComponent<FormFieldHintHeadlessComponent> implements IFormFieldHintComponent {
+export default class FormFieldHint
+  extends BaseStructuralComponent<FormFieldHintHeadlessComponent>
+  implements IFormFieldHintComponent {
   public created(): void {
     this.setHeadlessComponent(new FormFieldHintHeadlessComponent(this));
   }

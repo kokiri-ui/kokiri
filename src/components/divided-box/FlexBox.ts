@@ -1,7 +1,7 @@
 import { Component, Prop } from 'vue-property-decorator';
 
-import { HorizontalAlignment, VerticalAlignment, ResizeType } from '@petals/basic';
-import { IFlexBoxComponent } from '@petals/divided-box';
+import { HorizontalAlignment, VerticalAlignment, ResizeType } from '../../external/petals/basic';
+import { IFlexBoxComponent } from '../../external/petals/divided-box';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -18,9 +18,10 @@ export default class FlexBox extends BaseStructuralComponent implements IFlexBox
   public readonly center!: ResizeType;
 
   protected resolveFlexBoxClassNames(): string[] {
-    return [this.resolveHorizontalAlignmentClassName(), this.resolveVerticalAlignmentClassName()].filter(
-      className => !!className,
-    );
+    return [
+      this.resolveHorizontalAlignmentClassName(),
+      this.resolveVerticalAlignmentClassName(),
+    ].filter(className => !!className);
   }
 
   private resolveHorizontalAlignmentClassName(): string {

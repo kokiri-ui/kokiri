@@ -2,7 +2,11 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
-import { PanelBodyStyle, IPanelComponent, PanelHeadlessComponent } from '@petals/panel';
+import {
+  PanelBodyStyle,
+  IPanelComponent,
+  PanelHeadlessComponent,
+} from '../../external/petals/panel';
 
 import { isSpecificComponent } from '../../helper/utils';
 import { getComponentName, BaseStructuralComponent } from '../basic';

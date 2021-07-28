@@ -27,7 +27,7 @@ import {
   TabBarPosition,
   ITabsComponent,
   TabsHeadlessComponent,
-} from '@petals/tabs';
+} from '../../external/petals/tabs';
 
 import { isSpecificComponent } from '../../helper/utils';
 import { getComponentName, BaseStructuralComponent } from '../basic';

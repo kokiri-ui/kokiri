@@ -22,7 +22,7 @@ import {
   AvatarFit,
   IAvatarComponent,
   AvatarHeadlessComponent,
-} from '@petals/avatar';
+} from '../../external/petals/avatar';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

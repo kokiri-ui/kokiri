@@ -2,7 +2,12 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
-import { FormFieldLabelOption, FormValidationOption, IFormComponent, FormHeadlessComponent } from '@petals/form';
+import {
+  FormFieldLabelOption,
+  FormValidationOption,
+  IFormComponent,
+  FormHeadlessComponent,
+} from '../../external/petals/form';
 
 import { ComponentTag, BaseStructuralComponent } from '../basic';
 import { Box } from '../box';
@@ -13,7 +18,9 @@ import { Box } from '../box';
     Box,
   },
 })
-export default class Form extends BaseStructuralComponent<FormHeadlessComponent> implements IFormComponent {
+export default class Form
+  extends BaseStructuralComponent<FormHeadlessComponent>
+  implements IFormComponent {
   @Prop({ type: [String, Function], default: 'form' })
   public readonly tag!: ComponentTag;
 
