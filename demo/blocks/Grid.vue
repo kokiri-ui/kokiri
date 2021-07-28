@@ -61,7 +61,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 
-import { GridRow, GridCol } from '../../components';
+import { GridRow, GridCol } from '@kokiri/components';
 import { DemoContainer, DemoSection, DemoBlock } from '../containers';
 
 @Component({

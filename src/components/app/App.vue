@@ -25,8 +25,7 @@ const docBody = document.body;
 })
 export default class App
   extends BaseStructuralComponent<AppHeadlessComponent>
-  implements IAppComponent
-{
+  implements IAppComponent {
   private addHostClassName(): void {
     const hostClassName = this.$style.Host;
     const bodyClassName = this.$style['Host-body'];

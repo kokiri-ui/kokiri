@@ -8,7 +8,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
-import { Heading } from '../../components';
+import { Heading } from '@kokiri/components';
 
 @Component({
   name: 'DemoContainer',

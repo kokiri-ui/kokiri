@@ -136,7 +136,7 @@ import {
   Paragraph,
   GridRow,
   GridCol,
-} from '../../components';
+} from '@kokiri/components';
 import { DemoContainer, DemoSection, DemoBlock } from '../containers';
 
 @Component({

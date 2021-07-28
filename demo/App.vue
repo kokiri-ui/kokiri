@@ -2,7 +2,7 @@
   <kokiri-app class="HelloWorld">
     <layout-container>
       <layout-aside class="HelloWorld-sidebar">
-        <router-link class="HelloWorld-brand" :to="{ name: 'home' }">Kokiri for Vue</router-link>
+        <router-link class="HelloWorld-brand" :to="{ name: 'home' }">Kokiri</router-link>
         <ul class="HelloWorld-menu">
           <li :key="item.name" v-for="item in menuItems">
             <router-link :to="{ name: item.name }">{{ item.text }}</router-link>
@@ -28,7 +28,7 @@ import {
   LayoutHeader,
   LayoutMain,
   LayoutAside,
-} from '../components';
+} from '@kokiri/components';
 import { demoRoutes } from './blocks';
 
 @Component({

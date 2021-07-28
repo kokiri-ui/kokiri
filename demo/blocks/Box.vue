@@ -11,7 +11,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 
-import { Box } from '../../components';
+import { Box } from '@kokiri/components';
 import { DemoContainer, DemoSection, DemoBlock } from '../containers';
 
 @Component({

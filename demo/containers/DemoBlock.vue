@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
-import { Panel } from '../../components';
+import { Panel } from '@kokiri/components';
 
 @Component({
   name: 'DemoBlock',

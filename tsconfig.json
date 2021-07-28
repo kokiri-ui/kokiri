@@ -17,11 +17,9 @@
     "noImplicitAny": false,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["test/app/shared/*"],
-      "@petals/*": ["test/external/petals/*"],
-      "@kokiri/*": ["test/external/kokiri/*"],
-      "handie-vue": ["src/index.ts"]
+      "@petals/*": ["external/petals/*"],
+      "@kokiri/*": ["src/*"]
     }
   },
-  "include": ["src", "test/app", "test/external"]
+  "include": ["src", "external", "demo"]
 }

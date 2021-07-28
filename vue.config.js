@@ -1,11 +1,10 @@
-const { join: joinPath, resolve: resolvePath } = require('path'); // eslint-disable-line @typescript-eslint/no-var-requires
-const mock = require('mocker-api'); // eslint-disable-line @typescript-eslint/no-var-requires
+const { join: joinPath } = require('path'); // eslint-disable-line @typescript-eslint/no-var-requires
 
 function resolve(dir) {
   return joinPath(__dirname, dir);
 }
 
-const APP_SRC = './test/app';
+const APP_SRC = './demo';
 
 module.exports = {
   publicPath: '/',
@@ -15,16 +14,14 @@ module.exports = {
     },
     resolve: {
       alias: {
-        '@': resolve(`${APP_SRC}/shared`),
-        '@petals': resolve('./test/external/petals'),
-        '@kokiri': resolve('./test/external/kokiri'),
-        'handie-vue': resolve('./src'),
+        '@petals': resolve('./external/petals'),
+        '@kokiri': resolve('./src'),
       },
     },
   },
   chainWebpack: config => {
     config.plugin('html').tap(args => {
-      args[0].template = resolve('./test/public/index.html');
+      args[0].template = resolve('./demo/index.html');
 
       return args;
     });
@@ -39,9 +36,5 @@ module.exports = {
         additionalData: `@import "~@kokiri/themes/antd/helper";`,
       },
     },
-  },
-  devServer: {
-    disableHostCheck: true,
-    before: app => mock(app, resolvePath('./test/mock/index.js')),
   },
 };

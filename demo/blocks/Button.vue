@@ -185,7 +185,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 
-import { Button as KokiriButton } from '../../components';
+import { Button as KokiriButton } from '@kokiri/components';
 import { DemoContainer, DemoSection, DemoBlock } from '../containers';
 
 @Component({

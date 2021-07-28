@@ -1,7 +1,7 @@
 import Vue, { CreateElement, VNode } from 'vue';
 import VueRouter from 'vue-router';
 
-import '../themes/antd/index.scss';
+import '@kokiri/themes/antd/index.scss';
 
 import { routes } from './blocks';
 import App from './App.vue';

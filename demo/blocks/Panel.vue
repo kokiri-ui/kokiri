@@ -110,7 +110,7 @@ import {
   Paragraph,
   Text as KokiriText,
   Link as KokiriLink,
-} from '../../components';
+} from '@kokiri/components';
 import { DemoContainer, DemoSection, DemoBlock } from '../containers';
 
 @Component({
