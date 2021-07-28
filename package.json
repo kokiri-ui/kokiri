@@ -2,9 +2,9 @@
   "name": "kokiri",
   "version": "0.0.0",
   "description": "Vue.js components based on Petals",
-  "main": "dist/handie.umd.js",
-  "module": "dist/handie.esm.js",
-  "typings": "dist/typings/index.d.ts",
+  "main": "dist/index.ts",
+  "module": "dist/index.ts",
+  "typings": "dist/index.ts",
   "files": [
     "dist"
   ],
@@ -27,9 +27,8 @@
   "homepage": "https://github.com/ourai/kokiri",
   "scripts": {
     "start": "vue-cli-service serve",
-    "prebuild": "rimraf dist && mv tsconfig.json tsconfig-tmp.json && node build",
-    "build": "tsc && rollup -c rollup.config.ts",
-    "postbuild": "rimraf tsconfig.json && mv tsconfig-tmp.json tsconfig.json && rimraf dist/types",
+    "prebuild": "rimraf dist",
+    "build": "mkdir dist && cp -R src/* dist",
     "prerelease": "npm run build",
     "release": "npm publish"
   },
