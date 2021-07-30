@@ -1,4 +1,4 @@
-@import "~../../typography/style/mixins";
+@import "../../typography/style/mixins";
 
 @include component-rules($petals--paragraph-component-name) {
   @include typo-common-rules;
