@@ -8,6 +8,9 @@
 .jekyll-metadata
 .tmp
 
+shims-sfc.d.ts
+shims-vue.d.ts
+
 _site
 
 bower_components
