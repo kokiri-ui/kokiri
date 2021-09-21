@@ -12,7 +12,7 @@ import {
   TypoTextColor,
   IParagraphComponent,
   ParagraphHeadlessComponent,
-} from '../../external/petals/paragraph';
+} from 'petals-ui/dist/paragraph';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

@@ -1,11 +1,12 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
 import {
+  StateClassNamePrefix,
   IBaseComponent,
   getComponentConfig,
   getDescendantClassName,
   BaseHeadlessComponent,
-} from '../../external/petals/basic';
+} from 'petals-ui/dist/basic';
 
 import { ComponentTag } from './typing';
 
@@ -27,11 +28,10 @@ class BaseStructuralComponent<HeadlessComponent = BaseHeadlessComponent>
   }
 
   protected getComponentClassNames(): string[] {
-    return (this.__hc as any).getClassNames().map((cls: string) => this.$style[cls]);
-  }
-
-  protected getExtraClassNames(): string[] {
-    return (this.__hc as any).getExtraClassNames();
+    return [
+      ...(this.__hc as any).getClassNames().map((cls: string) => this.$style[cls]),
+      ...(this.__hc as any).getExtraClassNames(),
+    ];
   }
 
   protected getDescendantClassName(descendant: string): string {
@@ -40,6 +40,10 @@ class BaseStructuralComponent<HeadlessComponent = BaseHeadlessComponent>
 
   protected getModifierClassName(modifier: string): string {
     return this.$style[(this.__hc as any).getModifierClassName(modifier)];
+  }
+
+  protected getStateClassName(state: string, prefix?: StateClassNamePrefix): string {
+    return this.$style[(this.__hc as any).getStateClassName(state, prefix)];
   }
 
   protected getParentDescendantClassName(descendant: string): string {

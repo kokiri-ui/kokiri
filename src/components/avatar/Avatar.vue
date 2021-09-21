@@ -22,7 +22,7 @@ import {
   AvatarFit,
   IAvatarComponent,
   AvatarHeadlessComponent,
-} from '../../external/petals/avatar';
+} from 'petals-ui/dist/avatar';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

@@ -2,8 +2,8 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
-import { ComponentStyle } from '../../external/petals/basic';
-import { IListComponent, ListHeadlessComponent } from '../../external/petals/list';
+import { ComponentStyle } from 'petals-ui/dist/basic';
+import { IListComponent, ListHeadlessComponent } from 'petals-ui/dist/list';
 
 import { isSpecificComponent } from '../../helper/utils';
 import { BaseStructuralComponent } from '../basic';

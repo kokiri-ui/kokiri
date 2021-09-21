@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
 
-import { LinkTarget, ILinkComponent, LinkHeadlessComponent } from '../../external/petals/link';
+import { LinkTarget, ILinkComponent, LinkHeadlessComponent } from 'petals-ui/dist/link';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

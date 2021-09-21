@@ -8,10 +8,7 @@
 import { Component, Prop } from 'vue-property-decorator';
 import { Breadcrumb as ElBreadcrumb } from 'element-ui';
 
-import {
-  IBreadcrumbComponent,
-  BreadcrumbHeadlessComponent,
-} from '../../external/petals/breadcrumb';
+import { IBreadcrumbComponent, BreadcrumbHeadlessComponent } from 'petals-ui/dist/breadcrumb';
 
 import { BaseStructuralComponent } from '../basic';
 

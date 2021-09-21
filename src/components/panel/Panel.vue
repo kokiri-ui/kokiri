@@ -6,7 +6,7 @@ import {
   PanelBodyStyle,
   IPanelComponent,
   PanelHeadlessComponent,
-} from '../../external/petals/panel';
+} from 'petals-ui/dist/panel';
 
 import { isSpecificComponent } from '../../helper/utils';
 import { getComponentName, BaseStructuralComponent } from '../basic';

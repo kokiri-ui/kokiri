@@ -12,7 +12,7 @@ import {
   TypoTextColor,
   ITextComponent,
   TextHeadlessComponent,
-} from '../../external/petals/text';
+} from 'petals-ui/dist/text';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

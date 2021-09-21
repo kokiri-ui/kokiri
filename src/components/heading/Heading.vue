@@ -13,7 +13,7 @@ import {
   HeadingLevel,
   IHeadingComponent,
   HeadingHeadlessComponent,
-} from '../../external/petals/heading';
+} from 'petals-ui/dist/heading';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

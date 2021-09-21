@@ -1,10 +1,7 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
-import {
-  IFormFieldHintComponent,
-  FormFieldHintHeadlessComponent,
-} from '../../external/petals/form';
+import { IFormFieldHintComponent, FormFieldHintHeadlessComponent } from 'petals-ui/dist/form';
 
 import { BaseStructuralComponent } from '../basic';
 

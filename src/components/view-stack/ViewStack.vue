@@ -2,8 +2,8 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
-import { NumberOrString } from '../../external/petals/basic';
-import { IViewStackComponent, ViewStackHeadlessComponent } from '../../external/petals/view-stack';
+import { NumberOrString } from 'petals-ui/dist/basic';
+import { IViewStackComponent, ViewStackHeadlessComponent } from 'petals-ui/dist/view-stack';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 
@@ -36,7 +36,7 @@ export default class ViewStack
     const classNames: string[] = [this.getDescendantClassName('view')];
 
     if (active) {
-      classNames.push(this.$style['is-active']);
+      classNames.push(this.getStateClassName('active'));
     }
 
     if (this.viewClassName) {

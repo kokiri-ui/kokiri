@@ -12,7 +12,7 @@ import { MenuItem as ElMenuItem } from 'element-ui';
 import {
   INavMenuItemComponent,
   NavMenuItemHeadlessComponent,
-} from '../../external/petals/nav-menu';
+} from 'petals-ui/dist/nav-menu';
 
 import { BaseStructuralComponent } from '../basic';
 

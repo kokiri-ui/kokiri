@@ -1,4 +1,2 @@
-import Tabs from './Tabs.vue';
-import TabPane from './TabPane.vue';
-
-export { Tabs, TabPane };
+export { default as Tabs } from './Tabs.vue';
+export { default as TabPane } from './TabPane.vue';

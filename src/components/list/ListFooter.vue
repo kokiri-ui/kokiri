@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
-import { IListFooterComponent, ListFooterHeadlessComponent } from '../../external/petals/list';
+import { IListFooterComponent, ListFooterHeadlessComponent } from 'petals-ui/dist/list';
 
 import { BaseStructuralComponent } from '../basic';
 import { Box } from '../box';

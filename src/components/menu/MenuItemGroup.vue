@@ -6,7 +6,7 @@ import { MenuItemGroup as ElMenuItemGroup } from 'element-ui';
 import {
   INavMenuItemGroupComponent,
   NavMenuItemGroupHeadlessComponent,
-} from '../../external/petals/nav-menu';
+} from 'petals-ui/dist/nav-menu';
 
 import { BaseStructuralComponent } from '../basic';
 

@@ -1,7 +1,7 @@
 import { Component, Prop } from 'vue-property-decorator';
 
-import { HorizontalAlignment, VerticalAlignment, ResizeType } from '../../external/petals/basic';
-import { IFlexBoxComponent } from '../../external/petals/divided-box';
+import { HorizontalAlignment, VerticalAlignment, ResizeType } from 'petals-ui/dist/basic';
+import { IFlexBoxComponent } from 'petals-ui/dist/divided-box';
 
 import { BaseStructuralComponent } from '../basic';
 

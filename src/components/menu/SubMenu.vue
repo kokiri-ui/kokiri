@@ -9,7 +9,7 @@
 import { Component, Prop } from 'vue-property-decorator';
 import { Submenu as ElSubmenu } from 'element-ui';
 
-import { INavSubMenuComponent, NavSubMenuHeadlessComponent } from '../../external/petals/nav-menu';
+import { INavSubMenuComponent, NavSubMenuHeadlessComponent } from 'petals-ui/dist/nav-menu';
 
 import { BaseStructuralComponent } from '../basic';
 

@@ -31,5 +31,6 @@ export * from './image';
 // export * from './form';
 export * from './link';
 // export * from './menu';
+export * from './tab-bar';
 export * from './tabs';
 // export * from './tile';

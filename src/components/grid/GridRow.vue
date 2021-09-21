@@ -7,8 +7,8 @@
 <script lang="ts">
 import { Component, Prop } from 'vue-property-decorator';
 
-import { ComponentStyle } from '../../external/petals/basic';
-import { IGridRowComponent, GridRowHeadlessComponent } from '../../external/petals/grid';
+import { ComponentStyle } from 'petals-ui/dist/basic';
+import { IGridRowComponent, GridRowHeadlessComponent } from 'petals-ui/dist/grid';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

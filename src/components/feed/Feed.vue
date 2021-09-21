@@ -15,8 +15,8 @@
 <script lang="ts">
 import { Component, Prop, Emit } from 'vue-property-decorator';
 
-import { ComponentStyle } from '../../external/petals/basic';
-import { IFeedComponent } from '../../external/petals/feed';
+import { ComponentStyle } from 'petals-ui/dist/basic';
+import { IFeedComponent } from 'petals-ui/dist/feed';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 import { Box } from '../box';

@@ -11,7 +11,7 @@ import {
   LayoutRole,
   ILayoutMainComponent,
   LayoutMainHeadlessComponent,
-} from '../../external/petals/layout';
+} from 'petals-ui/dist/layout';
 
 import { getComponentName } from '../basic';
 import { LayoutControl } from './LayoutControl';

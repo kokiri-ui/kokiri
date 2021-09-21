@@ -16,7 +16,7 @@
 import { VueConstructor } from 'vue';
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
-import { ProcessStatus } from '../../external/petals/basic';
+import { ProcessStatus } from 'petals-ui/dist/basic';
 
 import SsBadge from './SsBadge.vue';
 import LegacyBadge from './LegacyBadge.vue';

@@ -12,8 +12,8 @@
 import { Component, Prop } from 'vue-property-decorator';
 import { Divider as ElDivider } from 'element-ui';
 
-import { DirectionType, HorizontalAlignment } from '../../external/petals/basic';
-import { IDividerComponent, DividerHeadlessComponent } from '../../external/petals/divider';
+import { DirectionType, HorizontalAlignment } from 'petals-ui/dist/basic';
+import { IDividerComponent, DividerHeadlessComponent } from 'petals-ui/dist/divider';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

@@ -5,7 +5,7 @@
 <script lang="ts">
 import { Component } from 'vue-property-decorator';
 
-import { ISpacerComponent, SpacerHeadlessComponent } from '../../external/petals/spacer';
+import { ISpacerComponent, SpacerHeadlessComponent } from 'petals-ui/dist/spacer';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 import { Box } from '../box';

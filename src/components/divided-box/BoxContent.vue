@@ -9,8 +9,8 @@
 <script lang="ts">
 import { Component, Prop, Watch, Inject } from 'vue-property-decorator';
 
-import { LooseSize } from '../../external/petals/basic';
-import { IBoxContentComponent } from '../../external/petals/divided-box';
+import { LooseSize } from 'petals-ui/dist/basic';
+import { IBoxContentComponent } from 'petals-ui/dist/divided-box';
 
 import { Box } from '../box';
 import FlexBox from './FlexBox';

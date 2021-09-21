@@ -11,7 +11,7 @@ import { BreadcrumbItem as ElBreadcrumbItem } from 'element-ui';
 import {
   IBreadcrumbItemComponent,
   BreadcrumbItemHeadlessComponent,
-} from '../../external/petals/breadcrumb';
+} from 'petals-ui/dist/breadcrumb';
 
 import { BaseStructuralComponent } from '../basic';
 

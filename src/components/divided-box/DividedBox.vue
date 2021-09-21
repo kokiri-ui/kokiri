@@ -2,8 +2,8 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop, Provide } from 'vue-property-decorator';
 
-import { DirectionType, AdjustmentType } from '../../external/petals/basic';
-import { IDividedBoxComponent } from '../../external/petals/divided-box';
+import { DirectionType, AdjustmentType } from 'petals-ui/dist/basic';
+import { IDividedBoxComponent } from 'petals-ui/dist/divided-box';
 
 import { Box } from '../box';
 import FlexBox from './FlexBox';

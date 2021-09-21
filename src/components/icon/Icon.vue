@@ -1,5 +1,5 @@
 <template>
-  <span :class="computedClassNames">
+  <span :class="computedClassNames" @click="handleClick">
     <svg
       :class="computedDescendantClassName"
       focusable="false"
@@ -13,24 +13,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 
-import {
-  IconType,
-  IIconComponent,
-  registerAndLoadIconProviders,
-  IconHeadlessComponent,
-} from '../../external/petals/icon';
+import { IconType, IIconComponent, IconHeadlessComponent } from 'petals-ui/dist/icon';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
-
-registerAndLoadIconProviders({
-  ol: {
-    type: 'svg',
-    urls: ['//at.alicdn.com/t/font_1788044_0dwu4guekcwr.js'],
-    resolve: (ref: string) => `icon-${ref}`,
-  },
-});
 
 @Component({
   name: getComponentName('icon'),
@@ -46,12 +33,15 @@ export default class Icon
   private iconRef: string = '';
 
   private get computedClassNames(): string[] {
-    return [...this.getComponentClassNames(), ...this.getExtraClassNames()];
+    return this.getComponentClassNames();
   }
 
   private get computedDescendantClassName(): string {
     return this.getDescendantClassName('content');
   }
+
+  @Emit('click')
+  private handleClick(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   private initMetadata(): void {
     const hc = this.getHeadlessComponent()!;

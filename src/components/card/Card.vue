@@ -2,7 +2,7 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
-import { CardBodyStyle, ICardComponent, CardHeadlessComponent } from '../../external/petals/card';
+import { CardBodyStyle, ICardComponent, CardHeadlessComponent } from 'petals-ui/dist/card';
 
 import { isSpecificComponent } from '../../helper/utils';
 import { getComponentName, BaseStructuralComponent } from '../basic';

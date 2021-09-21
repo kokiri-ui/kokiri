@@ -2,8 +2,8 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
-import { LooseSize, DirectionType } from '../../external/petals/basic';
-import { ITileComponent } from '../../external/petals/tile';
+import { LooseSize, DirectionType } from 'petals-ui/dist/basic';
+import { ITileComponent } from 'petals-ui/dist/tile';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 import { Box } from '../box';

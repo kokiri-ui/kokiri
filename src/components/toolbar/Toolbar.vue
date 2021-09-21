@@ -2,7 +2,7 @@
 import { CreateElement, VNode, VNodeChildren } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 
-import { IToolbarComponent, ToolbarHeadlessComponent } from '../../external/petals/toolbar';
+import { IToolbarComponent, ToolbarHeadlessComponent } from 'petals-ui/dist/toolbar';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 import { Flex } from '../flex';

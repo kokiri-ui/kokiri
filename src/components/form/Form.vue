@@ -7,7 +7,7 @@ import {
   FormValidationOption,
   IFormComponent,
   FormHeadlessComponent,
-} from '../../external/petals/form';
+} from 'petals-ui/dist/form';
 
 import { ComponentTag, BaseStructuralComponent } from '../basic';
 import { Box } from '../box';

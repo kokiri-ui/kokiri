@@ -6,7 +6,7 @@ import {
   FormFieldLabelOption,
   IFormFieldComponent,
   FormFieldHeadlessComponent,
-} from '../../external/petals/form';
+} from 'petals-ui/dist/form';
 
 import { BaseStructuralComponent } from '../basic';
 import { Box } from '../box';

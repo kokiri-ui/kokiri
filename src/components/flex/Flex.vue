@@ -12,7 +12,7 @@ import {
   FlexAlignment,
   IFlexComponent,
   FlexHeadlessComponent,
-} from '../../external/petals/flex';
+} from 'petals-ui/dist/flex';
 
 import { getComponentName, BaseStructuralComponent } from '../basic';
 

@@ -9,7 +9,7 @@ import {
   SubMenuTrigger,
   INavMenuComponent,
   NavMenuHeadlessComponent,
-} from '../../external/petals/nav-menu';
+} from 'petals-ui/dist/nav-menu';
 
 import { BaseStructuralComponent } from '../basic';
 

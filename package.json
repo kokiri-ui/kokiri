@@ -33,7 +33,8 @@
     "release": "npm publish"
   },
   "dependencies": {
-    "@ntks/toolbox": "0.0.6"
+    "@ntks/toolbox": "0.0.6",
+    "petals-ui": "0.0.0"
   },
   "peerDependencies": {
     "vue": "^2.6.0",

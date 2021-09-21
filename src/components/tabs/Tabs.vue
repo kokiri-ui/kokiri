@@ -2,6 +2,10 @@
   <div :class="getComponentClassNames()">
     <tab-bar
       :class="getDescendantClassName('tabBar')"
+      :navs-class-name="getDescendantClassName('tabNavs')"
+      :nav-class-name="getDescendantClassName('tabNav')"
+      :nav-active-class-name="getDescendantClassName('activeTabNav')"
+      :nav-disabled-class-name="getDescendantClassName('disabledTabNav')"
       :navs="tabNavs"
       :active-flag="activeIndex"
       :stretch="tabBarStretch"
@@ -21,18 +25,13 @@
 <script lang="ts">
 import { Component, Prop, Watch } from 'vue-property-decorator';
 
-import {
-  TabNavFlag,
-  TabNavType,
-  TabBarPosition,
-  ITabsComponent,
-  TabsHeadlessComponent,
-} from '../../external/petals/tabs';
+import { TabNavFlag, TabNavType, TabBarPosition } from 'petals-ui/dist/tab-bar';
+import { ITabsComponent, TabsHeadlessComponent } from 'petals-ui/dist/tabs';
 
 import { isSpecificComponent } from '../../helper/utils';
 import { getComponentName, BaseStructuralComponent } from '../basic';
 import { ViewStack } from '../view-stack';
-import TabBar from './TabBar.vue';
+import { TabBar } from '../tab-bar';
 
 @Component({
   name: getComponentName('tabs'),
