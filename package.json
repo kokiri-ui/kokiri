@@ -1,6 +1,6 @@
 {
   "name": "kokiri",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Vue.js components based on Petals",
   "main": "dist/index.ts",
   "module": "dist/index.ts",
