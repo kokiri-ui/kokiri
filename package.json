@@ -1,44 +1,19 @@
 {
   "name": "kokiri",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "description": "Vue.js components based on Petals",
-  "main": "dist/index.ts",
-  "module": "dist/index.ts",
-  "typings": "dist/index.ts",
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "kokiri",
-    "ui",
-    "component",
-    "components",
-    "frontend",
-    "vue",
-    "vuejs",
-    "vue.js"
-  ],
+  "private": true,
   "author": "Ourai Lin <ourairyu@gmail.com> (https://ourai.ws/)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ourai/kokiri.git"
+    "url": "git+https://github.com/petals-ui/kokiri.git"
   },
-  "homepage": "https://github.com/ourai/kokiri",
+  "homepage": "https://github.com/petals-ui/kokiri",
   "scripts": {
     "start": "vue-cli-service serve",
-    "prebuild": "rimraf dist",
-    "build": "mkdir dist && cp -R src/* dist",
-    "prerelease": "npm run build",
-    "release": "npm publish"
-  },
-  "dependencies": {
-    "@ntks/toolbox": "0.0.6",
-    "petals-ui": "0.0.0"
-  },
-  "peerDependencies": {
-    "vue": "^2.6.0",
-    "vue-property-decorator": "^8.0.0"
+    "petals:patch-version": "cd packages/kokiri && npm version patch && cd ../../",
+    "petals:release": "cd packages/kokiri && npm run release"
   },
   "devDependencies": {
     "@ntks/eslint-config": "0.0.0",
