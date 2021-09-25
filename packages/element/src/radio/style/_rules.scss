@@ -1,0 +1,43 @@
+.el-radio {
+  &__inner {
+    border: var($__petals--radio-border-width, $petals--radio-border-width) solid
+      var($__petals--radio-border-color, $petals--radio-border-color);
+    border-radius: var($__petals--radio-border-radius, $petals--radio-border-radius);
+
+    &:after {
+      width: var($__petals--radio-icon-size, $petals--radio-icon-size);
+      height: var($__petals--radio-icon-size, $petals--radio-icon-size);
+      background-color: var($__petals--radio-icon-checked-color, $petals--radio-icon-checked-color);
+    }
+
+    &:hover {
+      border-color: var($__petals--radio-hover-border-color, $petals--radio-hover-border-color);
+    }
+  }
+
+  &__input {
+    &.is-checked {
+      .el-radio__inner {
+        background-color: var($__petals--radio-checked-bg, $petals--radio-checked-bg);
+        border-color: var($__petals--radio-checked-border-color, $petals--radio-checked-border-color);
+      }
+      + .el-radio__label {
+        color: var($__petals--primary);
+      }
+    }
+
+    &.is-disabled {
+      &,
+      &.is-checked {
+        .el-radio__inner {
+          background-color: var($__petals--radio-disabled-bg, $petals--radio-disabled-bg);
+          border-color: var($__petals--radio-disabled-border-color, $petals--radio-disabled-border-color);
+
+          &:after {
+            background-color: var($__petals--radio-icon-disabled-color, $petals--radio-icon-disabled-color);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "moduleResolution": "node",
-    "target": "esnext",
-    "module": "esnext",
-    "lib": ["esnext", "dom"],
+    "target": "es2015",
+    "module": "es2015",
+    "lib": ["es2015", "dom"],
     "declaration": true,
     "declarationDir": "dist/typings",
     "outDir": "dist",
@@ -20,5 +20,5 @@
       "@kokiri/*": ["src/*"]
     }
   },
-  "include": ["src", "demo"]
+  "include": ["packages", "demo"]
 }

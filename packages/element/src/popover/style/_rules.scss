@@ -1,0 +1,6 @@
+.el-popover {
+  border: var($__petals--popover-border-width, $petals--popover-border-width) solid
+    var($__petals--popover-border-color, $petals--popover-border-color);
+  border-radius: var($__petals--popover-border-radius, $petals--popover-border-radius);
+  box-shadow: var($__petals--popover-box-shadow, $petals--popover-box-shadow);
+}
