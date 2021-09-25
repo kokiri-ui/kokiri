@@ -5,8 +5,8 @@ function convertToCamelCase(kebabCase: string): string {
     .join('');
 }
 
-function getComponentName(moduleName: string): string {
-  return `PetalsViewUi${convertToCamelCase(moduleName)}`;
+function getComponentName(moduleName: string, prefix: string = 'Kokiri'): string {
+  return `${prefix}${convertToCamelCase(moduleName)}`;
 }
 
 export { getComponentName };
