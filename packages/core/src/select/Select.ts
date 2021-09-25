@@ -1,5 +1,5 @@
 import { FormControlSize } from 'petals-ui/dist/form-control';
-import { ISelectComponent, SelectHeadlessComponent } from 'petals-ui/dist/select';
+import { SelectValueType, ISelectComponent, SelectHeadlessComponent } from 'petals-ui/dist/select';
 import { Component, Prop } from 'vue-property-decorator';
 
 import { BaseStructuralComponent } from '../basic';
@@ -11,8 +11,8 @@ class SelectStructuralComponent
   @Prop({ type: String, default: '' })
   public readonly name!: string;
 
-  @Prop({ type: String, default: '' })
-  public readonly value!: string;
+  @Prop({ type: [String, Number, Array] })
+  public readonly value!: SelectValueType;
 
   @Prop({ type: Boolean, default: false })
   public readonly disabled!: boolean;

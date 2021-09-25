@@ -13,7 +13,19 @@ import { getComponentName } from '../../basic';
 })
 export default class Select extends SelectStructuralComponent {
   private render(h: CreateElement): VNode {
-    const props: Record<string, any> = {};
+    const props: Record<string, any> = {
+      name: this.name,
+      value: this.value,
+      disabled: this.disabled,
+      readonly: this.readonly,
+      placeholder: this.placeholder,
+      clearable: this.clearable,
+      multiple: this.multiple,
+    };
+
+    if (this.size === 'large' || this.size === 'small') {
+      props.size = this.size;
+    }
 
     return h(IvuSelect, { props }, this.$slots.default);
   }
