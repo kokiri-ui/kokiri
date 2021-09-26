@@ -16,9 +16,7 @@
     "sourceMap": false,
     "noImplicitAny": false,
     "baseUrl": ".",
-    "paths": {
-      "@kokiri/*": ["src/*"]
-    }
+    "paths": {}
   },
   "include": ["packages", "demo"]
 }

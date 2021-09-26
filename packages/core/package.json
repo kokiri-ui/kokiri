@@ -1,10 +1,7 @@
 {
-  "name": "@kokiri/element",
+  "name": "@kokiri/core",
   "version": "0.0.0",
-  "description": "Adapter for Element",
-  "main": "dist/index.ts",
-  "module": "dist/index.ts",
-  "typings": "dist/index.ts",
+  "description": "Basic structural components",
   "files": [
     "dist"
   ],
@@ -12,8 +9,6 @@
     "kokiri",
     "petals",
     "petals-ui",
-    "element",
-    "element-ui",
     "ui",
     "components",
     "front-end",
@@ -28,21 +23,22 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/petals-ui/kokiri.git",
-    "directory": "packages/element"
+    "directory": "packages/core"
   },
   "scripts": {
     "precopy": "rm -rf dist",
     "copy": "mkdir dist && cp -R src/* dist",
-    "prerelease": "npm run copy",
-    "release": "npm publish"
-  },
-  "peerDependencies": {
-    "element-ui": "^2.15.0",
-    "vue": "^2.6.0",
-    "vue-property-decorator": "^8.0.0"
+    "prebuild": "npm run copy",
+    "build": "tsc && rm -rf dist/shims-*.d.ts",
+    "prerelease": "npm run build",
+    "release": "npm publish --access=public"
   },
   "dependencies": {
     "@ntks/toolbox": "0.0.6",
-    "petals-ui": "0.0.0"
+    "petals-ui": "0.0.3"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.0",
+    "vue-property-decorator": "^8.0.0"
   }
 }
