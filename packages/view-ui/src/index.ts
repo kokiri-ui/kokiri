@@ -9,3 +9,5 @@ export * from './switch';
 
 export * from './form';
 export * from './data-table';
+
+export * from './tooltip';
