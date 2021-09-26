@@ -6,8 +6,7 @@ import { Component, Emit } from 'vue-property-decorator';
 import { ButtonStructuralComponent } from '@kokiri/core/dist/button';
 import ElButton from 'element-ui/lib/button';
 
-import { getComponentName } from '../basic';
-import { convertSize } from './helper';
+import { getComponentName, convertSize } from '../basic';
 
 @Component({
   // @ts-ignore
