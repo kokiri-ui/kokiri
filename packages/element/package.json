@@ -2,9 +2,9 @@
   "name": "@kokiri/element",
   "version": "0.0.0",
   "description": "Adapter for Element",
-  "main": "dist/index.ts",
-  "module": "dist/index.ts",
-  "typings": "dist/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -33,16 +33,20 @@
   "scripts": {
     "precopy": "rm -rf dist",
     "copy": "mkdir dist && cp -R src/* dist",
-    "prerelease": "npm run copy",
-    "release": "npm publish"
+    "prebuild": "npm run copy",
+    "build": "tsc",
+    "postbuild": "node build && rm -rf dist/shims-*.d.ts",
+    "prerelease": "npm run build",
+    "release": "npm publish --access=public"
+  },
+  "dependencies": {
+    "@kokiri/core": "0.0.0",
+    "@ntks/toolbox": "0.0.6",
+    "petals-ui": "0.0.3"
   },
   "peerDependencies": {
     "element-ui": "^2.15.0",
     "vue": "^2.6.0",
     "vue-property-decorator": "^8.0.0"
-  },
-  "dependencies": {
-    "@ntks/toolbox": "0.0.6",
-    "petals-ui": "0.0.0"
   }
 }
