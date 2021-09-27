@@ -10,5 +10,7 @@ export * from './switch';
 export * from './form';
 export * from './data-table';
 
+export * from './steps';
+
 export * from './tooltip';
 export * from './popover';
