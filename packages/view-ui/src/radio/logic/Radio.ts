@@ -7,8 +7,6 @@ import { Radio as IvuRadio } from 'view-design';
 import { getComponentName } from '../../basic';
 
 @Component({
-  // @ts-ignore
-  abstract: true,
   name: getComponentName('radio'),
 })
 export default class Radio extends RadioStructuralComponent {

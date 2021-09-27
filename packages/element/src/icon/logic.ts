@@ -7,8 +7,6 @@ import ElIcon from 'element-ui/lib/icon';
 import { getComponentName } from '../basic';
 
 @Component({
-  // @ts-ignore
-  abstract: true,
   name: getComponentName('icon'),
 })
 export default class Icon extends IconStructuralComponent {

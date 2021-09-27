@@ -7,8 +7,6 @@ import { FormItem as IvuFormItem } from 'view-design';
 import { getComponentName } from '../../basic';
 
 @Component({
-  // @ts-ignore
-  abstract: true,
   name: getComponentName('formField'),
 })
 export default class FormField extends FormFieldStructuralComponent {

@@ -9,8 +9,6 @@ import { Button as IvuButton } from 'view-design';
 import { getComponentName } from '../basic';
 
 @Component({
-  // @ts-ignore
-  abstract: true,
   name: getComponentName('button'),
 })
 export default class Button extends ButtonStructuralComponent {

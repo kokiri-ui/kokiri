@@ -7,8 +7,6 @@ import { Icon as IvuIcon } from 'view-design';
 import { getComponentName } from '../basic';
 
 @Component({
-  // @ts-ignore
-  abstract: true,
   name: getComponentName('icon'),
 })
 export default class Icon extends IconStructuralComponent {

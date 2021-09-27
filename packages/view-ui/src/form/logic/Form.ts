@@ -7,8 +7,6 @@ import { Form as IvuForm } from 'view-design';
 import { getComponentName } from '../../basic';
 
 @Component({
-  // @ts-ignore
-  abstract: true,
   name: getComponentName('form'),
 })
 export default class Form extends FormStructuralComponent {

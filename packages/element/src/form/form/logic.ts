@@ -7,8 +7,6 @@ import ElForm from 'element-ui/lib/form';
 import { getComponentName, convertSize } from '../../basic';
 
 @Component({
-  // @ts-ignore
-  abstract: true,
   name: getComponentName('form'),
 })
 export default class Form extends FormStructuralComponent {

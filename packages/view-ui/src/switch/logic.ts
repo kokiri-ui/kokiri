@@ -7,8 +7,6 @@ import { Switch as IvuSwitch } from 'view-design';
 import { getComponentName } from '../basic';
 
 @Component({
-  // @ts-ignore
-  abstract: true,
   name: getComponentName('switch'),
 })
 export default class Switch extends SwitchStructuralComponent {

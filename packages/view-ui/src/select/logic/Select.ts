@@ -7,8 +7,6 @@ import { Select as IvuSelect } from 'view-design';
 import { getComponentName } from '../../basic';
 
 @Component({
-  // @ts-ignore
-  abstract: true,
   name: getComponentName('select'),
 })
 export default class Select extends SelectStructuralComponent {

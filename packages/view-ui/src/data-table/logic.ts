@@ -10,8 +10,6 @@ function resolveWidth(width: number | string | undefined): number {
 }
 
 @Component({
-  // @ts-ignore
-  abstract: true,
   name: getComponentName('dataTable'),
   components: { IvuTable, IvuPagination },
 })

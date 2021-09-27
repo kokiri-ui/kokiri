@@ -9,8 +9,6 @@ import ElButton from 'element-ui/lib/button';
 import { getComponentName, convertSize } from '../basic';
 
 @Component({
-  // @ts-ignore
-  abstract: true,
   name: getComponentName('button'),
 })
 export default class Button extends ButtonStructuralComponent {

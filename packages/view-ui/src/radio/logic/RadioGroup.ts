@@ -7,8 +7,6 @@ import { RadioGroup as IvuRadioGroup } from 'view-design';
 import { getComponentName } from '../../basic';
 
 @Component({
-  // @ts-ignore
-  abstract: true,
   name: getComponentName('radioGroup'),
 })
 export default class RadioGroup extends RadioGroupStructuralComponent {

@@ -7,8 +7,6 @@ import { Input as IvuInput } from 'view-design';
 import { getComponentName } from '../basic';
 
 @Component({
-  // @ts-ignore
-  abstract: true,
   name: getComponentName('textInput'),
 })
 export default class TextInput extends TextInputStructuralComponent {
