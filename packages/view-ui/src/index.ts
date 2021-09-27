@@ -11,3 +11,4 @@ export * from './form';
 export * from './data-table';
 
 export * from './tooltip';
+export * from './popover';
