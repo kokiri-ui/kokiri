@@ -1,3 +1,5 @@
+import { isNumeric } from '@ntks/toolbox';
+
 import { CreateElement, VNode } from 'vue';
 import { Component } from 'vue-property-decorator';
 
@@ -20,8 +22,8 @@ export default class FormField extends FormFieldStructuralComponent {
 
     const { width } = this.labelOption || {};
 
-    if (width) {
-      props.labelWidth = width;
+    if (isNumeric(width)) {
+      props.labelWidth = parseFloat(width as any);
     }
 
     return h(IvuFormItem, { props }, this.$slots.default);
