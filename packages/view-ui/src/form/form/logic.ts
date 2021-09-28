@@ -7,6 +7,8 @@ import { Form as IvuForm } from 'view-design';
 import { getComponentName } from '../../basic';
 
 @Component({
+  // @ts-ignore
+  abstract: true,
   name: getComponentName('form'),
 })
 export default class Form extends FormStructuralComponent {
@@ -30,6 +32,6 @@ export default class Form extends FormStructuralComponent {
       props.labelPosition = align;
     }
 
-    return h(IvuForm, { props }, this.$slots.default);
+    return h(IvuForm, { class: this.className, props }, this.$slots.default);
   }
 }

@@ -1,5 +1,6 @@
 <template>
   <ivu-poptip
+    :class="className"
     :title="title"
     :content="content"
     :placement="resolvedPlacement"

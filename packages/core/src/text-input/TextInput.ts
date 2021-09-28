@@ -1,6 +1,6 @@
 import { FormControlSize } from 'petals-ui/dist/form-control';
 import { ITextInputComponent, TextInputHeadlessComponent } from 'petals-ui/dist/text-input';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -34,6 +34,12 @@ class TextInputStructuralComponent
 
   @Prop({ type: Number })
   public readonly maxLength!: number;
+
+  @Emit('input')
+  protected onInput(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
+
+  @Emit('change')
+  protected onChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   public created(): void {
     this.setHeadlessComponent(new TextInputHeadlessComponent(this));

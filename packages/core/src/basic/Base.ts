@@ -17,6 +17,9 @@ class BaseStructuralComponent<HeadlessComponent = BaseHeadlessComponent>
   @Prop({ type: [String, Function], default: '' })
   public readonly tag!: ComponentTag;
 
+  @Prop({ type: String })
+  public readonly className!: string;
+
   private __hc!: HeadlessComponent;
 
   protected setHeadlessComponent(hc: HeadlessComponent): void {

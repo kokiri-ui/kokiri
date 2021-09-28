@@ -1,5 +1,5 @@
 <template>
-  <ivu-steps :direction="direction" :current="activeFlag - 1">
+  <ivu-steps :class="className" :direction="direction" :current="activeFlag - 1">
     <slot />
   </ivu-steps>
 </template>

@@ -4,7 +4,7 @@ import {
   IButtonComponent,
   ButtonHeadlessComponent,
 } from 'petals-ui/dist/button';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -26,6 +26,9 @@ class ButtonStructuralComponent
 
   @Prop({ type: Boolean, default: false })
   public readonly disabled!: boolean;
+
+  @Emit('click')
+  protected onClick(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   public created(): void {
     this.setHeadlessComponent(new ButtonHeadlessComponent(this));

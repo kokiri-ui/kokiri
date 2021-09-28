@@ -7,13 +7,18 @@ import { Option as IvuOption } from 'view-design';
 import { getComponentName } from '../../basic';
 
 @Component({
+  // @ts-ignore
+  abstract: true,
   name: getComponentName('selectOption'),
 })
 export default class Option extends SelectOptionStructuralComponent {
   private render(h: CreateElement): VNode {
     return h(
       IvuOption,
-      { props: { value: this.value, label: this.label, disabled: this.disabled } },
+      {
+        class: this.className,
+        props: { value: this.value, label: this.label, disabled: this.disabled },
+      },
       this.$slots.default,
     );
   }

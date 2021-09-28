@@ -1,7 +1,7 @@
 import { ResizeType } from 'petals-ui/dist/basic';
 import { FormControlSize } from 'petals-ui/dist/form-control';
 import { ITextAreaComponent, TextAreaHeadlessComponent } from 'petals-ui/dist/text-area';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -44,6 +44,12 @@ class TextAreaStructuralComponent
 
   @Prop({ type: String })
   public readonly resize!: ResizeType;
+
+  @Emit('input')
+  protected onInput(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
+
+  @Emit('change')
+  protected onChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   public created(): void {
     this.setHeadlessComponent(new TextAreaHeadlessComponent(this));

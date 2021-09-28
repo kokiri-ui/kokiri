@@ -1,5 +1,5 @@
 import { isNumeric } from '@ntks/toolbox';
-import { Component, Emit } from 'vue-property-decorator';
+import { Component } from 'vue-property-decorator';
 import { DataTableStructuralComponent } from '@kokiri/core/dist/data-table';
 import { TableColumn, Table as IvuTable, Page as IvuPagination } from 'view-design';
 
@@ -10,6 +10,8 @@ function resolveWidth(width: number | string | undefined): number {
 }
 
 @Component({
+  // @ts-ignore
+  abstract: true,
   name: getComponentName('dataTable'),
   components: { IvuTable, IvuPagination },
 })
@@ -37,13 +39,4 @@ export default class DataTable extends DataTableStructuralComponent {
       return resolved;
     });
   }
-
-  @Emit('selection-change')
-  private handleSelectionChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
-
-  @Emit('current-change')
-  private handleCurrentChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
-
-  @Emit('size-change')
-  private handleSizeChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 }

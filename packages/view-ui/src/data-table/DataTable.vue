@@ -1,12 +1,12 @@
 <template>
-  <div class="DataTable">
+  <div class="DataTable" :class="className">
     <div class="DataTable-tableWrapper">
       <ivu-table
         class="DataTable-table"
         :data="dataSource"
         :columns="resolvedColumns"
         :loading="loading"
-        @on-selection-change="handleSelectionChange"
+        @on-selection-change="onSelectionChange"
       >
         <slot name="loading" slot="loading" />
       </ivu-table>
@@ -18,8 +18,8 @@
         :page-size="pageSize"
         :total="total"
         :page-size-opts="pageSizes"
-        @on-change="handleCurrentChange"
-        @on-page-size-change="handleSizeChange"
+        @on-change="onCurrentChange"
+        @on-page-size-change="onSizeChange"
       />
     </slot>
   </div>

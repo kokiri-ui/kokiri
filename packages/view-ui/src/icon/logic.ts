@@ -7,6 +7,8 @@ import { Icon as IvuIcon } from 'view-design';
 import { getComponentName } from '../basic';
 
 @Component({
+  // @ts-ignore
+  abstract: true,
   name: getComponentName('icon'),
 })
 export default class Icon extends IconStructuralComponent {
@@ -24,6 +26,10 @@ export default class Icon extends IconStructuralComponent {
       }
     }
 
-    return h(IvuIcon, { props, on: { click: this.onClick } }, this.$slots.default);
+    return h(
+      IvuIcon,
+      { class: this.className, props, on: { click: this.onClick } },
+      this.$slots.default,
+    );
   }
 }

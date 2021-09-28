@@ -7,6 +7,8 @@ import { FormItem as IvuFormItem } from 'view-design';
 import { getComponentName } from '../../basic';
 
 @Component({
+  // @ts-ignore
+  abstract: true,
   name: getComponentName('formField'),
 })
 export default class FormField extends FormFieldStructuralComponent {
@@ -25,6 +27,6 @@ export default class FormField extends FormFieldStructuralComponent {
       props.labelWidth = resolvedWidth;
     }
 
-    return h(IvuFormItem, { props }, this.$slots.default);
+    return h(IvuFormItem, { class: this.className, props }, this.$slots.default);
   }
 }

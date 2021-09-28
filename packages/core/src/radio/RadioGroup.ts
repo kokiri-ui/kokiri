@@ -1,6 +1,6 @@
 import { CheckableValue } from 'petals-ui/dist/basic';
 import { IRadioGroupComponent, RadioGroupHeadlessComponent } from 'petals-ui/dist/radio';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -19,6 +19,9 @@ class RadioGroupStructuralComponent
 
   @Prop({ type: Boolean, default: false })
   public readonly readonly!: boolean;
+
+  @Emit('change')
+  protected onChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   public created(): void {
     this.setHeadlessComponent(new RadioGroupHeadlessComponent(this));

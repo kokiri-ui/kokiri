@@ -1,7 +1,7 @@
 import { includes } from '@ntks/toolbox';
 
 import { CreateElement, VNode } from 'vue';
-import { Component, Emit } from 'vue-property-decorator';
+import { Component } from 'vue-property-decorator';
 
 import { ButtonStructuralComponent } from '@kokiri/core/dist/button';
 import { Button as IvuButton } from 'view-design';
@@ -9,12 +9,11 @@ import { Button as IvuButton } from 'view-design';
 import { getComponentName } from '../basic';
 
 @Component({
+  // @ts-ignore
+  abstract: true,
   name: getComponentName('button'),
 })
 export default class Button extends ButtonStructuralComponent {
-  @Emit('click')
-  private handleClick(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
-
   private render(h: CreateElement): VNode {
     const props: Record<string, any> = { disabled: this.disabled, ghost: this.outlined };
 
@@ -32,6 +31,10 @@ export default class Button extends ButtonStructuralComponent {
       props.size = this.size;
     }
 
-    return h(IvuButton, { props, on: { click: this.handleClick } }, this.$slots.default);
+    return h(
+      IvuButton,
+      { class: this.className, props, on: { click: this.onClick } },
+      this.$slots.default,
+    );
   }
 }

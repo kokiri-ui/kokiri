@@ -3,7 +3,7 @@ import {
   IDataTableComponent,
   DataTableHeadlessComponent,
 } from 'petals-ui/dist/data-table';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -34,6 +34,15 @@ class DataTableStructuralComponent
 
   @Prop({ type: Array, default: () => [10, 20, 50, 100] })
   public readonly pageSizes!: number[];
+
+  @Emit('selection-change')
+  protected onSelectionChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
+
+  @Emit('current-change')
+  protected onCurrentChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
+
+  @Emit('size-change')
+  protected onSizeChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   public created(): void {
     this.setHeadlessComponent(new DataTableHeadlessComponent(this));

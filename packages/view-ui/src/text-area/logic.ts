@@ -1,5 +1,5 @@
 import { CreateElement, VNode } from 'vue';
-import { Component, Emit } from 'vue-property-decorator';
+import { Component } from 'vue-property-decorator';
 
 import { TextAreaStructuralComponent } from '@kokiri/core/dist/text-area';
 import { Input as IvuInput } from 'view-design';
@@ -7,15 +7,11 @@ import { Input as IvuInput } from 'view-design';
 import { getComponentName } from '../basic';
 
 @Component({
+  // @ts-ignore
+  abstract: true,
   name: getComponentName('textArea'),
 })
 export default class TextArea extends TextAreaStructuralComponent {
-  @Emit('input')
-  private handleInput(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
-
-  @Emit('change')
-  private handleChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
-
   private render(h: CreateElement): VNode {
     const props: Record<string, any> = {
       type: 'textarea',
@@ -43,7 +39,7 @@ export default class TextArea extends TextAreaStructuralComponent {
 
     return h(
       IvuInput,
-      { props, on: { input: this.handleInput, change: this.handleChange } },
+      { class: this.className, props, on: { input: this.onInput, 'on-change': this.onChange } },
       this.$slots.default,
     );
   }

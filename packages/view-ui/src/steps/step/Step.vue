@@ -1,5 +1,5 @@
 <template>
-  <ivu-step :title="title" :content="content">
+  <ivu-step :class="className" :title="title" :content="content">
     <slot />
     <slot name="title" slot="title" />
     <slot name="content" slot="content" />

@@ -1,6 +1,6 @@
 import { FormControlSize } from 'petals-ui/dist/form-control';
 import { SelectValueType, ISelectComponent, SelectHeadlessComponent } from 'petals-ui/dist/select';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -31,6 +31,9 @@ class SelectStructuralComponent
 
   @Prop({ type: Boolean, default: false })
   public readonly multiple!: boolean;
+
+  @Emit('change')
+  protected onChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   public created(): void {
     this.setHeadlessComponent(new SelectHeadlessComponent(this));

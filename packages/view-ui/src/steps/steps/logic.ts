@@ -6,6 +6,8 @@ import { Steps as IvuSteps } from 'view-design';
 import { getComponentName } from '../../basic';
 
 @Component({
+  // @ts-ignore
+  abstract: true,
   name: getComponentName('steps'),
   components: { IvuSteps },
 })

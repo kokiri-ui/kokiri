@@ -6,6 +6,8 @@ import { Poptip as IvuPoptip } from 'view-design';
 import { getComponentName } from '../basic';
 
 @Component({
+  // @ts-ignore
+  abstract: true,
   name: getComponentName('popover'),
   components: { IvuPoptip },
 })

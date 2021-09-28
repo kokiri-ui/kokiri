@@ -6,6 +6,8 @@ import { Tooltip as IvuTooltip } from 'view-design';
 import { getComponentName } from '../basic';
 
 @Component({
+  // @ts-ignore
+  abstract: true,
   name: getComponentName('tooltip'),
   components: { IvuTooltip },
 })

@@ -3,7 +3,7 @@ import {
   ITransferComponent,
   TransferHeadlessComponent,
 } from 'petals-ui/dist/transfer';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -34,6 +34,12 @@ class TransferStructuralComponent
 
   @Prop({ type: Boolean, default: false })
   public readonly filterable!: boolean;
+
+  @Emit('change')
+  protected onChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
+
+  @Emit('selection-change')
+  protected onSelectionChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   public created(): void {
     this.setHeadlessComponent(new TransferHeadlessComponent(this));

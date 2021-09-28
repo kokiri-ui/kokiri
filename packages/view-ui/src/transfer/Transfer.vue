@@ -1,5 +1,6 @@
 <template>
   <ivu-transfer
+    :class="className"
     :data="dataSource"
     :target-keys="value"
     :titles="titles"
