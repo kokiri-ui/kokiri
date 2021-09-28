@@ -10,6 +10,10 @@ import { getComponentName } from '../basic';
   components: { IvuTransfer },
 })
 export default class Transfer extends TransferStructuralComponent {
+  private get resolvedOperations(): string[] {
+    return [...this.operationText].reverse();
+  }
+
   @Emit('change')
   private onChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 

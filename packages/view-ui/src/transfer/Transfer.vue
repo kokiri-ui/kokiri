@@ -3,7 +3,7 @@
     :data="dataSource"
     :target-keys="value"
     :titles="titles"
-    :operations="operationText"
+    :operations="resolvedOperations"
     :filterable="filterable"
     @on-change="onChange"
     @on-selected-change="onSelectionChange"
