@@ -23,6 +23,7 @@ export default class DataTable extends DataTableStructuralComponent {
         align: col.align,
         fixed: col.fixed,
         ellipsis: col.ellipsis,
+        tooltip: col.ellipsis,
         resizable: col.resizable,
         render: col.render,
       };

@@ -1,5 +1,5 @@
 import { CreateElement, VNode } from 'vue';
-import { Component } from 'vue-property-decorator';
+import { Component, Emit } from 'vue-property-decorator';
 
 import { SelectStructuralComponent } from '@kokiri/core/dist/select';
 import { Select as IvuSelect } from 'view-design';
@@ -10,6 +10,9 @@ import { getComponentName } from '../../basic';
   name: getComponentName('select'),
 })
 export default class Select extends SelectStructuralComponent {
+  @Emit('change')
+  private onChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
+
   private render(h: CreateElement): VNode {
     const props: Record<string, any> = {
       name: this.name,
@@ -25,6 +28,6 @@ export default class Select extends SelectStructuralComponent {
       props.size = this.size;
     }
 
-    return h(IvuSelect, { props }, this.$slots.default);
+    return h(IvuSelect, { props, on: { 'on-change': this.onChange } }, this.$slots.default);
   }
 }

@@ -1,5 +1,3 @@
-import { isNumeric } from '@ntks/toolbox';
-
 import { CreateElement, VNode } from 'vue';
 import { Component } from 'vue-property-decorator';
 
@@ -22,9 +20,10 @@ export default class Form extends FormStructuralComponent {
     }
 
     const { width, align } = this.labelOption || {};
+    const resolvedWidth = parseFloat(width as any);
 
-    if (isNumeric(width)) {
-      props.labelWidth = parseFloat(width as any);
+    if (!isNaN(resolvedWidth)) {
+      props.labelWidth = resolvedWidth;
     }
 
     if (align) {
