@@ -1,6 +1,6 @@
 {
   "name": "@kokiri/core",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Basic structural components",
   "files": [
     "dist"
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@ntks/toolbox": "0.0.6",
-    "petals-ui": "0.0.4"
+    "petals-ui": "0.0.5"
   },
   "peerDependencies": {
     "vue": "^2.6.0",
