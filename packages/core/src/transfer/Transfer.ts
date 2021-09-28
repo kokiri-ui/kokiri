@@ -34,6 +34,10 @@ class TransferStructuralComponent
 
   @Prop({ type: Boolean, default: false })
   public readonly filterable!: boolean;
+
+  public created(): void {
+    this.setHeadlessComponent(new TransferHeadlessComponent(this));
+  }
 }
 
 export { TransferStructuralComponent };

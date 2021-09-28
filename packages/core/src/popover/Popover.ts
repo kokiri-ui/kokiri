@@ -26,6 +26,10 @@ class PopoverStructuralComponent
 
   @Prop({ type: Boolean, default: false })
   public readonly disabled!: boolean;
+
+  public created(): void {
+    this.setHeadlessComponent(new PopoverHeadlessComponent(this));
+  }
 }
 
 export { PopoverStructuralComponent };

@@ -13,6 +13,10 @@ class StepsStructuralComponent
 
   @Prop({ type: Number, default: 1 })
   public readonly activeFlag!: number;
+
+  public created(): void {
+    this.setHeadlessComponent(new StepsHeadlessComponent(this));
+  }
 }
 
 export { StepsStructuralComponent };

@@ -9,6 +9,10 @@ class IconStructuralComponent
   implements IIconComponent {
   @Prop({ type: String, default: '' })
   public readonly refs!: string;
+
+  public created(): void {
+    this.setHeadlessComponent(new IconHeadlessComponent(this));
+  }
 }
 
 export { IconStructuralComponent };

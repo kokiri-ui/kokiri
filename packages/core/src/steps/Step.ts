@@ -12,6 +12,10 @@ class StepStructuralComponent
 
   @Prop({ type: String })
   public readonly content!: string;
+
+  public created(): void {
+    this.setHeadlessComponent(new StepHeadlessComponent(this));
+  }
 }
 
 export { StepStructuralComponent };

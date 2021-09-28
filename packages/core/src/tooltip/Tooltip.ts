@@ -23,6 +23,10 @@ class TooltipStructuralComponent
 
   @Prop({ type: Boolean, default: false })
   public readonly disabled!: boolean;
+
+  public created(): void {
+    this.setHeadlessComponent(new TooltipHeadlessComponent(this));
+  }
 }
 
 export { TooltipStructuralComponent };

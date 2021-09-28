@@ -34,6 +34,10 @@ class DataTableStructuralComponent
 
   @Prop({ type: Array, default: () => [10, 20, 50, 100] })
   public readonly pageSizes!: number[];
+
+  public created(): void {
+    this.setHeadlessComponent(new DataTableHeadlessComponent(this));
+  }
 }
 
 export { DataTableStructuralComponent };

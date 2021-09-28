@@ -1,4 +1,4 @@
-import { Component, Emit, Prop } from 'vue-property-decorator';
+import { Component, Emit } from 'vue-property-decorator';
 
 import { TransferStructuralComponent } from '@kokiri/core/dist/transfer';
 import { Transfer as IvuTransfer } from 'view-design';
