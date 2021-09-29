@@ -26,10 +26,6 @@ export default class TextArea extends TextAreaStructuralComponent {
       showWordLimit: this.wordage,
     };
 
-    if (this.size === 'large' || this.size === 'small') {
-      props.size = this.size;
-    }
-
     if (this.maxLength) {
       props.maxlength = this.maxLength;
     }

@@ -14,6 +14,7 @@
     @on-cancel="onClose"
   >
     <slot />
+    <slot name="footer" slot="footer" />
   </ivu-modal>
 </template>
 
