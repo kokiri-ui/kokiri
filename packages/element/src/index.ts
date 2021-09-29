@@ -10,6 +10,7 @@ export * from './checkbox';
 export * from './switch';
 
 export * from './form';
+export * from './data-table';
 
 export * from './dialog';
 export * from './drawer';
