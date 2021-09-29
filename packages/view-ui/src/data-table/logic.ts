@@ -1,5 +1,6 @@
 import { isNumeric } from '@ntks/toolbox';
 import { Component } from 'vue-property-decorator';
+
 import { DataTableStructuralComponent } from '@kokiri/core/dist/data-table';
 import { TableColumn, Table as IvuTable, Page as IvuPagination } from 'view-design';
 
