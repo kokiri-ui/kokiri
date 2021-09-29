@@ -24,6 +24,9 @@ class TooltipStructuralComponent
   @Prop({ type: Boolean, default: false })
   public readonly disabled!: boolean;
 
+  @Prop({ type: String })
+  public readonly popupClassName!: string;
+
   public created(): void {
     this.setHeadlessComponent(new TooltipHeadlessComponent(this));
   }

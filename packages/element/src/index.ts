@@ -12,3 +12,7 @@ export * from './switch';
 export * from './form';
 
 export * from './dialog';
+export * from './drawer';
+
+export * from './tooltip';
+export * from './popover';
