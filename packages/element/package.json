@@ -40,9 +40,7 @@
     "release": "npm publish --access=public"
   },
   "dependencies": {
-    "@kokiri/core": "0.0.0",
-    "@ntks/toolbox": "0.0.6",
-    "petals-ui": "0.0.3"
+    "@kokiri/core": "0.0.5"
   },
   "peerDependencies": {
     "element-ui": "^2.15.0",
