@@ -1,5 +1,5 @@
 import { CreateElement, VNode } from 'vue';
-import { Component, Emit } from 'vue-property-decorator';
+import { Component } from 'vue-property-decorator';
 
 import { RadioGroupStructuralComponent } from '@kokiri/core/dist/radio';
 import { RadioGroup as IvuRadioGroup } from 'view-design';
