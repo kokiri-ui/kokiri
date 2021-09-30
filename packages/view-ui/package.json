@@ -40,7 +40,7 @@
     "release": "npm publish --access=public"
   },
   "dependencies": {
-    "@kokiri/core": "0.0.4"
+    "@kokiri/core": "0.0.5"
   },
   "peerDependencies": {
     "view-design": "^4.0.0",

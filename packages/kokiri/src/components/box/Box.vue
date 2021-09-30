@@ -1,26 +1,9 @@
 <template>
-  <div>
+  <div :class="getComponentClassNames()">
     <slot />
   </div>
 </template>
 
-<script lang="ts">
-import { Component } from 'vue-property-decorator';
+<script src="./logic.ts" lang="ts"></script>
 
-import { IBoxComponent, BoxHeadlessComponent } from 'petals-ui/dist/box';
-
-import { getComponentName, BaseStructuralComponent } from '../basic';
-
-@Component({
-  name: getComponentName('box'),
-})
-export default class Box
-  extends BaseStructuralComponent<BoxHeadlessComponent>
-  implements IBoxComponent {
-  public created(): void {
-    this.setHeadlessComponent(new BoxHeadlessComponent(this));
-  }
-}
-</script>
-
-<style lang="scss" src="./style.scss" module></style>
+<style src="./style.scss" lang="scss" module></style>
