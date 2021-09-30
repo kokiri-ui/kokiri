@@ -7,6 +7,8 @@ import ElFormItem from 'element-ui/lib/form-item';
 import { getComponentName, convertSize } from '../../basic';
 
 @Component({
+  // @ts-ignore
+  abstract: true,
   name: getComponentName('formField'),
 })
 export default class FormField extends FormFieldStructuralComponent {
@@ -25,9 +27,9 @@ export default class FormField extends FormFieldStructuralComponent {
     const { width } = this.labelOption || {};
 
     if (width) {
-      props.labelWidth = width;
+      props.labelWidth = `${width}`;
     }
 
-    return h(ElFormItem, { props }, this.$slots.default);
+    return h(ElFormItem, { class: this.className, props }, this.$slots.default);
   }
 }

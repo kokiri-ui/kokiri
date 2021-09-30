@@ -43,7 +43,7 @@
     "@kokiri/core": "0.0.5"
   },
   "peerDependencies": {
-    "element-ui": "^2.15.0",
+    "element-ui": "^2.14.0",
     "vue": "^2.6.0",
     "vue-property-decorator": "^8.0.0"
   }
