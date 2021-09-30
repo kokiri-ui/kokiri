@@ -1,6 +1,6 @@
 {
   "name": "@kokiri/element",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Adapter for Element",
   "main": "dist/index.js",
   "module": "dist/index.js",
