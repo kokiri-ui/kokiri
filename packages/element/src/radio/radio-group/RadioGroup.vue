@@ -1,5 +1,5 @@
 <template>
-  <el-radio-group :class="className" :value="value" :disabled="disabled" @change="onChange">
+  <el-radio-group :class="className" :value="value" :disabled="disabled" @input="onChange">
     <slot />
   </el-radio-group>
 </template>

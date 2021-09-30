@@ -1,5 +1,5 @@
 <template>
-  <div class="DataTable" :class="className">
+  <div class="DataTable" :class="className" v-loading="loading">
     <div class="DataTable-tableWrapper">
       <el-table
         class="DataTable-table"
