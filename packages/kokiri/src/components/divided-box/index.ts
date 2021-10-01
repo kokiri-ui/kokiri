@@ -1,4 +1,2 @@
-import DividedBox from './DividedBox.vue';
-import BoxContent from './BoxContent.vue';
-
-export { DividedBox, BoxContent };
+export { default as DividedBox } from './divided-box/DividedBox.vue';
+export { default as BoxContent } from './box-content/BoxContent.vue';
