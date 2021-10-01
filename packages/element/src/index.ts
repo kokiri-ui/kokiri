@@ -22,3 +22,5 @@ export * from './breadcrumb';
 
 export * from './tooltip';
 export * from './popover';
+
+export * from './divider';

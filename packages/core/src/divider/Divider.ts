@@ -1,29 +1,12 @@
-<template>
-  <el-divider
-    :class="getComponentClassNames()"
-    :direction="direction"
-    :content-position="alignment"
-  >
-    <slot />
-  </el-divider>
-</template>
-
-<script lang="ts">
-import { Component, Prop } from 'vue-property-decorator';
-import { Divider as ElDivider } from 'element-ui';
-
 import { DirectionType, HorizontalAlignment } from 'petals-ui/dist/basic';
 import { IDividerComponent, DividerHeadlessComponent } from 'petals-ui/dist/divider';
 
-import { getComponentName, BaseStructuralComponent } from '../basic';
+import { Component, Prop } from 'vue-property-decorator';
 
-@Component({
-  name: getComponentName('divider'),
-  components: {
-    ElDivider,
-  },
-})
-export default class Divider
+import { BaseStructuralComponent } from '../basic';
+
+@Component
+class DividerStructuralComponent
   extends BaseStructuralComponent<DividerHeadlessComponent>
   implements IDividerComponent {
   /**
@@ -36,10 +19,11 @@ export default class Divider
    * 分割线文案位置
    */
   @Prop({ type: String, default: 'center' })
-  public readonly alignment!: HorizontalAlignment;
+  public readonly align!: HorizontalAlignment;
 
   public created(): void {
     this.setHeadlessComponent(new DividerHeadlessComponent(this));
   }
 }
-</script>
+
+export { DividerStructuralComponent };
