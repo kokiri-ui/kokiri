@@ -1,21 +1,4 @@
-<template>
-  <el-avatar
-    :class="getComponentClassNames()"
-    :src="getSourceUrl()"
-    :alt="alt"
-    :fit="fit"
-    :size="size"
-    :shape="shape"
-    :icon="icon"
-  >
-    <slot />
-  </el-avatar>
-</template>
-
-<script lang="ts">
-import { Component, Prop } from 'vue-property-decorator';
-import { Avatar as ElAvatar } from 'element-ui';
-
+import { isFunction } from '@ntks/toolbox';
 import {
   AvatarShape,
   AvatarSize,
@@ -23,16 +6,12 @@ import {
   IAvatarComponent,
   AvatarHeadlessComponent,
 } from 'petals-ui/dist/avatar';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 
-import { getComponentName, BaseStructuralComponent } from '../basic';
+import { BaseStructuralComponent } from '../basic';
 
-@Component({
-  name: getComponentName('avatar'),
-  components: {
-    ElAvatar,
-  },
-})
-export default class Avatar
+@Component
+class AvatarStructuralComponent
   extends BaseStructuralComponent<AvatarHeadlessComponent>
   implements IAvatarComponent {
   @Prop({ type: String, default: '' })
@@ -59,10 +38,18 @@ export default class Avatar
   @Prop({ type: String, default: '' })
   public readonly icon!: string;
 
+  @Emit('load')
+  public onLoad(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
+
+  public onError(): boolean {
+    const errorCallback = this.$listeners.error as any;
+
+    return isFunction(errorCallback) ? errorCallback() : true;
+  }
+
   public created(): void {
     this.setHeadlessComponent(new AvatarHeadlessComponent(this));
   }
 }
-</script>
 
-<style src="./style.scss" lang="scss" module></style>
+export { AvatarStructuralComponent };
