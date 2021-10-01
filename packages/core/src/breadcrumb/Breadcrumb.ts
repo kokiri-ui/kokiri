@@ -1,34 +1,21 @@
-<template>
-  <el-breadcrumb :separator="separator" :separator-class="separatorClassName">
-    <slot />
-  </el-breadcrumb>
-</template>
-
-<script lang="ts">
-import { Component, Prop } from 'vue-property-decorator';
-import { Breadcrumb as ElBreadcrumb } from 'element-ui';
-
 import { IBreadcrumbComponent, BreadcrumbHeadlessComponent } from 'petals-ui/dist/breadcrumb';
+import { Component, Prop } from 'vue-property-decorator';
 
 import { BaseStructuralComponent } from '../basic';
 
-@Component({
-  name: 'BudsBreadcrumb',
-  components: {
-    ElBreadcrumb,
-  },
-})
-export default class Breadcrumb
+@Component
+class BreadcrumbStructuralComponent
   extends BaseStructuralComponent<BreadcrumbHeadlessComponent>
   implements IBreadcrumbComponent {
   @Prop({ type: String, default: '/' })
   public readonly separator!: string;
 
-  @Prop({ type: String, default: '' })
+  @Prop({ type: String })
   public readonly separatorClassName!: string;
 
   public created(): void {
     this.setHeadlessComponent(new BreadcrumbHeadlessComponent(this));
   }
 }
-</script>
+
+export { BreadcrumbStructuralComponent };
