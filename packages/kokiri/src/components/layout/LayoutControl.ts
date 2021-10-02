@@ -1,10 +1,9 @@
 import { Vue, Component } from 'vue-property-decorator';
 
-import { BaseHeadlessComponent } from 'petals-ui/dist/basic';
 import { LayoutRole, ILayoutContainerComponent } from 'petals-ui/dist/layout';
+import { getComponentName } from '@kokiri/core/dist/basic';
 
 import { findSpecificAncestor } from '../../helper/utils';
-import { getComponentName, BaseStructuralComponent } from '../basic';
 
 type SelfContainer = ILayoutContainerComponent &
   Vue & {
@@ -13,9 +12,7 @@ type SelfContainer = ILayoutContainerComponent &
   };
 
 @Component
-class LayoutControl<
-  HeadlessComponent = BaseHeadlessComponent
-> extends BaseStructuralComponent<HeadlessComponent> {
+class LayoutControl extends Vue {
   protected role!: LayoutRole;
 
   protected container!: SelfContainer | null;

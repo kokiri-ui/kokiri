@@ -1,7 +1,5 @@
-import LayoutContainer from './LayoutContainer.vue';
-import LayoutMain from './LayoutMain.vue';
-import LayoutAside from './LayoutAside.vue';
-import LayoutHeader from './LayoutHeader.vue';
-import LayoutFooter from './LayoutFooter.vue';
-
-export { LayoutContainer, LayoutMain, LayoutAside, LayoutHeader, LayoutFooter };
+export { default as LayoutContainer } from './layout-container/LayoutContainer.vue';
+export { default as LayoutMain } from './layout-main/LayoutMain.vue';
+export { default as LayoutAside } from './layout-aside/LayoutAside.vue';
+export { default as LayoutHeader } from './layout-header/LayoutHeader.vue';
+export { default as LayoutFooter } from './layout-footer/LayoutFooter.vue';

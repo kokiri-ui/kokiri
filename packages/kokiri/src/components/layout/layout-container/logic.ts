@@ -1,28 +1,18 @@
-<template>
-  <div :class="computedClassNames" :style="computedStyle">
-    <slot />
-  </div>
-</template>
-
-<script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
+import { Vue, Component, Mixins } from 'vue-property-decorator';
 
 import { ComponentStyle, DirectionType, normalizeLooseSize } from 'petals-ui/dist/basic';
-import {
-  LayoutRole,
-  ILayoutContainerComponent,
-  LayoutContainerHeadlessComponent,
-} from 'petals-ui/dist/layout';
+import { LayoutRole } from 'petals-ui/dist/layout';
+import { getComponentName, LayoutContainerStructuralComponent } from '@kokiri/core/dist/layout';
 
-import { getComponentName } from '../basic';
-import { LayoutControl } from './LayoutControl';
+import { LayoutControl } from '../LayoutControl';
 
 @Component({
   name: getComponentName('layoutContainer'),
 })
-export default class LayoutContainer
-  extends LayoutControl<LayoutContainerHeadlessComponent>
-  implements ILayoutContainerComponent {
+export default class LayoutContainer extends Mixins(
+  LayoutContainerStructuralComponent,
+  LayoutControl,
+) {
   protected role: LayoutRole = 'container';
 
   private roles: { [key: string]: Vue } = {};
@@ -95,15 +85,8 @@ export default class LayoutContainer
     }
   }
 
-  public created(): void {
-    this.setHeadlessComponent(new LayoutContainerHeadlessComponent(this));
-  }
-
   public mounted(): void {
     this.isTop = this.container === null;
     this.direction = this.hasRole('header') || this.hasRole('footer') ? 'vertical' : 'horizontal';
   }
 }
-</script>
-
-<style src="./style.scss" lang="scss" module></style>
