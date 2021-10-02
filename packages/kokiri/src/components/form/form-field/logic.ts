@@ -1,7 +1,5 @@
 import { Component } from 'vue-property-decorator';
-
-import { getComponentName } from '@kokiri/core/dist/basic';
-import { FormFieldStructuralComponent } from '@kokiri/core/dist/form';
+import { getComponentName, FormFieldStructuralComponent } from '@kokiri/core/dist/form';
 
 @Component({
   name: getComponentName('formField'),

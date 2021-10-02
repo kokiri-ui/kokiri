@@ -1,8 +1,7 @@
 import { CreateElement, VNode } from 'vue';
 import { Component } from 'vue-property-decorator';
 
-import { getComponentName } from '@kokiri/core/dist/basic';
-import { FormStructuralComponent } from '@kokiri/core/dist/form';
+import { getComponentName, FormStructuralComponent } from '@kokiri/core/dist/form';
 
 @Component({
   name: getComponentName('form'),

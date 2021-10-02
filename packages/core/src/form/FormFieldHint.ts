@@ -1,20 +1,16 @@
-<script lang="ts">
-import { Component } from 'vue-property-decorator';
-
 import { IFormFieldHintComponent, FormFieldHintHeadlessComponent } from 'petals-ui/dist/form';
+
+import { Component } from 'vue-property-decorator';
 
 import { BaseStructuralComponent } from '../basic';
 
-@Component({
-  name: 'BudsFormFieldHint',
-})
-export default class FormFieldHint
+@Component
+class FormFieldHintStructuralComponent
   extends BaseStructuralComponent<FormFieldHintHeadlessComponent>
   implements IFormFieldHintComponent {
   public created(): void {
     this.setHeadlessComponent(new FormFieldHintHeadlessComponent(this));
   }
 }
-</script>
 
-<style lang="scss" src="./style.scss" module></style>
+export { FormFieldHintStructuralComponent };

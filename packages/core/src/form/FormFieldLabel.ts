@@ -1,31 +1,27 @@
-<script lang="ts">
-import { Component, Prop } from 'vue-property-decorator';
-
 import {
   FormFieldLabelWidth,
-  FormFieldLabelPosition,
+  FormFieldLabelAlignment,
   IFormFieldLabelComponent,
   FormFieldLabelHeadlessComponent,
 } from 'petals-ui/dist/form';
 
+import { Component, Prop } from 'vue-property-decorator';
+
 import { BaseStructuralComponent } from '../basic';
 
-@Component({
-  name: 'BudsFormFieldLabel',
-})
-export default class FormFieldLabel
+@Component
+class FormFieldLabelStructuralComponent
   extends BaseStructuralComponent<FormFieldLabelHeadlessComponent>
   implements IFormFieldLabelComponent {
-  @Prop({ type: [Number, String], default: 'none' })
+  @Prop({ type: [Number, String] })
   public readonly width!: FormFieldLabelWidth;
 
-  @Prop({ type: String, default: 'left' })
-  public readonly position!: FormFieldLabelPosition;
+  @Prop({ type: String, default: 'right' })
+  public readonly align!: FormFieldLabelAlignment;
 
   public created(): void {
     this.setHeadlessComponent(new FormFieldLabelHeadlessComponent(this));
   }
 }
-</script>
 
-<style lang="scss" src="./style.scss" module></style>
+export { FormFieldLabelStructuralComponent };
