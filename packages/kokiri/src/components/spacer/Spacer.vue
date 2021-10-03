@@ -2,27 +2,6 @@
   <box :class="getComponentClassNames()" />
 </template>
 
-<script lang="ts">
-import { Component } from 'vue-property-decorator';
-
-import { ISpacerComponent, SpacerHeadlessComponent } from 'petals-ui/dist/spacer';
-
-import { getComponentName, BaseStructuralComponent } from '../basic';
-import { Box } from '../box';
-
-@Component({
-  name: getComponentName('spacer'),
-  components: {
-    Box,
-  },
-})
-export default class Spacer
-  extends BaseStructuralComponent<SpacerHeadlessComponent>
-  implements ISpacerComponent {
-  public created(): void {
-    this.setHeadlessComponent(new SpacerHeadlessComponent(this));
-  }
-}
-</script>
+<script src="./logic.ts" lang="ts"></script>
 
 <style src="./style.scss" lang="scss" module></style>
