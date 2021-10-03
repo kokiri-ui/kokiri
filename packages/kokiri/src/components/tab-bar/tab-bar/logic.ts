@@ -1,75 +1,19 @@
-<script lang="ts">
 import { throttle } from 'throttle-debounce';
 import { CreateElement, VNode } from 'vue';
-import { Component, Prop, Ref, Watch, Emit } from 'vue-property-decorator';
+import { Component, Ref, Watch, Emit } from 'vue-property-decorator';
 
-import {
-  TabNavFlag,
-  TabNavType,
-  ITabBarComponent,
-  TabBarHeadlessComponent,
-} from 'petals-ui/dist/tab-bar';
+import { TabNavFlag } from 'petals-ui/dist/tab-bar';
+import { getComponentName, TabBarStructuralComponent } from '@kokiri/core/dist/tab-bar';
 
-import { isSpecificComponent } from '../../helper/utils';
-import { getComponentName, BaseStructuralComponent } from '../basic';
-import { Icon } from '../icon';
+import { isSpecificComponent } from '../../../helper/utils';
+import { Icon } from '../../icon';
 import TabNav from './TabNav.vue';
 
 @Component({
   name: getComponentName('tabBar'),
-  components: {
-    Icon,
-    TabNav,
-  },
+  components: { Icon, TabNav },
 })
-export default class TabBar
-  extends BaseStructuralComponent<TabBarHeadlessComponent>
-  implements ITabBarComponent {
-  @Prop({ type: Array, default: () => [] })
-  public readonly navs!: TabNavType[];
-
-  @Prop({ type: [Number, String], default: 0 })
-  public readonly activeFlag!: TabNavFlag;
-
-  /**
-   * 选项卡是否拉伸
-   */
-  @Prop({ type: Boolean, default: false })
-  public readonly stretch!: boolean;
-
-  @Prop({ type: String, default: '' })
-  public readonly prevButtonIcon!: string;
-
-  @Prop({ type: String, default: '' })
-  public readonly prevButtonClassName!: string;
-
-  @Prop({ type: String, default: '' })
-  public readonly nextButtonIcon!: string;
-
-  @Prop({ type: String, default: '' })
-  public readonly nextButtonClassName!: string;
-
-  @Prop({ type: String, default: '' })
-  public readonly mainClassName!: string;
-
-  @Prop({ type: String, default: '' })
-  public readonly extraClassName!: string;
-
-  @Prop({ type: String, default: '' })
-  public readonly contentClassName!: string;
-
-  @Prop({ type: String, default: '' })
-  public readonly navsClassName!: string;
-
-  @Prop({ type: String, default: '' })
-  public readonly navClassName!: string;
-
-  @Prop({ type: String, default: '' })
-  public readonly navActiveClassName!: string;
-
-  @Prop({ type: String, default: '' })
-  public readonly navDisabledClassName!: string;
-
+export default class TabBar extends TabBarStructuralComponent {
   @Ref()
   private readonly tabBarContent!: HTMLDivElement;
 
@@ -303,10 +247,6 @@ export default class TabBar
     return h('div', { class: this.computedClassNames }, contentNodes);
   }
 
-  public created(): void {
-    this.setHeadlessComponent(new TabBarHeadlessComponent(this));
-  }
-
   public mounted(): void {
     this.throttledCalc = throttle(300, true, this.calcScrollable);
 
@@ -319,6 +259,3 @@ export default class TabBar
     window.removeEventListener('resize', this.throttledCalc as any);
   }
 }
-</script>
-
-<style lang="scss" src="./style.scss" module></style>

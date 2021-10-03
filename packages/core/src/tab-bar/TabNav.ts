@@ -1,20 +1,11 @@
-<template>
-  <div :class="getComponentClassNames()" @click.stop="handleClick">
-    <slot />
-  </div>
-</template>
-
-<script lang="ts">
-import { Component, Prop } from 'vue-property-decorator';
-
 import { TabNavFlag, ITabNavComponent, TabNavHeadlessComponent } from 'petals-ui/dist/tab-bar';
 
-import { getComponentName, BaseStructuralComponent } from '../basic';
+import { Component, Prop } from 'vue-property-decorator';
 
-@Component({
-  name: getComponentName('tabNav'),
-})
-export default class TabNav
+import { BaseStructuralComponent } from '../basic';
+
+@Component
+class TabNavStructuralComponent
   extends BaseStructuralComponent<TabNavHeadlessComponent>
   implements ITabNavComponent {
   @Prop({ type: [Number, String], default: 0 })
@@ -32,18 +23,9 @@ export default class TabNav
   @Prop({ type: String, default: '' })
   public readonly disabledClassName!: string;
 
-  private handleClick(): void {
-    if (this.active || this.disabled) {
-      return;
-    }
-
-    this.$emit('change', this.flag);
-  }
-
   public created(): void {
     this.setHeadlessComponent(new TabNavHeadlessComponent(this));
   }
 }
-</script>
 
-<style lang="scss" src="./style.scss" module></style>
+export { TabNavStructuralComponent };
