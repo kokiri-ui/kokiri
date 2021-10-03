@@ -1,4 +1,2 @@
-import Panel from './Panel.vue';
-import PanelHeader from './PanelHeader.vue';
-
-export { Panel, PanelHeader };
+export { default as Panel } from './panel/Panel.vue';
+export { default as PanelHeader } from './panel-header/PanelHeader.vue';
