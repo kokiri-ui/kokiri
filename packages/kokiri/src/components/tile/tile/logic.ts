@@ -1,13 +1,11 @@
-<script lang="ts">
 import { CreateElement, VNode } from 'vue';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component } from 'vue-property-decorator';
 
-import { LooseSize, DirectionType } from 'petals-ui/dist/basic';
-import { ITileComponent } from 'petals-ui/dist/tile';
+import { LooseSize } from 'petals-ui/dist/basic';
+import { getComponentName, TileStructuralComponent } from '@kokiri/core/dist/tile';
 
-import { getComponentName, BaseStructuralComponent } from '../basic';
-import { Box } from '../box';
-import TileCell from './TileCell.vue';
+import { Box } from '../../box';
+import TileCell from '../tile-cell/TileCell.vue';
 
 function resolveNumeric(num: LooseSize): number {
   if (typeof num === 'number') {
@@ -21,36 +19,9 @@ function resolveNumeric(num: LooseSize): number {
 
 @Component({
   name: getComponentName('tile'),
-  components: {
-    Box,
-    TileCell,
-  },
+  components: { Box, TileCell },
 })
-export default class Tile extends BaseStructuralComponent implements ITileComponent {
-  /**
-   * 排列方向
-   *
-   * 可选值为 `'horizontal'` 和 `'vertical'`，默认为 `'horizontal'`
-   */
-  @Prop({ type: String, default: 'horizontal' })
-  public readonly direction!: DirectionType;
-
-  /**
-   * 每个单元格的宽度
-   *
-   * 为 `0` 时自动获取子项中最宽的作为基准
-   */
-  @Prop({ type: Number, default: 0 })
-  public readonly width!: LooseSize;
-
-  /**
-   * 每个单元格的高度
-   *
-   * 为 `0` 时自动获取子项中最高的作为基准
-   */
-  @Prop({ type: Number, default: 0 })
-  public readonly height!: LooseSize;
-
+export default class Tile extends TileStructuralComponent {
   private tileWidth: number = 0;
   private tileHeight: number = 0;
 
@@ -101,7 +72,7 @@ export default class Tile extends BaseStructuralComponent implements ITileCompon
     this.tileHeight = tileHeight;
   }
 
-  public render(createVNodes: CreateElement): VNode {
+  private render(createVNodes: CreateElement): VNode {
     const { direction, tileWidth, tileHeight } = this;
     const vNodes = this.$slots.default || [];
     const isHorizontal = direction !== 'vertical';
@@ -154,6 +125,3 @@ export default class Tile extends BaseStructuralComponent implements ITileCompon
     this.calcSize();
   }
 }
-</script>
-
-<style src="./style.scss" lang="scss" module></style>
