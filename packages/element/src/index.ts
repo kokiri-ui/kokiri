@@ -18,6 +18,7 @@ export * from './badge';
 export * from './dialog';
 export * from './drawer';
 
+export * from './nav-menu';
 export * from './breadcrumb';
 
 export * from './tooltip';

@@ -1,30 +1,13 @@
-<template>
-  <el-menu-item :index="flag" :disabled="disabled" @click="handleClick">
-    <slot />
-    <slot name="title" slot="title" />
-  </el-menu-item>
-</template>
+import { INavMenuItemComponent, NavMenuItemHeadlessComponent } from 'petals-ui/dist/nav-menu';
 
-<script lang="ts">
 import { Component, Prop, Emit } from 'vue-property-decorator';
-import { MenuItem as ElMenuItem } from 'element-ui';
-
-import {
-  INavMenuItemComponent,
-  NavMenuItemHeadlessComponent,
-} from 'petals-ui/dist/nav-menu';
 
 import { BaseStructuralComponent } from '../basic';
 
 type LinkHref = string;
 
-@Component({
-  name: 'BudsMenuItem',
-  components: {
-    ElMenuItem,
-  },
-})
-export default class MenuItem
+@Component
+class NavMenuItemStructuralComponent
   extends BaseStructuralComponent<NavMenuItemHeadlessComponent>
   implements INavMenuItemComponent<LinkHref> {
   @Prop({ type: String, default: '' })
@@ -43,12 +26,11 @@ export default class MenuItem
   public readonly href!: LinkHref;
 
   @Emit('click')
-  private handleClick(): void {}
+  protected onClick(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   public created(): void {
     this.setHeadlessComponent(new NavMenuItemHeadlessComponent(this));
   }
 }
-</script>
 
-<style src="./style.scss" lang="scss" module></style>
+export { NavMenuItemStructuralComponent };
