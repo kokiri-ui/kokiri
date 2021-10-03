@@ -1,6 +1,6 @@
 {
   "name": "kokiri",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Vue.js components based on Petals",
   "main": "dist/index.ts",
   "module": "dist/index.ts",
@@ -29,13 +29,16 @@
     "directory": "packages/kokiri"
   },
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "mkdir dist && cp -R src/* dist",
+    "precopy": "rm -rf dist",
+    "copy": "mkdir dist && cp -R src/* dist",
+    "prebuild": "npm run copy",
+    "build": "tsc",
+    "postbuild": "node build && rm -rf dist/shims-*.d.ts",
     "prerelease": "npm run build",
     "release": "npm publish"
   },
   "dependencies": {
-    "@kokiri/core": "0.0.5"
+    "@kokiri/core": "0.0.6"
   },
   "peerDependencies": {
     "vue": "^2.6.0",

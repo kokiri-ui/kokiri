@@ -21,11 +21,12 @@
     "ivu:build": "cd packages/view-ui && npm run build",
     "ivu:patch-version": "cd packages/view-ui && npm version patch && cd ../../",
     "ivu:release": "cd packages/view-ui && npm run release",
+    "kokiri:build": "cd packages/kokiri && npm run build",
     "kokiri:patch-version": "cd packages/kokiri && npm version patch && cd ../../",
     "kokiri:release": "cd packages/kokiri && npm run release"
   },
   "devDependencies": {
-    "@kokiri/core": "0.0.5",
+    "@kokiri/core": "0.0.6",
     "@ntks/eslint-config": "0.0.0",
     "@ntks/stylelint-config": "0.0.5",
     "@ntks/toolbox": "0.0.6",
@@ -37,7 +38,7 @@
     "eslint": "^7.21.0",
     "fibers": "^5.0.0",
     "node-sass": "^5.0.0",
-    "petals-ui": "0.0.7",
+    "petals-ui": "0.0.8",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.0",
     "sass": "^1.32.0",
