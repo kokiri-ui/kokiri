@@ -11,4 +11,4 @@
   </el-tooltip>
 </template>
 
-<script lang="ts" src="./logic.ts"></script>
+<script src="./logic.ts" lang="ts"></script>
