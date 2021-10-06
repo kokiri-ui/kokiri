@@ -1,4 +1,3 @@
-import { isFunction } from '@ntks/toolbox';
 import {
   AvatarShape,
   AvatarSize,
@@ -8,7 +7,7 @@ import {
 } from 'petals-ui/dist/avatar';
 import { Component, Prop, Emit } from 'vue-property-decorator';
 
-import { BaseStructuralComponent } from '../basic';
+import { isFunction, BaseStructuralComponent } from '../basic';
 
 @Component
 class AvatarStructuralComponent

@@ -10,3 +10,8 @@ function getComponentName(moduleName: string, prefix: string = 'Kokiri'): string
 }
 
 export { getComponentName };
+
+export * from '@ntks/toolbox';
+
+export * from './dom';
+export * from './component';
