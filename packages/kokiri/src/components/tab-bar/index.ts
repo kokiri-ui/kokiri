@@ -1,2 +1,2 @@
-export { default as TabBar } from './TabBar.vue';
-export { default as TabNav } from './TabNav.vue';
+export { default as TabBar } from './tab-bar/TabBar.vue';
+export { default as TabNav } from './tab-nav/TabNav.vue';

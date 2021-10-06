@@ -7,7 +7,7 @@ import { getComponentName, TabBarStructuralComponent } from '@kokiri/core/dist/t
 
 import { isSpecificComponent } from '../../../helper/utils';
 import { Icon } from '../../icon';
-import TabNav from './TabNav.vue';
+import TabNav from '../tab-nav/TabNav.vue';
 
 @Component({
   name: getComponentName('tabBar'),

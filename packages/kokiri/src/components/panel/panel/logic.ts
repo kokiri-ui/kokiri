@@ -4,7 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { getComponentName, PanelStructuralComponent } from '@kokiri/core/dist/panel';
 
 import { isSpecificComponent } from '../../../helper/utils';
-import PanelHeader from './PanelHeader.vue';
+import PanelHeader from '../panel-header/PanelHeader.vue';
 
 @Component({
   name: getComponentName('panel'),

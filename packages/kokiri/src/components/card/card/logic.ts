@@ -4,7 +4,7 @@ import { Component } from 'vue-property-decorator';
 import { getComponentName, CardStructuralComponent } from '@kokiri/core/dist/card';
 
 import { isSpecificComponent } from '../../../helper/utils';
-import CardHeader from './CardHeader.vue';
+import CardHeader from '../card-header/CardHeader.vue';
 
 @Component({
   name: getComponentName('card'),
