@@ -1,6 +1,9 @@
 export * from './icon';
 export * from './button';
 
+// Layouts
+export * from './layout';
+
 // Input fields
 export * from './text-input';
 export * from './text-area';
