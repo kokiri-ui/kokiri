@@ -1,4 +1,5 @@
 import {
+  TreeNodeKey,
   TreeData,
   ConfigurableTreeNodeDataField,
   ITreeComponent,
@@ -16,7 +17,7 @@ class TreeStructuralComponent
   public readonly name!: string;
 
   @Prop({ type: Array, default: () => [] })
-  public readonly value!: string[];
+  public readonly value!: TreeNodeKey[];
 
   @Prop({ type: Boolean, default: false })
   public readonly disabled!: boolean;
@@ -31,22 +32,22 @@ class TreeStructuralComponent
   public readonly checkable!: boolean;
 
   @Prop({ type: Array, default: () => [] })
-  public readonly expandedKeys!: string[];
+  public readonly expandedKeys!: TreeNodeKey[];
 
   @Prop({ type: Array, default: () => [] })
-  public readonly selectedKeys!: string[];
+  public readonly selectedKeys!: TreeNodeKey[];
 
   @Prop({ type: Object, default: () => ({}) })
   public readonly nodeField!: ConfigurableTreeNodeDataField;
 
   @Emit('change')
-  public onChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
+  public onChange(checkedKeys: TreeNodeKey[]): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   @Emit('select')
-  public onSelect(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
+  public onSelect(selectedKeys: TreeNodeKey[]): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   @Emit('expand')
-  public onExpand(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
+  public onExpand(expandedKeys: TreeNodeKey[]): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   public created(): void {
     this.setHeadlessComponent(new TreeHeadlessComponent(this));

@@ -4,13 +4,16 @@
     :data="dataSource"
     :show-checkbox="checkable"
     :default-checked-keys="value"
+    :default-expanded-keys="expandedKeys"
     :current-node-key="resolvedCurrentNodeKey"
     :node-key="resolvedNodeKey"
     :props="resolvedProps"
-    @check="onChange"
-    @node-click="onSelect"
-    @node-expand="onExpand"
-    @node-collapse="onExpand"
+    :expand-on-click-node="false"
+    highlight-current
+    @check="handleNodeCheck"
+    @current-change="handleCurrentNodeChange"
+    @node-expand="handleNodeExpand"
+    @node-collapse="handleNodeCollapse"
   />
 </template>
 
