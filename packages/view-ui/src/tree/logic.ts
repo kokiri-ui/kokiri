@@ -1,18 +1,25 @@
 import { includes, isArray } from '@ntks/toolbox';
-import { Component } from 'vue-property-decorator';
+import { Component, Watch } from 'vue-property-decorator';
 
-import { TreeData, ConfigurableTreeNodeDataField } from 'petals-ui/dist/tree';
+import {
+  TreeNodeKey,
+  TreeNodeData,
+  TreeData,
+  ConfigurableTreeNodeDataField,
+} from 'petals-ui/dist/tree';
 import { getComponentName, TreeStructuralComponent } from '@kokiri/core/dist/tree';
 import { TreeChild, Tree as IvuTree } from 'view-design';
 
 function resolveData(
   data: TreeData,
   nodeField: ConfigurableTreeNodeDataField,
-  keys: { expanded: string[]; checked: string[]; selected: string[] },
-  parentKey: string = '',
+  keys: { expanded: TreeNodeKey[]; checked: TreeNodeKey[]; selected: TreeNodeKey[] },
 ): Partial<TreeChild>[] {
-  return data.map((node, idx) => {
+  return data.map(node => {
+    const keyName = nodeField.key || 'key';
+    const key = node[keyName];
     const resolved: Partial<TreeChild> = {
+      [keyName]: key,
       title: node[nodeField.label || 'label'],
       disabled: !!node.disabled,
       disableCheckbox: !!node.checkboxDisabled,
@@ -21,14 +28,6 @@ function resolveData(
     if (node.render !== undefined) {
       resolved.render = node.render;
     }
-
-    let currentKey = node[nodeField.key || 'key'];
-
-    if (currentKey === undefined) {
-      currentKey = `${idx}`;
-    }
-
-    const key = parentKey ? `${parentKey}-${currentKey}` : currentKey;
 
     [
       ['expanded', 'expand'],
@@ -40,10 +39,11 @@ function resolveData(
       }
     });
 
-    const children = node[nodeField.children || 'children'];
+    const childrenName = nodeField.children || 'children';
+    const children = node[childrenName];
 
     if (isArray(children)) {
-      resolved.children = resolveData(children, nodeField, keys, key) as TreeChild[];
+      resolved[childrenName] = resolveData(children, nodeField, keys) as TreeChild[];
     }
 
     return resolved;
@@ -57,6 +57,8 @@ function resolveData(
   components: { IvuTree },
 })
 export default class Tree extends TreeStructuralComponent {
+  private internalExpandedKeys: TreeNodeKey[] = [];
+
   private get resolvedData(): Partial<TreeChild>[] {
     return resolveData(this.dataSource, this.nodeField, {
       expanded: this.expandedKeys,
@@ -65,7 +67,44 @@ export default class Tree extends TreeStructuralComponent {
     });
   }
 
+  private get resolvedNodeKey(): string {
+    return this.nodeField.key || 'key';
+  }
+
   private get resolvedChildrenKey(): string {
     return this.nodeField.children || 'children';
+  }
+
+  @Watch('expandedKeys', { immediate: true })
+  private handleExpandedKeysChange(): void {
+    this.internalExpandedKeys = [...this.expandedKeys];
+  }
+
+  private getNodeKeyValue(nodeData: TreeNodeData): TreeNodeKey {
+    return nodeData[this.resolvedNodeKey];
+  }
+
+  private getNodeKeys(nodes: TreeChild[]): TreeNodeKey[] {
+    return nodes.map(node => this.getNodeKeyValue(node));
+  }
+
+  private handleCheckChange(checkedNodes: TreeChild[]): void {
+    this.onChange(this.getNodeKeys(checkedNodes));
+  }
+
+  private handleSelectChange(selectedNodes: TreeChild[]): void {
+    this.onSelect(this.getNodeKeys(selectedNodes));
+  }
+
+  private handleToggleExpand(nodeData: TreeChild): void {
+    if (nodeData.expand === true) {
+      this.internalExpandedKeys.push(this.getNodeKeyValue(nodeData));
+    } else {
+      this.internalExpandedKeys = this.internalExpandedKeys.filter(
+        k => k !== this.getNodeKeyValue(nodeData),
+      );
+    }
+
+    this.onExpand([...this.internalExpandedKeys]);
   }
 }

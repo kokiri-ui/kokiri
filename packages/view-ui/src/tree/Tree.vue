@@ -4,9 +4,9 @@
     :data="resolvedData"
     :show-checkbox="checkable"
     :children-key="resolvedChildrenKey"
-    @on-check-change="onChange"
-    @on-select-change="onSelect"
-    @on-toggle-expand="onExpand"
+    @on-check-change="handleCheckChange"
+    @on-select-change="handleSelectChange"
+    @on-toggle-expand="handleToggleExpand"
   />
 </template>
 
