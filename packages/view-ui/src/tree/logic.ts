@@ -1,54 +1,17 @@
-import { includes, isArray } from '@ntks/toolbox';
 import { Component, Watch } from 'vue-property-decorator';
 
-import {
-  TreeNodeKey,
-  TreeNodeData,
-  TreeData,
-  ConfigurableTreeNodeDataField,
-} from 'petals-ui/dist/tree';
+import { TreeNodeKey, TreeNodeData } from 'petals-ui/dist/tree';
 import { getComponentName, TreeStructuralComponent } from '@kokiri/core/dist/tree';
 import { TreeChild, Tree as IvuTree } from 'view-design';
 
-function resolveData(
-  data: TreeData,
-  nodeField: ConfigurableTreeNodeDataField,
-  keys: { expanded: TreeNodeKey[]; checked: TreeNodeKey[]; selected: TreeNodeKey[] },
-): Partial<TreeChild>[] {
-  return data.map(node => {
-    const keyName = nodeField.key || 'key';
-    const key = node[keyName];
-    const resolved: Partial<TreeChild> = {
-      [keyName]: key,
-      title: node[nodeField.label || 'label'],
-      disabled: !!node.disabled,
-      disableCheckbox: !!node.checkboxDisabled,
-    };
-
-    if (node.render !== undefined) {
-      resolved.render = node.render;
-    }
-
-    [
-      ['expanded', 'expand'],
-      ['checked', 'checked'],
-      ['selected', 'selected'],
-    ].forEach(([dataKey, propKey]) => {
-      if (includes(key, keys[dataKey])) {
-        resolved[propKey] = true;
-      }
-    });
-
-    const childrenName = nodeField.children || 'children';
-    const children = node[childrenName];
-
-    if (isArray(children)) {
-      resolved[childrenName] = resolveData(children, nodeField, keys) as TreeChild[];
-    }
-
-    return resolved;
-  });
-}
+import { MixedNodeData, NodeRenderer } from './typing';
+import {
+  getKeyName,
+  getChildrenName,
+  resolveData,
+  resolveDataMap,
+  sanitizeNodeData,
+} from './helper';
 
 @Component({
   // @ts-ignore
@@ -57,7 +20,11 @@ function resolveData(
   components: { IvuTree },
 })
 export default class Tree extends TreeStructuralComponent {
+  private nodeDataMap: Record<string, TreeNodeData> = {};
+
   private internalExpandedKeys: TreeNodeKey[] = [];
+
+  private resolvedNodeRenderer: NodeRenderer = null as any;
 
   private get resolvedData(): Partial<TreeChild>[] {
     return resolveData(this.dataSource, this.nodeField, {
@@ -68,11 +35,16 @@ export default class Tree extends TreeStructuralComponent {
   }
 
   private get resolvedNodeKey(): string {
-    return this.nodeField.key || 'key';
+    return getKeyName(this.nodeField);
   }
 
   private get resolvedChildrenKey(): string {
-    return this.nodeField.children || 'children';
+    return getChildrenName(this.nodeField);
+  }
+
+  @Watch('dataSource', { immediate: true })
+  private handleDataSourceChange(): void {
+    this.nodeDataMap = resolveDataMap(this.dataSource, this.nodeField);
   }
 
   @Watch('expandedKeys', { immediate: true })
@@ -80,7 +52,14 @@ export default class Tree extends TreeStructuralComponent {
     this.internalExpandedKeys = [...this.expandedKeys];
   }
 
-  private getNodeKeyValue(nodeData: TreeNodeData): TreeNodeKey {
+  @Watch('nodeRenderer', { immediate: true })
+  private handleNodeRendererChange(): void {
+    this.resolvedNodeRenderer = this.nodeRenderer
+      ? (_, { data }) => this.nodeRenderer(sanitizeNodeData(data, this.nodeDataMap, this.nodeField))
+      : (null as any);
+  }
+
+  private getNodeKeyValue(nodeData: MixedNodeData): TreeNodeKey {
     return nodeData[this.resolvedNodeKey];
   }
 

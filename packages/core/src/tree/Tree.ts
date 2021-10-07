@@ -1,10 +1,12 @@
 import {
   TreeNodeKey,
+  TreeNodeRenderer,
   TreeData,
   ConfigurableTreeNodeDataField,
   ITreeComponent,
   TreeHeadlessComponent,
 } from 'petals-ui/dist/tree';
+import { VNode } from 'vue';
 import { Component, Prop, Emit } from 'vue-property-decorator';
 
 import { BaseStructuralComponent } from '../basic';
@@ -39,6 +41,9 @@ class TreeStructuralComponent
 
   @Prop({ type: Object, default: () => ({}) })
   public readonly nodeField!: ConfigurableTreeNodeDataField;
+
+  @Prop({ type: Function })
+  public readonly nodeRenderer!: TreeNodeRenderer<VNode>;
 
   @Emit('change')
   public onChange(checkedKeys: TreeNodeKey[]): void {} // eslint-disable-line @typescript-eslint/no-empty-function

@@ -8,6 +8,7 @@
     :current-node-key="resolvedCurrentNodeKey"
     :node-key="resolvedNodeKey"
     :props="resolvedProps"
+    :render-content="resolvedNodeRenderer"
     :expand-on-click-node="false"
     highlight-current
     @check="handleNodeCheck"

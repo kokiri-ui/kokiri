@@ -4,6 +4,7 @@
     :data="resolvedData"
     :show-checkbox="checkable"
     :children-key="resolvedChildrenKey"
+    :render="resolvedNodeRenderer"
     @on-check-change="handleCheckChange"
     @on-select-change="handleSelectChange"
     @on-toggle-expand="handleToggleExpand"
