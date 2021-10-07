@@ -1,4 +1,3 @@
-import { CreateElement, VNode } from 'vue';
 import { Component } from 'vue-property-decorator';
 
 import { FormFieldStructuralComponent } from '@kokiri/core/dist/form';
@@ -10,26 +9,16 @@ import { getComponentName, convertSize } from '../../basic';
   // @ts-ignore
   abstract: true,
   name: getComponentName('formField'),
+  components: { ElFormItem },
 })
 export default class FormField extends FormFieldStructuralComponent {
-  private render(h: CreateElement): VNode {
-    const props: Record<string, any> = {
-      showMessage: !this.hideMessage,
-      required: this.required,
-      label: this.label,
-      error: this.message,
-    };
-
-    if (this.controlSize) {
-      props.size = convertSize(this.controlSize);
-    }
-
+  private get resolvedWidth(): string | undefined {
     const { width } = this.labelOption || {};
 
-    if (width) {
-      props.labelWidth = `${width}`;
-    }
+    return width ? `${width}` : undefined;
+  }
 
-    return h(ElFormItem, { class: this.className, props }, this.$slots.default);
+  private get resolvedSize(): string | undefined {
+    return this.controlSize ? convertSize(this.controlSize) : undefined;
   }
 }

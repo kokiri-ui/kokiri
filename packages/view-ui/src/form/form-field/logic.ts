@@ -1,4 +1,3 @@
-import { CreateElement, VNode } from 'vue';
 import { Component } from 'vue-property-decorator';
 
 import { FormFieldStructuralComponent } from '@kokiri/core/dist/form';
@@ -10,23 +9,12 @@ import { getComponentName } from '../../basic';
   // @ts-ignore
   abstract: true,
   name: getComponentName('formField'),
+  components: { IvuFormItem },
 })
 export default class FormField extends FormFieldStructuralComponent {
-  private render(h: CreateElement): VNode {
-    const props: Record<string, any> = {
-      showMessage: !this.hideMessage,
-      required: this.required,
-      label: this.label,
-      error: this.message,
-    };
+  private get resolvedWidth(): number | undefined {
+    const resolvedWidth = parseFloat((this.labelOption || {}).width as any);
 
-    const { width } = this.labelOption || {};
-    const resolvedWidth = parseFloat(width as any);
-
-    if (!isNaN(resolvedWidth)) {
-      props.labelWidth = resolvedWidth;
-    }
-
-    return h(IvuFormItem, { class: this.className, props }, this.$slots.default);
+    return isNaN(resolvedWidth) ? undefined : resolvedWidth;
   }
 }
