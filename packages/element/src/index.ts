@@ -19,6 +19,8 @@ export * from './data-table';
 export * from './avatar';
 export * from './badge';
 
+// Feedback
+export * from './wait';
 export * from './dialog';
 export * from './drawer';
 

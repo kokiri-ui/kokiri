@@ -17,6 +17,8 @@ export * from './tree';
 export * from './form';
 export * from './data-table';
 
+// Feedback
+export * from './wait';
 export * from './dialog';
 export * from './drawer';
 
