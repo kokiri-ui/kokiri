@@ -26,7 +26,7 @@
     "kokiri:release": "cd packages/kokiri && npm run release"
   },
   "devDependencies": {
-    "@kokiri/core": "0.0.6",
+    "@kokiri/core": "0.0.8",
     "@ntks/eslint-config": "0.0.0",
     "@ntks/stylelint-config": "0.0.5",
     "@ntks/toolbox": "0.0.6",
@@ -38,7 +38,7 @@
     "eslint": "^7.21.0",
     "fibers": "^5.0.0",
     "node-sass": "^5.0.0",
-    "petals-ui": "0.0.8",
+    "petals-ui": "0.0.9",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.0",
     "sass": "^1.32.0",
