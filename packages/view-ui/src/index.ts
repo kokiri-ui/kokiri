@@ -13,6 +13,7 @@ export * from './checkbox';
 export * from './switch';
 export * from './transfer';
 export * from './tree';
+export * from './searchable-tree';
 
 export * from './form';
 export * from './data-table';
