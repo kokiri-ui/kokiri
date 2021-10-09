@@ -6,7 +6,10 @@
     :content="content"
     :placement="resolvedPlacement"
     :trigger="trigger"
+    :value="visible"
     :disabled="disabled"
+    @show="onVisibleChange(true)"
+    @hide="onVisibleChange(false)"
   >
     <slot name="default" slot="reference" />
     <slot name="content" slot="default" />

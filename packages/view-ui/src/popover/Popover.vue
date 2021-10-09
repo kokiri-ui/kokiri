@@ -5,7 +5,10 @@
     :content="content"
     :placement="resolvedPlacement"
     :trigger="trigger"
+    :value="visible"
     :disabled="disabled"
+    @on-popper-show="onVisibleChange(true)"
+    @on-popper-hide="onVisibleChange(false)"
   >
     <slot />
     <slot name="title" slot="title" />

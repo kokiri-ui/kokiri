@@ -4,7 +4,7 @@ import {
   ITooltipComponent,
   TooltipHeadlessComponent,
 } from 'petals-ui/dist/tooltip';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -22,10 +22,16 @@ class TooltipStructuralComponent
   public readonly trigger!: TooltipTrigger;
 
   @Prop({ type: Boolean, default: false })
+  public readonly visible!: boolean;
+
+  @Prop({ type: Boolean, default: false })
   public readonly disabled!: boolean;
 
   @Prop({ type: String })
   public readonly popupClassName!: string;
+
+  @Emit('visible-change')
+  public onVisibleChange(visible: boolean): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   public created(): void {
     this.setHeadlessComponent(new TooltipHeadlessComponent(this));

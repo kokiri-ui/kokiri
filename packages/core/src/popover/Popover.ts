@@ -4,7 +4,7 @@ import {
   IPopoverComponent,
   PopoverHeadlessComponent,
 } from 'petals-ui/dist/popover';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 
 import { BaseStructuralComponent } from '../basic';
 
@@ -25,10 +25,16 @@ class PopoverStructuralComponent
   public readonly trigger!: PopoverTrigger;
 
   @Prop({ type: Boolean, default: false })
+  public readonly visible!: boolean;
+
+  @Prop({ type: Boolean, default: false })
   public readonly disabled!: boolean;
 
   @Prop({ type: String })
   public readonly popupClassName!: string;
+
+  @Emit('visible-change')
+  public onVisibleChange(visible: boolean): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   public created(): void {
     this.setHeadlessComponent(new PopoverHeadlessComponent(this));
