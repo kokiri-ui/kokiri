@@ -33,6 +33,9 @@ class TreeStructuralComponent
   @Prop({ type: Boolean, default: false })
   public readonly checkable!: boolean;
 
+  @Prop({ type: Boolean, default: false })
+  public readonly expanded!: boolean;
+
   @Prop({ type: Array, default: () => [] })
   public readonly expandedKeys!: TreeNodeKey[];
 
@@ -44,6 +47,9 @@ class TreeStructuralComponent
 
   @Prop({ type: Function })
   public readonly nodeRenderer!: TreeNodeRenderer<VNode>;
+
+  @Prop({ type: String })
+  public readonly emptyText!: string;
 
   @Emit('change')
   public onChange(checkedKeys: TreeNodeKey[]): void {} // eslint-disable-line @typescript-eslint/no-empty-function

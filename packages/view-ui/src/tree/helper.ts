@@ -22,6 +22,7 @@ function resolveData(
   data: TreeData,
   nodeField: ConfigurableTreeNodeDataField,
   keys: { expanded: TreeNodeKey[]; checked: TreeNodeKey[]; selected: TreeNodeKey[] },
+  allExpanded: boolean = false,
 ): Partial<TreeChild>[] {
   return data.map(node => {
     const resolved = {
@@ -43,11 +44,15 @@ function resolveData(
       }
     });
 
+    if (allExpanded) {
+      resolved.expand = true;
+    }
+
     const childrenName = getChildrenName(nodeField);
     const children = node[childrenName];
 
     if (isArray(children)) {
-      resolved[childrenName] = resolveData(children, nodeField, keys) as TreeChild[];
+      resolved[childrenName] = resolveData(children, nodeField, keys, allExpanded) as TreeChild[];
     }
 
     return resolved;

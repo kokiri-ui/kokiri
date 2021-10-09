@@ -27,11 +27,16 @@ export default class Tree extends TreeStructuralComponent {
   private resolvedNodeRenderer: NodeRenderer = null as any;
 
   private get resolvedData(): Partial<TreeChild>[] {
-    return resolveData(this.dataSource, this.nodeField, {
-      expanded: this.expandedKeys,
-      checked: this.value,
-      selected: this.selectedKeys,
-    });
+    return resolveData(
+      this.dataSource,
+      this.nodeField,
+      {
+        expanded: this.expandedKeys,
+        checked: this.value,
+        selected: this.selectedKeys,
+      },
+      this.expanded,
+    );
   }
 
   private get resolvedNodeKey(): string {

@@ -5,6 +5,7 @@
     :show-checkbox="checkable"
     :children-key="resolvedChildrenKey"
     :render="resolvedNodeRenderer"
+    :empty-text="emptyText"
     @on-check-change="handleCheckChange"
     @on-select-change="handleSelectChange"
     @on-toggle-expand="handleToggleExpand"
