@@ -6,16 +6,12 @@ import ElTableColumn from 'element-ui/lib/table-column';
 import ElPagination from 'element-ui/lib/pagination';
 
 import { getComponentName } from '../basic';
+import { Wait } from '../wait';
 import Expand from './Expand';
 
 @Component({
   name: getComponentName('dataTable'),
-  components: {
-    ElTable,
-    ElTableColumn,
-    ElPagination,
-    Expand,
-  },
+  components: { ElTable, ElTableColumn, ElPagination, Wait, Expand },
 })
 export default class DataTable extends DataTableStructuralComponent {
   private get resolvedColumns(): any[] {

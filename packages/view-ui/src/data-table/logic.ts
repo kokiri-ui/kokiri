@@ -5,6 +5,7 @@ import { DataTableStructuralComponent } from '@kokiri/core/dist/data-table';
 import { TableColumn, Table as IvuTable, Page as IvuPagination } from 'view-design';
 
 import { getComponentName } from '../basic';
+import { Wait } from '../wait';
 
 function resolveWidth(width: number | string | undefined): number {
   return isNumeric(width) ? Number(width) : 0;
@@ -14,7 +15,7 @@ function resolveWidth(width: number | string | undefined): number {
   // @ts-ignore
   abstract: true,
   name: getComponentName('dataTable'),
-  components: { IvuTable, IvuPagination },
+  components: { IvuTable, IvuPagination, Wait },
 })
 export default class DataTable extends DataTableStructuralComponent {
   private get resolvedColumns(): TableColumn[] {

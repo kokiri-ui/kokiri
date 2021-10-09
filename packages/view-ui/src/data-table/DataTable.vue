@@ -1,5 +1,5 @@
 <template>
-  <div class="DataTable" :class="className">
+  <wait class="DataTable" :class-name="className" :busy="loading">
     <div class="DataTable-tableWrapper">
       <ivu-table
         class="DataTable-table"
@@ -22,7 +22,7 @@
         @on-page-size-change="onSizeChange"
       />
     </slot>
-  </div>
+  </wait>
 </template>
 
 <script lang="ts" src="./logic.ts"></script>
