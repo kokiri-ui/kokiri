@@ -1,4 +1,3 @@
-import { CreateElement, VNode } from 'vue';
 import { Component } from 'vue-property-decorator';
 
 import { TextInputStructuralComponent } from '@kokiri/core/dist/text-input';
@@ -10,9 +9,10 @@ import { getComponentName } from '../basic';
   // @ts-ignore
   abstract: true,
   name: getComponentName('textInput'),
+  components: { IvuInput },
 })
 export default class TextInput extends TextInputStructuralComponent {
-  private render(h: CreateElement): VNode {
+  private get resolvedProps(): Record<string, any> {
     const props: Record<string, any> = {
       name: this.name,
       value: this.value,
@@ -34,10 +34,6 @@ export default class TextInput extends TextInputStructuralComponent {
       props.minlength = this.minLength;
     }
 
-    return h(
-      IvuInput,
-      { class: this.className, props, on: { input: this.onInput, 'on-change': this.onChange } },
-      this.$slots.default,
-    );
+    return props;
   }
 }

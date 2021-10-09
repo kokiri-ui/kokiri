@@ -2,6 +2,7 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 
 import {
   StateClassNamePrefix,
+  ClassName,
   IBaseComponent,
   getComponentConfig,
   getDescendantClassName,
@@ -17,8 +18,8 @@ class BaseStructuralComponent<HeadlessComponent = BaseHeadlessComponent>
   @Prop({ type: [String, Function], default: '' })
   public readonly tag!: ComponentTag;
 
-  @Prop({ type: String })
-  public readonly className!: string;
+  @Prop({ type: [String, Object, Array] })
+  public readonly className!: ClassName;
 
   private __hc!: HeadlessComponent;
 
