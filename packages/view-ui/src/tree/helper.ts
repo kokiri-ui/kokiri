@@ -1,14 +1,14 @@
-import { includes, isArray, omit } from '@ntks/toolbox';
-
 import {
   TreeNodeKey,
   TreeNodeData,
+  TreeNode,
   TreeData,
   ConfigurableTreeNodeDataField,
 } from 'petals-ui/dist/tree';
+import { includes, isArray, omit } from '@kokiri/core/dist/basic';
 import { TreeChild } from 'view-design';
 
-import { MixedNodeData } from './typing';
+import { MixedNodeData, MixedTreeNode } from './typing';
 
 function getKeyName(nodeField: ConfigurableTreeNodeDataField): string {
   return nodeField.key || 'key';
@@ -59,27 +59,39 @@ function resolveData(
   });
 }
 
-function resolveDataMap(
+function resolveDataAndLevelMap(
   data: TreeData,
   nodeField: ConfigurableTreeNodeDataField,
-): Record<string, TreeNodeData> {
+  parentLevel: number = 0,
+): { data: Record<string, TreeNodeData>; level: Record<string, number> } {
+  const level = parentLevel + 1;
   const keyName = getKeyName(nodeField);
   const childrenName = getChildrenName(nodeField);
 
-  let dataMap: Record<string, TreeNodeData> = {};
+  const dataAndLevelMap: { data: Record<string, TreeNodeData>; level: Record<string, number> } = {
+    data: {},
+    level: {},
+  };
 
   data.forEach(nodeData => {
-    dataMap[nodeData[keyName]] = { ...nodeData };
+    const keyValue = nodeData[keyName];
+
+    dataAndLevelMap.data[keyValue] = { ...nodeData };
+    dataAndLevelMap.level[keyValue] = level;
 
     if (isArray(nodeData[childrenName])) {
-      dataMap = {
-        ...dataMap,
-        ...resolveDataMap(nodeData[childrenName], nodeField),
-      };
+      const { data: dataMap, level: levelMap } = resolveDataAndLevelMap(
+        nodeData[childrenName],
+        nodeField,
+        level,
+      );
+
+      dataAndLevelMap.data = { ...dataAndLevelMap.data, ...dataMap };
+      dataAndLevelMap.level = { ...dataAndLevelMap.level, ...levelMap };
     }
   });
 
-  return dataMap;
+  return dataAndLevelMap;
 }
 
 function sanitizeNodeData(
@@ -102,4 +114,32 @@ function sanitizeNodeData(
   return sanitized;
 }
 
-export { getKeyName, getChildrenName, resolveData, resolveDataMap, sanitizeNodeData };
+function sanitizeTreeNode(
+  node: MixedTreeNode,
+  nodeField: ConfigurableTreeNodeDataField,
+  level: number,
+): TreeNode {
+  const sanitized = {
+    id: node.nodeKey,
+    level,
+    expanded: node.expand || false,
+    checked: node.checked || false,
+    disabled: node.disabled || false,
+    indeterminate: node.indeterminate || false,
+  } as TreeNode;
+
+  sanitized.children = ((node[getChildrenName(nodeField)] || []) as MixedTreeNode[]).map(child =>
+    sanitizeTreeNode(child, nodeField, level + 1),
+  );
+
+  return sanitized;
+}
+
+export {
+  getKeyName,
+  getChildrenName,
+  resolveData,
+  resolveDataAndLevelMap,
+  sanitizeNodeData,
+  sanitizeTreeNode,
+};

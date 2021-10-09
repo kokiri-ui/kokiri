@@ -7,6 +7,7 @@ import { TreeData as ElTreeData } from 'element-ui/types/tree';
 
 import { getComponentName } from '../basic';
 import { NodeRenderer } from './typing';
+import { sanitizeTreeNode } from './helper';
 
 @Component({
   // @ts-ignore
@@ -35,7 +36,7 @@ export default class Tree extends TreeStructuralComponent {
   @Watch('nodeRenderer', { immediate: true })
   private handleNodeRendererChange(): void {
     this.resolvedNodeRenderer = this.nodeRenderer
-      ? (_, { data }) => this.nodeRenderer(data)
+      ? (_, { data, node }) => this.nodeRenderer(data, sanitizeTreeNode(node))
       : (null as any);
   }
 

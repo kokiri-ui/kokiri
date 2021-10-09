@@ -9,8 +9,9 @@ import {
   getKeyName,
   getChildrenName,
   resolveData,
-  resolveDataMap,
+  resolveDataAndLevelMap,
   sanitizeNodeData,
+  sanitizeTreeNode,
 } from './helper';
 
 @Component({
@@ -21,6 +22,7 @@ import {
 })
 export default class Tree extends TreeStructuralComponent {
   private nodeDataMap: Record<string, TreeNodeData> = {};
+  private nodeLevelMap: Record<string, number> = {};
 
   private internalExpandedKeys: TreeNodeKey[] = [];
 
@@ -49,7 +51,10 @@ export default class Tree extends TreeStructuralComponent {
 
   @Watch('dataSource', { immediate: true })
   private handleDataSourceChange(): void {
-    this.nodeDataMap = resolveDataMap(this.dataSource, this.nodeField);
+    const { data, level } = resolveDataAndLevelMap(this.dataSource, this.nodeField);
+
+    this.nodeDataMap = data;
+    this.nodeLevelMap = level;
   }
 
   @Watch('expandedKeys', { immediate: true })
@@ -60,7 +65,15 @@ export default class Tree extends TreeStructuralComponent {
   @Watch('nodeRenderer', { immediate: true })
   private handleNodeRendererChange(): void {
     this.resolvedNodeRenderer = this.nodeRenderer
-      ? (_, { data }) => this.nodeRenderer(sanitizeNodeData(data, this.nodeDataMap, this.nodeField))
+      ? (_, { data, node }) =>
+          this.nodeRenderer(
+            sanitizeNodeData(data, this.nodeDataMap, this.nodeField),
+            sanitizeTreeNode(
+              node.node,
+              this.nodeField,
+              this.nodeLevelMap[this.getNodeKeyValue(data)],
+            ),
+          )
       : (null as any);
   }
 
