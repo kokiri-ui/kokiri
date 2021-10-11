@@ -26,10 +26,9 @@
     "kokiri:release": "cd packages/kokiri && npm run release"
   },
   "devDependencies": {
-    "@kokiri/core": "0.0.9",
+    "@kokiri/core": "0.0.10",
     "@ntks/eslint-config": "0.0.0",
     "@ntks/stylelint-config": "0.0.5",
-    "@ntks/toolbox": "0.0.6",
     "@types/node": "^13.11.1",
     "@vue/cli-plugin-typescript": "^4.5.9",
     "@vue/cli-service": "^4.5.9",
@@ -38,7 +37,7 @@
     "eslint": "^7.21.0",
     "fibers": "^5.0.0",
     "node-sass": "^5.0.0",
-    "petals-ui": "0.0.10",
+    "petals-ui": "0.0.11",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.0",
     "sass": "^1.32.0",
