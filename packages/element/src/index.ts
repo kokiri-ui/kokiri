@@ -22,6 +22,7 @@ export * from './badge';
 
 // Feedback
 export * from './wait';
+export * from './message';
 export * from './dialog';
 export * from './drawer';
 
