@@ -24,6 +24,7 @@ function generateShortcut(
       closeOnPressEscape: false,
       closeOnHashChange: true,
       dangerouslyUseHTMLString: true,
+      customClass: others.className,
     };
 
     let confirmCallback = noop;
@@ -51,7 +52,9 @@ function generateShortcut(
       }
     }
 
-    proxy(content!, title!, options).then(confirmCallback).catch(cancelCallback);
+    proxy(isFunction(others.render) ? others.render!() : content!, title!, options)
+      .then(confirmCallback)
+      .catch(cancelCallback);
   });
 }
 

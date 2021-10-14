@@ -13,7 +13,16 @@ function generateShortcut(
   generator: (callback: DialogShortcutCallback) => DialogShortcutMethod,
 ): DialogShortcutMethod {
   return generator(({ type, title, content, affirmButton, denyButton, ...others }) => {
-    const options: ModalConfig = { title, content, closable: !!others.closable };
+    const options: ModalConfig = {
+      title,
+      content,
+      closable: !!others.closable,
+      render: others.render,
+    };
+
+    if (others.width !== undefined) {
+      options.width = others.width;
+    }
 
     if (affirmButton) {
       const { text, handler } = affirmButton as DialogButtonProps;
