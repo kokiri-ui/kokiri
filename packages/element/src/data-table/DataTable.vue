@@ -1,5 +1,5 @@
 <template>
-  <wait class="DataTable" :class-name="className" :busy="loading">
+  <wait :class-name="['DataTable', className]" :busy="loading">
     <div class="DataTable-tableWrapper">
       <el-table
         class="DataTable-table"
