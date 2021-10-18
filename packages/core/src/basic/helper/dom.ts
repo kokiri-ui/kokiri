@@ -1,3 +1,32 @@
+import { includes } from '@ntks/toolbox';
+
+function addClassNames(el: Element | null, classNames: (string | undefined)[]): void {
+  if (!el) {
+    return;
+  }
+
+  const existsClassNames = el.className ? el.className.split(' ') : [];
+
+  classNames.forEach(className => {
+    if (className && !includes(className, existsClassNames)) {
+      existsClassNames.push(className);
+    }
+  });
+
+  el.className = existsClassNames.join(' ');
+}
+
+function removeClassNames(el: Element | null, classNames: (string | undefined)[]): void {
+  if (!el) {
+    return;
+  }
+
+  el.className = el.className
+    .split(' ')
+    .filter(className => !includes(className, classNames))
+    .join(' ');
+}
+
 function getComputedStyle($el: HTMLElement, rule: string): any {
   return window.getComputedStyle($el)[rule];
 }
@@ -22,4 +51,4 @@ function getDocumentOffset($el: HTMLElement): { top: number; left: number } {
   };
 }
 
-export { getComputedStyle, getDocumentOffset };
+export { addClassNames, removeClassNames, getComputedStyle, getDocumentOffset };

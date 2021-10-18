@@ -8,40 +8,55 @@ import { isFunction, noop } from '@kokiri/core/dist/basic';
 import { generateAlert, generateConfirm } from '@kokiri/core/dist/dialog';
 import { Modal as IvuModal, ModalConfig } from 'view-design';
 
+import { DialogShortcutType } from './typing';
+import {
+  setCurrentDialogShortcutType,
+  setCurrentDialogShortcutOptions,
+  getCurrentDialogShortcutInstance,
+} from './helper';
+
 function generateShortcut(
-  shortcut: 'alert' | 'confirm',
+  shortcut: DialogShortcutType,
   generator: (callback: DialogShortcutCallback) => DialogShortcutMethod,
 ): DialogShortcutMethod {
-  return generator(({ type, title, content, affirmButton, denyButton, ...others }) => {
-    const options: ModalConfig = {
+  return generator(options => {
+    const { type, title, content, affirmButton, denyButton, ...others } = options;
+
+    setCurrentDialogShortcutType(shortcut);
+    setCurrentDialogShortcutOptions(options);
+
+    const resolved: ModalConfig = {
       title,
       content,
       closable: !!others.closable,
+      loading: !others.immediately,
       render: others.render,
     };
 
-    if (others.width !== undefined) {
-      options.width = others.width;
-    }
-
     if (affirmButton) {
       const { text, handler } = affirmButton as DialogButtonProps;
+      const resolvedHandler = isFunction(handler) ? handler : noop;
 
-      options.okText = text;
-      options.onOk = isFunction(handler) ? handler : noop;
+      resolved.okText = text;
+      resolved.onOk = isFunction(resolvedHandler)
+        ? () => resolvedHandler!(getCurrentDialogShortcutInstance())
+        : undefined;
     }
 
     if (denyButton) {
       const { text, handler } = denyButton as DialogButtonProps;
+      const resolvedHandler = isFunction(handler) ? handler : noop;
 
-      options.cancelText = text;
-      options.onCancel = isFunction(handler) ? handler : noop;
+      resolved.cancelText = text;
+      resolved.onCancel = isFunction(resolvedHandler)
+        ? () => resolvedHandler!(getCurrentDialogShortcutInstance())
+        : undefined;
     }
 
     if (shortcut === 'alert') {
-      IvuModal[type || 'info'](options);
+      IvuModal[type || 'info'](resolved);
     } else {
-      (IvuModal as any).confirm(options);
+      (IvuModal as any).confirm(resolved);
     }
   });
 }
