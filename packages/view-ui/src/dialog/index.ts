@@ -2,9 +2,9 @@ import Vue from 'vue';
 import { addClassNames } from '@kokiri/core/dist/basic';
 
 import {
-  getCurrentDialogShortcutType,
-  getCurrentDialogShortcutOptions,
   setCurrentDialogShortcutInstance,
+  resolveDialogShortcutClassNames,
+  resolveDialogShortcutContainerClassNames,
 } from './helper';
 import { alert, confirm } from './shortcut';
 import Dialog from './Dialog.vue';
@@ -30,12 +30,8 @@ Vue.mixin({
       this.$nextTick(() => {
         const el = (this as any).dialogEl;
 
-        addClassNames(el, [
-          'Dialog',
-          `Dialog--${getCurrentDialogShortcutType()}`,
-          getCurrentDialogShortcutOptions().className,
-        ]);
-        addClassNames(el.parentNode, ['DialogShortcut']);
+        addClassNames(el, resolveDialogShortcutClassNames());
+        addClassNames(el.parentNode, resolveDialogShortcutContainerClassNames());
       });
     }
   },

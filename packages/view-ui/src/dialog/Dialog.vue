@@ -19,16 +19,3 @@
 </template>
 
 <script lang="ts" src="./logic.ts"></script>
-
-<style lang="scss">
-.DialogShortcut {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .Dialog--alert,
-  .Dialog--confirm {
-    top: 0;
-  }
-}
-</style>

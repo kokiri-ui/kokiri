@@ -29,7 +29,7 @@ function generateShortcut(
       title,
       content,
       closable: !!others.closable,
-      loading: !others.immediately,
+      loading: !!others.lazy,
       render: others.render,
     };
 
