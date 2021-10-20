@@ -28,3 +28,5 @@ export * from './steps';
 
 export * from './tooltip';
 export * from './popover';
+
+export * from './ellipsis';
