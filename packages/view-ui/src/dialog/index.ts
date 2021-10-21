@@ -1,40 +1,12 @@
 import Vue from 'vue';
-import { addClassNames } from '@kokiri/core/dist/basic';
 
-import {
-  setCurrentDialogShortcutInstance,
-  resolveDialogShortcutClassNames,
-  resolveDialogShortcutContainerClassNames,
-} from './helper';
 import { alert, confirm } from './shortcut';
+import DialogShortcutAdapter from './DialogShortcutAdapter';
 import Dialog from './Dialog.vue';
 
 (Dialog as any).alert = alert;
 (Dialog as any).confirm = confirm;
 
-Vue.mixin({
-  computed: {
-    dialogEl(): Element | null {
-      return this.$el && this.$el.querySelector ? this.$el.querySelector('.ivu-modal') : null;
-    },
-  },
-  methods: {
-    isDialogShortcutInstance(): boolean {
-      return !!(this as any).dialogEl && !this.$parent;
-    },
-  },
-  mounted(): void {
-    if (this.isDialogShortcutInstance()) {
-      setCurrentDialogShortcutInstance(this);
-
-      this.$nextTick(() => {
-        const el = (this as any).dialogEl;
-
-        addClassNames(el, resolveDialogShortcutClassNames());
-        addClassNames(el.parentNode, resolveDialogShortcutContainerClassNames());
-      });
-    }
-  },
-});
+Vue.mixin(DialogShortcutAdapter);
 
 export { Dialog };

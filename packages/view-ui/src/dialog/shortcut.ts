@@ -5,26 +5,26 @@ import {
 } from 'petals-ui/dist/dialog';
 
 import { isFunction, noop } from '@kokiri/core/dist/basic';
-import { generateAlert, generateConfirm } from '@kokiri/core/dist/dialog';
-import { Modal as IvuModal, ModalConfig } from 'view-design';
-
-import { DialogShortcutType } from './typing';
 import {
+  DialogShortcutType,
+  generateAlert,
+  generateConfirm,
   setCurrentDialogShortcutType,
   setCurrentDialogShortcutOptions,
   getCurrentDialogShortcutInstance,
-} from './helper';
+} from '@kokiri/core/dist/dialog';
+
+import { Modal as IvuModal, ModalConfig } from 'view-design';
 
 function generateShortcut(
   shortcut: DialogShortcutType,
   generator: (callback: DialogShortcutCallback) => DialogShortcutMethod,
 ): DialogShortcutMethod {
   return generator(options => {
-    const { type, title, content, affirmButton, denyButton, ...others } = options;
-
     setCurrentDialogShortcutType(shortcut);
     setCurrentDialogShortcutOptions(options);
 
+    const { type, title, content, affirmButton, denyButton, ...others } = options;
     const resolved: ModalConfig = {
       title,
       content,

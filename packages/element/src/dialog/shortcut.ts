@@ -5,26 +5,37 @@ import {
 } from 'petals-ui/dist/dialog';
 
 import { isFunction, noop } from '@kokiri/core/dist/basic';
-import { generateAlert, generateConfirm } from '@kokiri/core/dist/dialog';
+import {
+  DialogShortcutType,
+  generateAlert,
+  generateConfirm,
+  setCurrentDialogShortcutType,
+  setCurrentDialogShortcutOptions,
+  resolveDialogShortcutClassNames,
+} from '@kokiri/core/dist/dialog';
 
 import MessageBox from 'element-ui/lib/message-box';
-import { ElMessageBoxShortcutMethod, ElMessageBoxOptions } from 'element-ui/types/message-box';
+import { ElMessageBoxOptions } from 'element-ui/types/message-box';
 
 function generateShortcut(
-  proxy: ElMessageBoxShortcutMethod,
+  shortcut: DialogShortcutType,
   generator: (callback: DialogShortcutCallback) => DialogShortcutMethod,
 ): DialogShortcutMethod {
-  return generator(({ type, title, content, affirmButton, denyButton, ...others }) => {
+  return generator(options => {
+    setCurrentDialogShortcutType(shortcut);
+    setCurrentDialogShortcutOptions(options);
+
+    const { type, title, content, affirmButton, denyButton, ...others } = options;
     const closable = !!others.closable;
 
-    const options: ElMessageBoxOptions = {
+    const resolved: ElMessageBoxOptions = {
       type,
       showClose: closable,
       closeOnClickModal: false,
       closeOnPressEscape: false,
       closeOnHashChange: true,
       dangerouslyUseHTMLString: true,
-      customClass: others.className,
+      customClass: resolveDialogShortcutClassNames().join(' '),
     };
 
     let confirmCallback = noop;
@@ -33,8 +44,8 @@ function generateShortcut(
     if (affirmButton) {
       const { text, className, handler } = affirmButton as DialogButtonProps;
 
-      options.confirmButtonText = text;
-      options.confirmButtonClass = className as string;
+      resolved.confirmButtonText = text;
+      resolved.confirmButtonClass = className as string;
 
       if (isFunction(handler)) {
         confirmCallback = handler!;
@@ -44,21 +55,21 @@ function generateShortcut(
     if (denyButton) {
       const { text, className, handler } = denyButton as DialogButtonProps;
 
-      options.cancelButtonText = text;
-      options.cancelButtonClass = className as string;
+      resolved.cancelButtonText = text;
+      resolved.cancelButtonClass = className as string;
 
       if (isFunction(handler)) {
         cancelCallback = handler!;
       }
     }
 
-    proxy(isFunction(others.render) ? others.render!() : content!, title!, options)
+    MessageBox[shortcut](isFunction(others.render) ? others.render!() : content!, title!, resolved)
       .then(confirmCallback)
       .catch(cancelCallback);
   });
 }
 
-const alert = generateShortcut(MessageBox.alert, generateAlert);
-const confirm = generateShortcut(MessageBox.confirm, generateConfirm);
+const alert = generateShortcut('alert', generateAlert);
+const confirm = generateShortcut('confirm', generateConfirm);
 
 export { alert, confirm };

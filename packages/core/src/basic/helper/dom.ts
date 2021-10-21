@@ -1,6 +1,6 @@
 import { includes } from '@ntks/toolbox';
 
-function addClassNames(el: Element | null, classNames: (string | undefined)[]): void {
+function addClassNames(el: HTMLElement | null, classNames: (string | undefined)[]): void {
   if (!el) {
     return;
   }
@@ -16,7 +16,7 @@ function addClassNames(el: Element | null, classNames: (string | undefined)[]): 
   el.className = existsClassNames.join(' ');
 }
 
-function removeClassNames(el: Element | null, classNames: (string | undefined)[]): void {
+function removeClassNames(el: HTMLElement | null, classNames: (string | undefined)[]): void {
   if (!el) {
     return;
   }

@@ -1,7 +1,7 @@
 import { VariantClassName, normalizeClassName } from 'petals-ui/dist/basic';
 import { DialogShortcutOptions } from 'petals-ui/dist/dialog';
-import { isArray, clone } from '@kokiri/core/dist/basic';
 
+import { isArray, clone } from '../basic';
 import { DialogShortcutType } from './typing';
 
 let shownDialogShortcutType: DialogShortcutType = '' as any;
