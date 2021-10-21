@@ -1,6 +1,7 @@
 <template>
   <ivu-poptip
     :class="className"
+    :popper-class="popupClassName"
     :title="title"
     :content="content"
     :placement="resolvedPlacement"
