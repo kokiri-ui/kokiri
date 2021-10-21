@@ -4,8 +4,4 @@ import { getComponentName, HeadingStructuralComponent } from '@kokiri/core/dist/
 @Component({
   name: getComponentName(),
 })
-export default class Heading extends HeadingStructuralComponent {
-  private get computedHeading(): string {
-    return `h${this.level}`;
-  }
-}
+export default class Heading extends HeadingStructuralComponent {}

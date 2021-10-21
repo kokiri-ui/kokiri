@@ -22,6 +22,9 @@ class TextStructuralComponent
   @Prop({ type: Boolean, default: false })
   public readonly bold!: boolean;
 
+  @Prop({ type: Boolean, default: false })
+  public readonly ellipsis!: boolean;
+
   public created(): void {
     this.setHeadlessComponent(new TextHeadlessComponent(this));
   }

@@ -4,6 +4,11 @@ export * from './button';
 // Layouts
 export * from './layout';
 
+// Typography
+export * from './heading';
+export * from './paragraph';
+export * from './text';
+
 // Input fields
 export * from './text-input';
 export * from './text-area';

@@ -22,6 +22,9 @@ class ParagraphStructuralComponent
   @Prop({ type: Boolean, default: false })
   public readonly bold!: boolean;
 
+  @Prop({ type: Boolean, default: false })
+  public readonly ellipsis!: boolean;
+
   public created(): void {
     this.setHeadlessComponent(new ParagraphHeadlessComponent(this));
   }

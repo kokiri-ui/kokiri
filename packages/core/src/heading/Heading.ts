@@ -23,8 +23,15 @@ class HeadingStructuralComponent
   @Prop({ type: Boolean, default: false })
   public readonly bold!: boolean;
 
+  @Prop({ type: Boolean, default: false })
+  public readonly ellipsis!: boolean;
+
   @Prop({ type: Number, default: 1 })
   public readonly level!: HeadingLevel;
+
+  protected get resolvedTag(): string {
+    return `h${this.level}`;
+  }
 
   public created(): void {
     this.setHeadlessComponent(new HeadingHeadlessComponent(this));

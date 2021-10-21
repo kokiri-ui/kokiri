@@ -1,6 +1,6 @@
 <template>
-  <tooltip class-name="Ellipsis" :content="content" :disabled="!contentOverflow">
-    <component ref="text" :is="resolvedTag">
+  <tooltip :content="content" :disabled="!contentOverflow">
+    <component ref="text" :class="['Ellipsis', className]" :is="resolvedTag">
       <slot />
     </component>
   </tooltip>

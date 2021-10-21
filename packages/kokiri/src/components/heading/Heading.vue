@@ -1,5 +1,5 @@
 <template>
-  <component :is="computedHeading" :class="getComponentClassNames()">
+  <component :is="resolvedTag" :class="getComponentClassNames()">
     <slot />
   </component>
 </template>

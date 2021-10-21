@@ -1,0 +1,9 @@
+@import "~petals-ui/dist/text/style/variables";
+@import "~petals-ui/dist/text/style/rules";
+
+.Text--ellipsis {
+  ::v-deep .Ellipsis {
+    display: inline-block;
+    max-width: 100%;
+  }
+}
