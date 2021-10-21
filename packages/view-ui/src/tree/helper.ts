@@ -107,7 +107,7 @@ function sanitizeNodeData(
     k =>
       (sanitized[k] =
         k === childrenName
-          ? data[k].map(child => sanitizeNodeData(child, dataMap, nodeField))
+          ? (data[k] || []).map(child => sanitizeNodeData(child, dataMap, nodeField))
           : data[k]),
   );
 
