@@ -33,6 +33,9 @@ class PopoverStructuralComponent
   @Prop({ type: String })
   public readonly popupClassName!: string;
 
+  @Prop({ type: Boolean, default: true })
+  public readonly appendToBody!: boolean;
+
   @Emit('visible-change')
   public onVisibleChange(visible: boolean): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 

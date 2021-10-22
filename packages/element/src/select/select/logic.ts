@@ -22,6 +22,7 @@ export default class Select extends SelectStructuralComponent {
       placeholder: this.placeholder,
       clearable: this.clearable,
       multiple: this.multiple,
+      popperAppendToBody: this.popupAppendToBody,
     };
 
     return h(

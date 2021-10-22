@@ -4,7 +4,7 @@
     :content="content"
     :placement="resolvedPlacement"
     :disabled="disabled"
-    transfer
+    :transfer="appendToBody"
   >
     <slot />
     <slot name="content" slot="content" />

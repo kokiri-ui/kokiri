@@ -8,7 +8,7 @@
     :trigger="trigger"
     :value="visible"
     :disabled="disabled"
-    transfer
+    :transfer="appendToBody"
     @on-popper-show="onVisibleChange(true)"
     @on-popper-hide="onVisibleChange(false)"
   >

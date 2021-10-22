@@ -32,6 +32,9 @@ class SelectStructuralComponent
   @Prop({ type: Boolean, default: false })
   public readonly multiple!: boolean;
 
+  @Prop({ type: Boolean, default: true })
+  public readonly popupAppendToBody!: boolean;
+
   @Emit('change')
   protected onChange(): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
