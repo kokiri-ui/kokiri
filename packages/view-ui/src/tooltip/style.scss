@@ -1,0 +1,7 @@
+.Tooltip {
+  ::v-deep .ivu-tooltip-inner {
+    @include line_feed;
+
+    max-width: none;
+  }
+}
