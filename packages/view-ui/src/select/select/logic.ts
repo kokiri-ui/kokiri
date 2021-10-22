@@ -21,6 +21,7 @@ export default class Select extends SelectStructuralComponent {
       placeholder: this.placeholder,
       clearable: this.clearable,
       multiple: this.multiple,
+      transfer: true,
     };
 
     if (this.size === 'large' || this.size === 'small') {

@@ -4,6 +4,7 @@
     :content="content"
     :placement="resolvedPlacement"
     :disabled="disabled"
+    transfer
   >
     <slot />
     <slot name="content" slot="content" />
