@@ -1,13 +1,16 @@
 import { Component, Watch, Ref } from 'vue-property-decorator';
 
 import { TreeNodeKey, TreeNodeData, TreeNode } from 'petals-ui/dist/tree';
-import { getComponentName, TreeStructuralComponent } from '@kokiri/core/dist/tree';
+import {
+  getComponentName,
+  getKeyName,
+  getChildrenName,
+  TreeStructuralComponent,
+} from '@kokiri/core/dist/tree';
 import { TreeChild, Tree as IvuTree } from 'view-design';
 
 import { MixedNodeData, NodeRenderer } from './typing';
 import {
-  getKeyName,
-  getChildrenName,
   resolveData,
   resolveDataAndLevelMap,
   resolveTreeNodeMap,

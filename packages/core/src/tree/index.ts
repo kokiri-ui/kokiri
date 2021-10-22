@@ -1,7 +1,2 @@
-import { getComponentName as _getComponentName } from '../basic';
-
-export function getComponentName(): string {
-  return _getComponentName('tree');
-}
-
+export { getComponentName, getKeyName, getLabelName, getChildrenName } from './helper';
 export * from './Tree';

@@ -6,17 +6,10 @@ import {
   ConfigurableTreeNodeDataField,
 } from 'petals-ui/dist/tree';
 import { includes, isArray, omit } from '@kokiri/core/dist/basic';
+import { getKeyName, getChildrenName } from '@kokiri/core/dist/tree';
 import { TreeChild } from 'view-design';
 
 import { MixedNodeData, MixedTreeNode } from './typing';
-
-function getKeyName(nodeField: ConfigurableTreeNodeDataField): string {
-  return nodeField.key || 'key';
-}
-
-function getChildrenName(nodeField: ConfigurableTreeNodeDataField): string {
-  return nodeField.children || 'children';
-}
 
 function resolveData(
   data: TreeData,
@@ -147,8 +140,6 @@ function sanitizeTreeNode(
 }
 
 export {
-  getKeyName,
-  getChildrenName,
   resolveData,
   resolveDataAndLevelMap,
   resolveTreeNodeMap,
