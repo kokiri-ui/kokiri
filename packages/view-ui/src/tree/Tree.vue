@@ -1,5 +1,6 @@
 <template>
   <ivu-tree
+    ref="tree"
     :class="className"
     :data="resolvedData"
     :show-checkbox="checkable"

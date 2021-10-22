@@ -1,5 +1,7 @@
 import {
   TreeNodeKey,
+  TreeNodeData,
+  TreeNode,
   TreeNodeRenderer,
   TreeData,
   ConfigurableTreeNodeDataField,
@@ -52,13 +54,13 @@ class TreeStructuralComponent
   public readonly emptyText!: string;
 
   @Emit('change')
-  public onChange(checkedKeys: TreeNodeKey[]): void {} // eslint-disable-line @typescript-eslint/no-empty-function
+  public onChange(checkedKeys: TreeNodeKey[], data: TreeNodeData[], nodes: TreeNode[]): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   @Emit('select')
-  public onSelect(selectedKeys: TreeNodeKey[]): void {} // eslint-disable-line @typescript-eslint/no-empty-function
+  public onSelect(selectedKeys: TreeNodeKey[], data: TreeNodeData[], nodes: TreeNode[]): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   @Emit('expand')
-  public onExpand(expandedKeys: TreeNodeKey[]): void {} // eslint-disable-line @typescript-eslint/no-empty-function
+  public onExpand(expandedKeys: TreeNodeKey[], data: TreeNodeData[], nodes: TreeNode[]): void {} // eslint-disable-line @typescript-eslint/no-empty-function
 
   public created(): void {
     this.setHeadlessComponent(new TreeHeadlessComponent(this));

@@ -1,6 +1,6 @@
-import { Component, Watch } from 'vue-property-decorator';
+import { Component, Watch, Ref } from 'vue-property-decorator';
 
-import { TreeNodeKey, TreeNodeData } from 'petals-ui/dist/tree';
+import { TreeNodeKey, TreeNodeData, TreeNode } from 'petals-ui/dist/tree';
 import { getComponentName, TreeStructuralComponent } from '@kokiri/core/dist/tree';
 import { TreeChild, Tree as IvuTree } from 'view-design';
 
@@ -10,6 +10,7 @@ import {
   getChildrenName,
   resolveData,
   resolveDataAndLevelMap,
+  resolveTreeNodeMap,
   sanitizeNodeData,
   sanitizeTreeNode,
 } from './helper';
@@ -21,24 +22,25 @@ import {
   components: { IvuTree },
 })
 export default class Tree extends TreeStructuralComponent {
+  @Ref()
+  private readonly tree!: IvuTree;
+
   private nodeDataMap: Record<string, TreeNodeData> = {};
   private nodeLevelMap: Record<string, number> = {};
+  private treeNodeMap: Record<string, TreeChild> = {};
 
   private internalExpandedKeys: TreeNodeKey[] = [];
+  private expandedKeysNotChanged: boolean = true;
+  private allExpandedInited: boolean = false;
 
   private resolvedNodeRenderer: NodeRenderer = null as any;
 
   private get resolvedData(): Partial<TreeChild>[] {
-    return resolveData(
-      this.dataSource,
-      this.nodeField,
-      {
-        expanded: this.expandedKeys,
-        checked: this.value,
-        selected: this.selectedKeys,
-      },
-      this.expanded,
-    );
+    return resolveData(this.dataSource, this.nodeField, {
+      expanded: this.internalExpandedKeys,
+      checked: this.value,
+      selected: this.selectedKeys,
+    });
   }
 
   private get resolvedNodeKey(): string {
@@ -55,11 +57,24 @@ export default class Tree extends TreeStructuralComponent {
 
     this.nodeDataMap = data;
     this.nodeLevelMap = level;
+
+    if (this.expanded && !this.allExpandedInited) {
+      this.internalExpandedKeys = Object.keys(data).map(k => data[k][this.resolvedNodeKey]);
+      this.allExpandedInited = true;
+    }
+
+    this.$nextTick(
+      () => (this.treeNodeMap = resolveTreeNodeMap(this.tree.data || [], this.nodeField)),
+    );
   }
 
   @Watch('expandedKeys', { immediate: true })
   private handleExpandedKeysChange(): void {
-    this.internalExpandedKeys = [...this.expandedKeys];
+    if (this.expandedKeys.length === 0 && this.expandedKeysNotChanged) {
+      this.expandedKeysNotChanged = false;
+    } else {
+      this.internalExpandedKeys = [...this.expandedKeys];
+    }
   }
 
   @Watch('nodeRenderer', { immediate: true })
@@ -85,12 +100,24 @@ export default class Tree extends TreeStructuralComponent {
     return nodes.map(node => this.getNodeKeyValue(node));
   }
 
+  private resolveEventParams(
+    keys: TreeNodeKey[],
+  ): [keys: TreeNodeKey[], data: TreeNodeData[], nodes: TreeNode[]] {
+    return [
+      keys,
+      keys.map(k => this.nodeDataMap[k]),
+      keys.map((k, i) =>
+        sanitizeTreeNode(this.treeNodeMap[k], this.nodeField, this.nodeLevelMap[keys[i]]),
+      ),
+    ];
+  }
+
   private handleCheckChange(checkedNodes: TreeChild[]): void {
-    this.onChange(this.getNodeKeys(checkedNodes));
+    this.onChange(...this.resolveEventParams(this.getNodeKeys(checkedNodes)));
   }
 
   private handleSelectChange(selectedNodes: TreeChild[]): void {
-    this.onSelect(this.getNodeKeys(selectedNodes));
+    this.onSelect(...this.resolveEventParams(this.getNodeKeys(selectedNodes)));
   }
 
   private handleToggleExpand(nodeData: TreeChild): void {
@@ -102,6 +129,6 @@ export default class Tree extends TreeStructuralComponent {
       );
     }
 
-    this.onExpand([...this.internalExpandedKeys]);
+    this.onExpand(...this.resolveEventParams([...this.internalExpandedKeys]));
   }
 }

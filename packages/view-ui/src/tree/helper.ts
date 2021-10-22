@@ -22,7 +22,6 @@ function resolveData(
   data: TreeData,
   nodeField: ConfigurableTreeNodeDataField,
   keys: { expanded: TreeNodeKey[]; checked: TreeNodeKey[]; selected: TreeNodeKey[] },
-  allExpanded: boolean = false,
 ): Partial<TreeChild>[] {
   return data.map(node => {
     const resolved = {
@@ -38,21 +37,13 @@ function resolveData(
       ['expanded', 'expand'],
       ['checked', 'checked'],
       ['selected', 'selected'],
-    ].forEach(([dataKey, propKey]) => {
-      if (includes(key, keys[dataKey])) {
-        resolved[propKey] = true;
-      }
-    });
-
-    if (allExpanded) {
-      resolved.expand = true;
-    }
+    ].forEach(([dataKey, propKey]) => (resolved[propKey] = includes(key, keys[dataKey])));
 
     const childrenName = getChildrenName(nodeField);
     const children = node[childrenName];
 
     if (isArray(children)) {
-      resolved[childrenName] = resolveData(children, nodeField, keys, allExpanded) as TreeChild[];
+      resolved[childrenName] = resolveData(children, nodeField, keys) as TreeChild[];
     }
 
     return resolved;
@@ -92,6 +83,26 @@ function resolveDataAndLevelMap(
   });
 
   return dataAndLevelMap;
+}
+
+function resolveTreeNodeMap(
+  treeNodes: TreeChild[],
+  nodeField: ConfigurableTreeNodeDataField,
+): Record<string, TreeChild> {
+  const keyName = getKeyName(nodeField);
+  const childrenName = getChildrenName(nodeField);
+
+  let treeNodeMap: Record<string, TreeChild> = {};
+
+  treeNodes.forEach(treeNode => {
+    treeNodeMap[treeNode[keyName]] = treeNode;
+
+    if (isArray(treeNode[childrenName])) {
+      treeNodeMap = { ...treeNodeMap, ...resolveTreeNodeMap(treeNode[childrenName], nodeField) };
+    }
+  });
+
+  return treeNodeMap;
 }
 
 function sanitizeNodeData(
@@ -140,6 +151,7 @@ export {
   getChildrenName,
   resolveData,
   resolveDataAndLevelMap,
+  resolveTreeNodeMap,
   sanitizeNodeData,
   sanitizeTreeNode,
 };
