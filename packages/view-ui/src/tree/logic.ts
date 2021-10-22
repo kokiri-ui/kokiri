@@ -26,7 +26,7 @@ import {
 })
 export default class Tree extends TreeStructuralComponent {
   @Ref()
-  private readonly tree!: IvuTree;
+  private readonly ivuTree!: IvuTree;
 
   private nodeDataMap: Record<string, TreeNodeData> = {};
   private nodeLevelMap: Record<string, number> = {};
@@ -67,7 +67,7 @@ export default class Tree extends TreeStructuralComponent {
     }
 
     this.$nextTick(
-      () => (this.treeNodeMap = resolveTreeNodeMap(this.tree.data || [], this.nodeField)),
+      () => (this.treeNodeMap = resolveTreeNodeMap(this.ivuTree.data || [], this.nodeField)),
     );
   }
 

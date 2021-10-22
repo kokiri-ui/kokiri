@@ -1,6 +1,6 @@
 <template>
   <el-tree
-    ref="tree"
+    ref="elTree"
     :class="className"
     :data="dataSource"
     :show-checkbox="checkable"

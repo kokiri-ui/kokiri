@@ -22,7 +22,7 @@ import { resolveDataMap, sanitizeTreeNode } from './helper';
 })
 export default class Tree extends TreeStructuralComponent {
   @Ref()
-  private readonly tree!: ElTree;
+  private readonly elTree!: ElTree;
 
   private nodeDataMap: Record<string, TreeNodeData> = {};
 
@@ -53,7 +53,7 @@ export default class Tree extends TreeStructuralComponent {
   }
 
   private getNodes(keys: TreeNodeKey[]): TreeNode[] {
-    return keys.map(k => sanitizeTreeNode(this.tree.getNode(k)));
+    return keys.map(k => sanitizeTreeNode(this.elTree.getNode(k)));
   }
 
   private getData(keys: TreeNodeKey[]): TreeNodeData[] {
