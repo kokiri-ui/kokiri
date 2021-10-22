@@ -1,6 +1,6 @@
 {
   "name": "@kokiri/element",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Adapter for Element",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -40,7 +40,7 @@
     "release": "npm publish --access=public"
   },
   "dependencies": {
-    "@kokiri/core": "0.0.13"
+    "@kokiri/core": "0.0.14"
   },
   "peerDependencies": {
     "element-ui": "^2.14.0",
