@@ -16,7 +16,9 @@
           </el-table-column>
           <el-table-column v-bind="col" :key="col.prop" v-else />
         </template>
-        <slot name="empty" slot="empty" />
+        <slot name="empty" slot="empty">
+          <empty />
+        </slot>
       </el-table>
     </div>
     <slot name="pagination" v-if="!hidePagination">
