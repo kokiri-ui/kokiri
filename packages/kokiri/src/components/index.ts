@@ -22,6 +22,9 @@ export * from './paragraph';
 
 export * from './image';
 
+// Feedback
+export * from './empty';
+
 // export * from './avatar';
 // export * from './badge';
 // export * from './breadcrumb';
