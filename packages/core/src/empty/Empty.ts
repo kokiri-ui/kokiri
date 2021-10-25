@@ -3,6 +3,7 @@ import { IEmptyComponent, EmptyHeadlessComponent } from 'petals-ui/dist/empty';
 import { Component, Prop } from 'vue-property-decorator';
 
 import { BaseStructuralComponent } from '../basic';
+import { getComponentConfig } from './helper';
 
 @Component
 class EmptyStructuralComponent
@@ -16,6 +17,10 @@ class EmptyStructuralComponent
 
   @Prop({ type: String, default: '暂无数据' })
   public readonly description!: string;
+
+  protected get resolvedImage(): string {
+    return this.image || getComponentConfig('image');
+  }
 }
 
 export { EmptyStructuralComponent };

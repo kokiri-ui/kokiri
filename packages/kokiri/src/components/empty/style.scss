@@ -4,7 +4,6 @@
   align-items: center;
 
   &-image {
-    width: 120px;
     height: 120px;
   }
 
@@ -12,5 +11,39 @@
     margin-top: 15px;
     line-height: 1;
     color: $petals--text-primary;
+  }
+}
+
+.EmptyImage {
+  height: 100%;
+  margin: auto;
+
+  &-ellipse {
+    fill: #f5f5f5;
+    fill-opacity: 0.8;
+  }
+
+  &-path1 {
+    fill: #aeb8c2;
+  }
+
+  &-path2 {
+    fill: url('#linearGradient-1');
+  }
+
+  &-path3 {
+    fill: #f5f5f7;
+  }
+
+  &-path4 {
+    fill: #dce0e6;
+  }
+
+  &-path5 {
+    fill: #dce0e6;
+  }
+
+  &-g {
+    fill: #fff;
   }
 }
