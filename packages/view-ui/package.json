@@ -1,6 +1,6 @@
 {
   "name": "@kokiri/view-ui",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Adapter for ViewUI",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -40,7 +40,7 @@
     "release": "npm publish --access=public"
   },
   "dependencies": {
-    "@kokiri/core": "0.0.14"
+    "@kokiri/core": "0.0.15"
   },
   "peerDependencies": {
     "view-design": "^4.0.0",
