@@ -1,5 +1,5 @@
 {
-  "name": "kokiri",
+  "name": "kokiri-entry",
   "version": "0.0.0",
   "description": "Vue.js components based on Petals",
   "private": true,
@@ -26,7 +26,7 @@
     "kokiri:release": "cd packages/kokiri && npm run release"
   },
   "devDependencies": {
-    "@kokiri/core": "0.0.15",
+    "@kokiri/core": "0.0.16",
     "@ntks/eslint-config": "0.0.0",
     "@ntks/stylelint-config": "0.0.5",
     "@types/node": "^13.11.1",
@@ -36,8 +36,9 @@
     "element-ui": "^2.14.1",
     "eslint": "^7.21.0",
     "fibers": "^5.0.0",
+    "kokiri": "0.0.5",
     "node-sass": "^5.0.0",
-    "petals-ui": "0.0.16",
+    "petals-ui": "0.0.17",
     "prettier": "^2.2.1",
     "rimraf": "^3.0.0",
     "sass": "^1.32.0",
