@@ -1,6 +1,7 @@
 import {
   ButtonBorder,
   ButtonSize,
+  ButtonNativeType,
   IButtonComponent,
   ButtonHeadlessComponent,
 } from 'petals-ui/dist/button';
@@ -26,6 +27,9 @@ class ButtonStructuralComponent
 
   @Prop({ type: Boolean, default: false })
   public readonly disabled!: boolean;
+
+  @Prop({ type: String, default: 'button' })
+  public readonly nativeType!: ButtonNativeType;
 
   @Emit('click')
   protected onClick(): void {} // eslint-disable-line @typescript-eslint/no-empty-function

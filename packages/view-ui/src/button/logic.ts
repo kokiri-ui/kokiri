@@ -15,7 +15,11 @@ import { getComponentName } from '../basic';
 })
 export default class Button extends ButtonStructuralComponent {
   private render(h: CreateElement): VNode {
-    const props: Record<string, any> = { disabled: this.disabled, ghost: this.outlined };
+    const props: Record<string, any> = {
+      disabled: this.disabled,
+      ghost: this.outlined,
+      htmlType: this.nativeType,
+    };
 
     if (includes(this.color, ['primary', 'success', 'warning', 'danger', 'info'])) {
       props.type = this.color === 'danger' ? 'error' : this.color;

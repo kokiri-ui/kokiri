@@ -19,6 +19,7 @@ export default class Button extends ButtonStructuralComponent {
       size: convertSize(this.size),
       disabled: this.disabled,
       plain: this.outlined,
+      nativeType: this.nativeType,
     };
 
     if (includes(this.color, ['primary', 'success', 'warning', 'danger', 'info'])) {
