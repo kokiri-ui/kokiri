@@ -1,5 +1,5 @@
 <template>
-  <a :class="getComponentClassNames()" :href="href" :target="`_${target}`">
+  <a :class="getComponentClassNames()" :href="href" :target="`_${target}`" @click="onClick">
     <slot />
   </a>
 </template>
