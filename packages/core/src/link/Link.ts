@@ -1,6 +1,6 @@
 import { LinkTarget, ILinkComponent, LinkHeadlessComponent } from 'petals-ui/dist/link';
 
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 
 import { BaseStructuralComponent } from '../basic';
 
