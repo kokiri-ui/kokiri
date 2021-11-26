@@ -5,7 +5,7 @@
     "module": "es2015",
     "lib": ["es2015", "dom"],
     "declaration": true,
-    "declarationDir": "dist/typings",
+    "declarationDir": "dist",
     "outDir": "dist",
     "strict": true,
     "importHelpers": true,
@@ -18,5 +18,5 @@
     "baseUrl": ".",
     "paths": {}
   },
-  "include": ["packages", "demo"]
+  "include": ["src"]
 }
