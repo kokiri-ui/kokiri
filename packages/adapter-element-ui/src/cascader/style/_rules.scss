@@ -1,0 +1,12 @@
+.el-cascader-node:not(.is-disabled):hover,
+.el-cascader-node:not(.is-disabled):focus {
+  background-color: var(--petals-hover-bg, #e1e5f2);
+  color: var(--petals-primary, #4154de);
+}
+
+.el-cascader-node.in-active-path,
+.el-cascader-node.is-selectable.in-checked-path,
+.el-cascader-node.is-active {
+  background-color: var(--petals-hover-bg, #e1e5f2);
+  color: var(--petals-primary, #4154de);
+}

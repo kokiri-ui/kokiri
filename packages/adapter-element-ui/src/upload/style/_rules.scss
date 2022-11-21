@@ -1,0 +1,33 @@
+.el-upload {
+  &__tip {
+    margin-top: var($__petals--upload-tip-margin-top, $petals--upload-tip-margin-top);
+    font-size: var($__petals--upload-tip-font-size, $petals--upload-tip-font-size);
+    line-height: var($__petals--upload-tip-line-height, $petals--upload-tip-line-height);
+    color: var($__petals--upload-tip-color, $petals--upload-tip-color);
+  }
+  &--picture-card,
+  &-list--picture-card .el-upload-list__item {
+    width: var($__petals--upload-image-width, $petals--upload-image-width);
+    height: var($__petals--upload-image-height, $petals--upload-image-height);
+    border: {
+      width: var($__petals--border-width, $petals--border-width);
+      color: var($__petals--border-color, $petals--border-color);
+      radius: var($__petals--upload-image-border-radius, $petals--upload-image-border-radius);
+    }
+  }
+
+  &--picture-card {
+    font-size: var($__petals--upload-image-font-size, $petals--upload-image-font-size);
+    line-height: var($__petals--upload-image-height, $petals--upload-image-height);
+    color: var($__petals--upload-image-color, $petals--upload-image-color);
+    background-color: var($__petals--upload-image-bg, $petals--upload-image-bg);
+    i {
+      color: inherit;
+    }
+
+    &:hover {
+      border-color: var($__petals--primary-hover, $petals--primary-hover);
+      color: var($__petals--primary-hover, $petals--primary-hover);
+    }
+  }
+}

@@ -1,0 +1,46 @@
+$--button-font-size: $petals--button-font-size;
+$--button-font-weight: $petals--button-font-weight;
+$--button-padding-vertical: $petals--button-padding-y-lg;
+$--button-padding-horizontal: $petals--button-padding-x-lg;
+
+$--button-medium-font-size: $petals--button-font-size;
+$--button-medium-padding-vertical: $petals--button-padding-y;
+$--button-medium-padding-horizontal: $petals--button-padding-x;
+
+$--button-small-font-size: $petals--button-font-size-sm;
+$--button-small-padding-vertical: $petals--button-padding-y-sm;
+$--button-small-padding-horizontal: $petals--button-padding-x-sm;
+
+// 按钮组件尺寸只有「大」、「普通」、「小」三个等级
+// Element 中的多余的尺寸都按照「普通」处理
+$--button-mini-font-size: $--button-medium-font-size;
+$--button-mini-padding-vertical: $--button-medium-padding-vertical;
+$--button-mini-padding-horizontal: $--button-medium-padding-horizontal;
+
+$--button-default-font-color: $petals--button-color;
+$--button-default-border-color: $petals--button-border-color;
+$--button-default-background-color: $petals--button-bg;
+
+$--button-disabled-font-color: $petals--button-disabled-color;
+$--button-disabled-border-color: $petals--button-disabled-border-color;
+$--button-disabled-background-color: $petals--button-disabled-bg;
+
+$--button-primary-font-color: $petals--button-primary-color;
+$--button-primary-border-color: $petals--button-primary-border-color;
+$--button-primary-background-color: $petals--button-primary-bg;
+
+$--button-success-font-color: $petals--button-success-color;
+$--button-success-border-color: $petals--button-success-border-color;
+$--button-success-background-color: $petals--button-success-bg;
+
+$--button-warning-font-color: $petals--button-warning-color;
+$--button-warning-border-color: $petals--button-warning-border-color;
+$--button-warning-background-color: $petals--button-warning-bg;
+
+$--button-danger-font-color: $petals--button-danger-color;
+$--button-danger-border-color: $petals--button-danger-border-color;
+$--button-danger-background-color: $petals--button-danger-bg;
+
+$--button-info-font-color: $petals--button-info-color;
+$--button-info-border-color: $petals--button-info-border-color;
+$--button-info-background-color: $petals--button-info-bg;

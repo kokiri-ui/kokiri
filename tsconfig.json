@@ -18,5 +18,5 @@
     "baseUrl": ".",
     "paths": {}
   },
-  "include": ["src"]
+  "include": ["packages/*/src"]
 }

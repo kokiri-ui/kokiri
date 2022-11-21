@@ -1,0 +1,101 @@
+.el-date-picker__header-label,
+.el-picker-panel__icon-btn,
+.el-picker-panel .el-time-panel__btn.confirm {
+  &:hover {
+    color: var($__petals--primary-hover, $petals--primary-hover);
+  }
+
+  &:focus,
+  &:active {
+    color: var($__petals--primary-active, $petals--primary-active);
+  }
+}
+
+.el-time-spinner__item:hover:not(.disabled):not(.active) {
+  background-color: var($__petals--hover-bg, $petals--hover-bg);
+}
+
+.el-range-editor {
+  &.is-active {
+    &,
+    &:hover {
+      border-color: var($__petals--form-control-focus-border-color, $petals--form-control-focus-border-color);
+    }
+  }
+
+  &.is-disabled {
+    border-color: var($__petals--date-picker-disabled-border-color, $petals--date-picker-disabled-border-color);
+
+    &,
+    input {
+      background-color: var($__petals--date-picker-disabled-bg, $petals--date-picker-disabled-bg);
+    }
+  }
+}
+
+.el-picker-panel {
+  border: var($__petals--date-picker-panel-border-width, $petals--date-picker-panel-border-width) solid
+    var($__petals--date-picker-panel-border-color, $petals--date-picker-panel-border-color);
+  border-radius: var($__petals--date-picker-panel-border-radius, $petals--date-picker-panel-border-radius);
+  box-shadow: var($__petals--date-picker-panel-box-shadow, $petals--date-picker-panel-box-shadow);
+
+  &__footer {
+    border-bottom-right-radius: var($__petals--date-picker-panel-border-radius, $petals--date-picker-panel-border-radius);
+    border-bottom-left-radius: var($__petals--date-picker-panel-border-radius, $petals--date-picker-panel-border-radius);
+  }
+}
+
+.el-date-table {
+  td {
+    &.today {
+      span {
+        font-weight: var($__petals--date-picker-date-current-font-weight, $petals--date-picker-date-current-font-weight);
+        color: var($__petals--date-picker-date-current-color, $petals--date-picker-date-current-color);
+
+        &:after {
+          content: '\0020';
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          width: var($__petals--date-picker-date-current-dot-size, $petals--date-picker-date-current-dot-size);
+          height: var($__petals--date-picker-date-current-dot-size, $petals--date-picker-date-current-dot-size);
+          margin-left: calc(
+            var(#{$__petals--date-picker-date-current-dot-size}, #{$petals--date-picker-date-current-dot-size}) / 2 * -1
+          );
+          border-radius: 100%;
+          background-color: var($__petals--date-picker-date-current-color, $petals--date-picker-date-current-color);
+          transform: translateY(-50%);
+        }
+      }
+
+      &.start-date span,
+      &.end-date span {
+        color: var($__petals--date-picker-date-active-color, $petals--date-picker-date-active-color);
+      }
+    }
+
+    &.in-range div {
+      background-color: var($__petals--date-picker-range-bg, $petals--date-picker-range-bg);
+
+      &:hover {
+        background-color: var($__petals--date-picker-range-hover-bg, $petals--date-picker-range-hover-bg);
+      }
+    }
+
+    &.current:not(.disabled) span,
+    &.start-date div,
+    &.end-date div {
+      color: var($__petals--date-picker-date-active-color, $petals--date-picker-date-active-color);
+    }
+
+    &.current:not(.disabled) span,
+    &.start-date span,
+    &.end-date span {
+      background-color: var($__petals--date-picker-date-active-bg, $petals--date-picker-date-active-bg);
+    }
+
+    &.available:hover {
+      color: var($__petals--date-picker-date-hover-color, $petals--date-picker-date-hover-color);
+    }
+  }
+}

@@ -1,0 +1,104 @@
+.el-pagination {
+  &__sizes {
+    margin-right: 0;
+
+    .el-select .el-input {
+      margin: 0 4px;
+    }
+
+    .el-input {
+      &__inner {
+        background-image: var($__petals--pagination-changer-input-bg-image, $petals--pagination-changer-input-bg-image);
+      }
+
+      .el-input__inner {
+        &:hover {
+          border-color: var($__petals--primary-hover, $petals--primary-hover);
+        }
+      }
+    }
+  }
+
+  &__jump {
+    margin-left: 4px;
+  }
+
+  &__editor,
+  &__editor .el-input__inner,
+  .el-select .el-input .el-input__inner {
+    border-radius: var($__petals--pagination-border-radius, $petals--pagination-border-radius);
+  }
+
+  &__editor {
+    margin: {
+      right: 8px;
+      left: 8px;
+    }
+    padding: {
+      right: 0;
+      left: 0;
+    }
+
+    &.el-input {
+      width: var($__petals--pagination-jumper-input-width, $petals--pagination-jumper-input-width);
+    }
+  }
+
+  &.is-background {
+    font-weight: inherit;
+
+    span:not([class*='suffix']),
+    button,
+    .btn-prev,
+    .btn-next,
+    .el-pager li,
+    .el-pager .more:before,
+    .el-pagination__sizes .el-input .el-input__inner,
+    .el-pagination__editor.el-input .el-input__inner {
+      min-width: var($__petals--pagination-page-number-size, $petals--pagination-page-number-size);
+      height: var($__petals--pagination-page-number-size, $petals--pagination-page-number-size);
+      line-height: var($__petals--pagination-page-number-size, $petals--pagination-page-number-size);
+    }
+
+    .btn-prev,
+    .btn-next,
+    .el-pager li {
+      margin: 0 4px;
+      background: {
+        color: var($__petals--pagination-bg, $petals--pagination-bg);
+        image: var($__petals--pagination-bg-image, $petals--pagination-bg-image);
+      }
+      border: var($__petals--pagination-border-width, $petals--pagination-border-width) solid
+        var($__petals--pagination-border-color, $petals--pagination-border-color);
+      border-radius: var($__petals--pagination-border-radius, $petals--pagination-border-radius);
+    }
+
+    .btn-prev,
+    .btn-next {
+      background-size: auto;
+    }
+
+    .el-pagination__total,
+    .el-pagination__sizes,
+    .el-pagination__jump,
+    .el-pager li {
+      color: #666;
+    }
+
+    .el-pager li {
+      &:not(.disabled) {
+        &.active {
+          background: {
+            color: var($__petals--pagination-active-bg, $petals--pagination-active-bg);
+            image: var($__petals--pagination-active-bg-image, $petals--pagination-active-bg-image);
+          }
+          border-color: var($__petals--pagination-active-border-color, $petals--pagination-active-border-color);
+        }
+
+        &:not(.active):hover {
+          color: var($__petals--primary, $petals--primary);
+        }
+      }
+    }
+  }
+}

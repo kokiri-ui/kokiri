@@ -1,0 +1,10 @@
+.el-loading {
+  &-spinner i,
+  &-spinner &-text {
+    color: var($__petals--primary, $petals--primary);
+  }
+
+  &-spinner .path {
+    stroke: var($__petals--primary, $petals--primary);
+  }
+}

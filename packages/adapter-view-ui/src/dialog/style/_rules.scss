@@ -1,0 +1,14 @@
+.DialogShortcut {
+  &--centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .Dialog {
+      &--alert,
+      &--confirm {
+        top: 0;
+      }
+    }
+  }
+}
