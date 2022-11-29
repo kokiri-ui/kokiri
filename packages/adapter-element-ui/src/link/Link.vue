@@ -1,5 +1,5 @@
 <template>
-  <el-link :class="className" :href="href" :target="`_${target}`" @click="onClick">
+  <el-link :class="className" :href="href" :target="`_${target}`" @click.native="onClick">
     <slot />
   </el-link>
 </template>
