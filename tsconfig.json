@@ -5,8 +5,8 @@
     "module": "es2015",
     "lib": ["es2015", "dom"],
     "declaration": true,
-    "declarationDir": "dist",
-    "outDir": "dist",
+    "declarationDir": "packages/core/dist",
+    "outDir": "packages/core/dist",
     "strict": true,
     "importHelpers": true,
     "noImplicitThis": false,
@@ -18,5 +18,9 @@
     "baseUrl": ".",
     "paths": {}
   },
-  "include": ["packages/*/src"]
+  "include": [
+    "shims-vue.d.ts",
+    "shims-sfc.d.ts",
+    "packages/core/src"
+  ]
 }

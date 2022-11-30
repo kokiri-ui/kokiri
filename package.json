@@ -29,13 +29,9 @@
   },
   "scripts": {
     "start": "vue-cli-service serve",
-    "precopy": "rm -rf dist",
-    "copy": "mkdir dist && cp -R src/* dist",
-    "prebuild": "npm run copy",
-    "build": "tsc",
-    "postbuild": "node build && rm -rf dist/shims-*.d.ts",
-    "prerelease": "npm run build",
-    "release": "npm publish"
+    "core:build": "cd packages/core && npm run build",
+    "core:patch-version": "cd packages/core && npm version patch && cd ../../",
+    "core:release": "cd packages/core && npm run release"
   },
   "devDependencies": {
     "@ntks/eslint-config": "0.0.0",
