@@ -42,7 +42,7 @@ class DataTableStructuralComponent
   @Prop({ type: Boolean, default: false })
   public readonly autoHeight!: boolean;
 
-  @Prop({ type: Boolean, default: 'medium' })
+  @Prop({ type: String, default: 'medium' })
   public readonly density!: DensityType;
 
   @Emit('selection-change')
