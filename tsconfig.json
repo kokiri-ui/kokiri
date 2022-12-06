@@ -16,11 +16,13 @@
     "sourceMap": false,
     "noImplicitAny": false,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@kokiri/core/dist/*": ["packages/core/src/*"],
+    }
   },
   "include": [
     "shims-vue.d.ts",
     "shims-sfc.d.ts",
-    "packages/core/src"
+    "packages/*/src"
   ]
 }

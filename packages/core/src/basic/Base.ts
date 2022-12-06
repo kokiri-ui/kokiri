@@ -14,15 +14,22 @@ import { ComponentTag } from './typing';
 @Component
 class BaseStructuralComponent<
     HeadlessComponent = BaseHeadlessComponent,
-    ComponentTheme extends string = string
+    ComponentTheme extends string = string,
+    NativeStyleType extends Record<string, any> = {} // eslint-disable-line @typescript-eslint/ban-types
   >
   extends Vue
-  implements Omit<IBaseComponent<ComponentTag>, 'style'> {
+  implements IBaseComponent<ComponentTag, NativeStyleType, ComponentTheme> {
   @Prop({ type: [String, Function] })
   public readonly tag!: ComponentTag;
 
   @Prop({ type: [String, Object, Array] })
   public readonly className!: ClassName;
+
+  @Prop({ type: Object, default: () => ({}) })
+  public readonly style!: Record<string, any>;
+
+  @Prop({ type: Object, default: () => ({}) })
+  public readonly nativeStyle!: NativeStyleType;
 
   @Prop({ type: String })
   public readonly theme!: ComponentTheme;
@@ -35,6 +42,10 @@ class BaseStructuralComponent<
 
   protected getHeadlessComponent(): HeadlessComponent | null {
     return this.__hc || null;
+  }
+
+  protected getComponentStyle(): NativeStyleType {
+    return this.nativeStyle;
   }
 
   protected getComponentClassNames(): string[] {
