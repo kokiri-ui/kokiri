@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 
 import 'kokiri/dist/themes/antd/index.scss';
 
-import { routes } from './blocks';
+import routes from './routes';
 import App from './App.vue';
 
 Vue.config.productionTip = false;

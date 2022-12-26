@@ -4,13 +4,11 @@ function resolve(dir) {
   return joinPath(__dirname, dir);
 }
 
-const APP_SRC = './demos';
-
 module.exports = {
   publicPath: '/',
   configureWebpack: {
     entry: {
-      app: `${APP_SRC}/main.ts`,
+      app: `./demos/entry/main.ts`,
     },
     resolve: {
       alias: {
@@ -18,12 +16,13 @@ module.exports = {
         '@kokiri/core': resolve('./packages/core/src/index.ts'),
         'kokiri/dist': resolve('./packages/kokiri/src'),
         kokiri: resolve('./packages/kokiri/src/index.ts'),
+        '@': resolve('./demos'),
       },
     },
   },
   chainWebpack: config => {
     config.plugin('html').tap(args => {
-      args[0].template = resolve('./demos/index.html');
+      args[0].template = resolve('./demos/public/index.html');
 
       return args;
     });

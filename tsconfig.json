@@ -18,6 +18,7 @@
       "@kokiri/core/dist/*": ["packages/core/src/*"],
       "kokiri": ["packages/kokiri/src/index.ts"],
       "kokiri/dist/*": ["packages/kokiri/src/*"],
+      "@/*": ["demos"]
     }
   },
   "include": [
