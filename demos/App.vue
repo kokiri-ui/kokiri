@@ -28,7 +28,7 @@ import {
   LayoutHeader,
   LayoutMain,
   LayoutAside,
-} from '@kokiri/components';
+} from 'kokiri';
 import { demoRoutes } from './blocks';
 
 @Component({

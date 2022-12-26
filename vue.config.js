@@ -4,7 +4,7 @@ function resolve(dir) {
   return joinPath(__dirname, dir);
 }
 
-const APP_SRC = './demo';
+const APP_SRC = './demos';
 
 module.exports = {
   publicPath: '/',
@@ -14,13 +14,16 @@ module.exports = {
     },
     resolve: {
       alias: {
-        '@kokiri': resolve('./src'),
+        '@kokiri/core/dist': resolve('./packages/core/src'),
+        '@kokiri/core': resolve('./packages/core/src/index.ts'),
+        'kokiri/dist': resolve('./packages/kokiri/src'),
+        kokiri: resolve('./packages/kokiri/src/index.ts'),
       },
     },
   },
   chainWebpack: config => {
     config.plugin('html').tap(args => {
-      args[0].template = resolve('./demo/index.html');
+      args[0].template = resolve('./demos/index.html');
 
       return args;
     });
@@ -32,7 +35,7 @@ module.exports = {
         sassOptions: {
           fiber: require('fibers'),
         },
-        additionalData: `@import "~@kokiri/themes/antd/helper";`,
+        additionalData: `@import "~kokiri/dist/themes/antd/helper";`,
       },
     },
   },

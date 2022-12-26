@@ -21,7 +21,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 
-import { Tabs, TabPane } from '@kokiri/components';
+import { Tabs, TabPane } from 'kokiri';
 import { DemoContainer, DemoSection, DemoBlock } from '../containers';
 
 @Component({

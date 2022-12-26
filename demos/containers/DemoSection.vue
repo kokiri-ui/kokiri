@@ -2,7 +2,7 @@
 import { CreateElement, VNode } from 'vue';
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
-import { Heading, GridRow, GridCol } from '@kokiri/components';
+import { Heading, GridRow, GridCol } from 'kokiri';
 
 @Component({
   name: 'DemoSection',

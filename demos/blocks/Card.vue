@@ -94,7 +94,7 @@ import {
   GridRow,
   GridCol,
   Flex,
-} from '@kokiri/components';
+} from 'kokiri';
 import { DemoContainer, DemoSection, DemoBlock } from '../containers';
 
 @Component({

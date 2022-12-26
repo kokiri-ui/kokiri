@@ -11,7 +11,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 
-import { Icon as KokiriIcon } from '@kokiri/components';
+import { Icon as KokiriIcon } from 'kokiri';
 import { DemoContainer, DemoSection, DemoBlock } from '../containers';
 
 @Component({

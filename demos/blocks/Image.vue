@@ -71,7 +71,7 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 
-import { Image as KokiriImage } from '@kokiri/components';
+import { Image as KokiriImage } from 'kokiri';
 import { DemoContainer, DemoSection, DemoBlock } from '../containers';
 
 @Component({
